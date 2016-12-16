@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import FilmRow from './FilmRow.jsx';
 
-class Movies extends Component {
+class FilmWall extends Component {
   render() {
     return (
-      <div>
-        <p> all the fucking movies</p>
+      <div className="container">
+
+        <FilmRow/>
+        <FilmRow/>
+        <FilmRow/>
+        <FilmRow/>
+
+
       </div>
     );
   }
 }
 
-export default Movies;
+export default FilmWall;

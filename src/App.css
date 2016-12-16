@@ -22,3 +22,24 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+article.film-card {
+  height: 275px; /* Max 275px */
+  max-width: 180px;
+  background-size: cover;
+  background-position: 50%;
+}
+
+article img {
+  height: 200px;
+}
+
+.film-row {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.film-row-title{
+  /*margin-top: 50px;*/
+  text-align: left;
+}
