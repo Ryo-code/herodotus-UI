@@ -18,7 +18,7 @@ class FilmRow extends Component {
           {
             movies.map((movie) => {
               return (
-                <Card movieData={movie} />
+                <Card movieData={movie}/>
               );
             })
           }
