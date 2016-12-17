@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import Card from '../components/Card.jsx';
 
-const data = require('./media.json');
-
 class FilmRow extends Component {
 
+  selectMovie = (movie) => {
+    console.log(movie)
+  }
+
+
   render() {
-    const movies = data.movies;
 
     return (
       <div className="row">
@@ -16,9 +18,13 @@ class FilmRow extends Component {
 
         <div className="film-row col-md-12 col-sm-12 col-xs-12">
           {
-            movies.map((movie) => {
+            this.props.movies.map((movie, index) => {
               return (
-                <Card movieData={movie}/>
+                <Card
+                  key={index}
+                  movieData={movie}
+                  selectMovie={this.selectMovie}
+                />
               );
             })
           }
