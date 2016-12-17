@@ -31,10 +31,8 @@ article.film-card {
   background-size: cover;
   background-position: 50%;
   border-radius: 10px;
-}
-
-article img {
-  height: 200px;
+  box-shadow: 4px 0px 25px 2px rgba(0, 0, 0, 0.2);
+  margin: 20px 0px;
 }
 
 .film-row {
