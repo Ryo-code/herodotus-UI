@@ -8,9 +8,6 @@ class Card extends Component {
     const style = {
       backgroundImage: 'url(' + img_url + ')'
     };
-
-    console.log(style);
-
     return (
       <div className="card col-md-2 col-sm-4 col-xs-6">
         <article

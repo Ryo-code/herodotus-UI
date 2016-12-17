@@ -4,6 +4,8 @@ import FilmWall from './containers/FilmWall.jsx';
 import logo from './logo.svg';
 import './App.css';
 import 'flexboxgrid';
+import axios from 'axios'; /*or just 「import 'axios'」...?*/
+//axios info: http://codeheaven.io/how-to-use-axios-as-your-http-client/
 
 class App extends Component {
   render() {
