@@ -5,8 +5,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';
 import 'flexboxgrid';
-import axios from 'axios';/*or just 「import 'axios'」...?*/
-//axios info: http://codeheaven.io/how-to-use-axios-as-your-http-client/
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
