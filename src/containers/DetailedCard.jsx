@@ -13,6 +13,7 @@ class DetailedCard extends Component {
           <p>Genre(s): {this.props.stuff.genre}</p>
           <p>Plot: {this.props.stuff.plot}</p>
           <p>IMDB Rating: {this.props.stuff.imdbrating}</p>
+          <p>Country(ies): {this.props.stuff.country}</p>
         </div>
       </div>
 

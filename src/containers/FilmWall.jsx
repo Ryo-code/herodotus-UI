@@ -17,7 +17,7 @@ class FilmWall extends Component {
     return (
       <div className="container">
 
-
+        <h1>Displaying {this.props.movies.length} movies</h1>
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
 
