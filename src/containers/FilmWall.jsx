@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import FilmRow from './FilmRow.jsx';
-import DetailedCard from './DetailedCard';
-const data = require('./media.json');
+// import DetailedCard from './DetailedCard';
+// const data = require('./media.json');
 
-const movies = data.movies; //put in state
+// const movies = data.movies; //put in state
 
 class FilmWall extends Component {
   render() {
+    console.log(this.props.movies)
     return (
       <div className="container">
 
-        <FilmRow movies={movies.slice(0, 4)}/>
-        <FilmRow movies={movies.slice(4, 8)}/>
+        <FilmRow movies={this.props.movies.slice(0,4)}/>
+        <FilmRow movies={this.props.movies.slice(5,8)}/>
 
 
-        <DetailedCard
-        />
+
+
       </div>
     );
   }
 }
-
+// <DetailedCard/>
 export default FilmWall;

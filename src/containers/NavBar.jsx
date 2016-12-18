@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
+import SearchBar from '../components/SearchBar.jsx'
 
 
 class NavBar extends Component {
@@ -13,8 +14,8 @@ class NavBar extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"
         >
-          <p>Some button goes here</p>
-          <p>And maybe here</p>
+          <SearchBar/>
+
 
         </AppBar>
 

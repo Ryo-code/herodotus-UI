@@ -8,7 +8,7 @@ class Card extends Component {
 
   render() {
 
-    const img_url = this.props.movieData.Poster; // the P for poster will be changed to lower-cased p later.
+    const img_url = this.props.movieData.poster; // the P for poster will be changed to lower-cased p later.
     // console.log(img_url)
     const style = {
       backgroundImage: 'url(' + img_url + ')'
