@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 
 class Card extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentMovie: {}
+    }
+  }
+
   handleClick = (e) => {
     this.props.selectMovie(this.props.movieData)
   }
@@ -17,12 +24,9 @@ class Card extends Component {
           onClick={this.handleClick}
           className="film-card"
           style={style}
-          // selectMovie={this.props.selectMovie}
         >
-
         </article>
       </div>
-
     );
   }
 }
