@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
-// import DetailedCard from './DetailedCard';
+
+import DetailedCard from './DetailedCard';
 // const data = require('./media.json');
 
 // const movies = data.movies; //put in state
 
 class FilmWall extends Component {
+
   render() {
     console.log(this.props.movies)
     return (
       <div className="container">
 
-        <FilmRow movies={this.props.movies.slice(0,4)}/>
-        <FilmRow movies={this.props.movies.slice(5,8)}/>
 
+        <FilmRow moviesTest={this.props.movies}/>
+        <FilmRow moviesTest={this.props.movies}/>
 
-
-
+        <DetailedCard/>
       </div>
     );
   }

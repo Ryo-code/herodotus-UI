@@ -20,7 +20,7 @@ article.film-card {
   text-align: left;
 }
 
-.temp{
+.detailed-card{
   background-color: black;
   height: 35em;
   color: white;
@@ -33,7 +33,7 @@ article.film-card {
   padding: 40px 100px 0 40px;
 }
 
-.temp .big-ass-poster {
+.detailed-card .big-movie-poster {
   float: left;
  /*NOTE: Float removes it from normal flow and has inline elements wrap around it */
      /*margin-left: 180px;*/
