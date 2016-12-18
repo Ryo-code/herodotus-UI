@@ -2,11 +2,15 @@ import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 
 import DetailedCard from './DetailedCard';
-// const data = require('./media.json');
-
-// const movies = data.movies; //put in state
-
 class FilmWall extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {currentMovie: ''}
+  }
+
+  updateCurrentMovie = (movie) => {
+    this.setState({currentMovie: movie})
+  }
 
   render() {
     console.log(this.props.movies)
@@ -14,10 +18,10 @@ class FilmWall extends Component {
       <div className="container">
 
 
-        <FilmRow moviesTest={this.props.movies}/>
-        <FilmRow moviesTest={this.props.movies}/>
+        <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
+        <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
 
-        <DetailedCard/>
+        <DetailedCard stuff={this.state.currentMovie} />
       </div>
     );
   }
