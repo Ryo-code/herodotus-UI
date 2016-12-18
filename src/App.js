@@ -41,7 +41,6 @@ class App extends Component {
         <FilmWall movies={this.state.movies} />
 
           <div>
-
             <br/><br/><br/><br/><br/><br/><br/><br/>
             - - - -
           </div>
