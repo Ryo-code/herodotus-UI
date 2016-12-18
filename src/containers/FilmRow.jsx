@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import Card from '../components/Card.jsx';
+import DetailedCard from '../containers/DetailedCard.jsx'
 
 class FilmRow extends Component {
 
   constructor(props) {
     super(props)
       this.state = {
-        movies: []
+        movies: [],
+        currentMovie: ''
       }
   }
 
@@ -17,7 +19,7 @@ class FilmRow extends Component {
   }
 
   selectMovie = (movie) => {
-    // console.log(movie)
+    this.setState({currentMovie: movie})
   }
 
   render() {
@@ -35,6 +37,7 @@ class FilmRow extends Component {
                   key={index}
                   movieData={movie}
                   selectMovie={this.selectMovie}
+                  stuff={this.state.currentMovie}
                 />
               );
             })

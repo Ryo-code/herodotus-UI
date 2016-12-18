@@ -10,9 +10,12 @@ class DetailedCard extends Component {
     }
 
 
-
+  componentDidMount() {
+    console.log("inside detailedcard: ", this.props.stuff)
+  }
 
   render() {
+    console.log("inside render detailedcard: ", this.props.stuff)
     return (
       <div className="detailed-card">
         <img className="big-movie-poster" src="http://www.stunningmesh.com/wp-content/uploads/2011/08/stunningmesh-war-battlefield-movie-poster%20(3).jpg"/>

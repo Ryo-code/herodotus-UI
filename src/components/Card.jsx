@@ -1,9 +1,27 @@
 import React, {Component} from 'react';
+import DetailedCard from '../containers/DetailedCard.jsx'
 
 class Card extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentMovie: {}
+    }
+  }
+
   handleClick = (e) => {
     this.props.selectMovie(this.props.movieData)
+
+    this.setState({currentMovie: this.props.stuff})
+
+    // console.log(e)
+    console.log("inside card.jsx: ", this.props.stuff)
+    console.log("this.state.currentMovie: ", this.state.currentMovie)
+
+    return (
+      <DetailedCard />
+    )
   }
 
   render() {
@@ -20,6 +38,7 @@ class Card extends Component {
         >
 
         </article>
+
       </div>
 
     );
