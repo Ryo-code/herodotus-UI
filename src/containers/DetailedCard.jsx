@@ -17,7 +17,7 @@ class DetailedCard extends Component {
       <div className="detailed-card">
         <img className="big-movie-poster" src="http://www.stunningmesh.com/wp-content/uploads/2011/08/stunningmesh-war-battlefield-movie-poster%20(3).jpg"/>
         <div className="stuff-next-to-poster">
-          <h3> Title: {this.state.title}</h3>
+          <h3> Title: {this.props.onClick}</h3>
 
           <p>some info</p>
           <p>some more info</p>

@@ -6,7 +6,8 @@ class FilmRow extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        movies: []
+        movies: [],
+        // clickedMovie: ""
       }
   }
 
@@ -17,7 +18,8 @@ class FilmRow extends Component {
   }
 
   selectMovie = (movie) => {
-    // console.log(movie)
+    console.log(movie)
+    // this.setState({clickedMovie: movie})
   }
 
   render() {

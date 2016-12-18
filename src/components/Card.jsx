@@ -17,6 +17,7 @@ class Card extends Component {
           onClick={this.handleClick}
           className="film-card"
           style={style}
+          // selectMovie={this.props.selectMovie}
         >
 
         </article>
