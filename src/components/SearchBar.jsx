@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 class SearchBar extends Component {
 
@@ -17,11 +18,23 @@ class SearchBar extends Component {
       this.setState({value: event.target.value});
     }
 
-    handleSumbit = (event) => {
-      event.preventDefault();
-      //MAKE AXIOS REQUEST TO THE BACKEND API BASED ON SEARCH
-      // GET THAT RESPONSE TO UPDATE THE LIST OF MOVIES?
-      this.setState({value: ''});
+    handleQuerySumbit = (event) => {
+      if (event.key === 'Enter'){
+        let search = this.state.value
+        console.log("The query title is: " + search)
+
+        axios.get('http://0.0.0.0:3001/titles?name=' +search)
+          .then((response) => {
+            console.log(response.data)
+            //UPDATE MOVIE METHOD
+            this.props.updateMoviesFromSearchResult(response.data)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+
+        this.setState({value: ""});
+      }
     }
 
 
@@ -31,15 +44,14 @@ class SearchBar extends Component {
   render() {
 
     return(
-
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Search By title:
-          <input type="text" name="query" value={this.state.value} onChange={this.handleChange}/>
-        </label>
-        <input type="submit" value="Search!" />
-      </form>
-
+      <label>
+        Search By title:
+        <input type="text" name="query"
+           value={this.state.value}
+           onChange={this.handleChange}
+           onKeyUp={this.handleQuerySumbit}
+           />
+      </label>
     );
 
   }

@@ -43,13 +43,17 @@ class App extends Component {
       })
   }
 
+  updateMoviesFromSearchResult = (resultingArray) => {
+    this.setState({movies: resultingArray})
+  }
+
   render() {
     return (
       <MuiThemeProvider>
 
         <div className="App">
 
-          <NavBar/>
+          <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
 
         <FilmWall movies={this.state.movies} />
 

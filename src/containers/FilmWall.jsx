@@ -13,7 +13,7 @@ class FilmWall extends Component {
   }
 
   render() {
-    console.log(this.props.movies)
+    // console.log(this.props.movies)
     return (
       <div className="container">
 

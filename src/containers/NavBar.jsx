@@ -14,7 +14,7 @@ class NavBar extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"
         >
-          <SearchBar/>
+          <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
 
 
         </AppBar>
