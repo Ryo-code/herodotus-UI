@@ -3,13 +3,24 @@ import Card from '../components/Card.jsx';
 
 class FilmRow extends Component {
 
-  selectMovie = (movie) => {
-    console.log(movie)
+  constructor(props) {
+    super(props)
+      this.state = {
+        movies: []
+      }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.moviesTest !== this.props.moviesTest) {
+      this.setState({movies: nextProps.moviesTest})
+    }
+  }
+
+  selectMovie = (movie) => {
+    // console.log(movie)
+  }
 
   render() {
-
     return (
       <div className="row">
         <h2 className="film-row-title">
@@ -18,7 +29,7 @@ class FilmRow extends Component {
 
         <div className="film-row col-md-12 col-sm-12 col-xs-12">
           {
-            this.props.movies.map((movie, index) => {
+            this.state.movies.map((movie, index) => {
               return (
                 <Card
                   key={index}
