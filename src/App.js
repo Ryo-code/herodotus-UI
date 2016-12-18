@@ -4,7 +4,6 @@ import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import axios from 'axios'
 
-
 import './App.css';
 import 'flexboxgrid';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -20,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://0.0.0.0:3001/movies')
+    axios.get('http://0.0.0.0:3000/movies')
       .then((response) => {
         this.setState({ movies: response.data })
       })
@@ -36,7 +35,6 @@ class App extends Component {
         <div className="App">
 
           <NavBar/>
-
 
         <FilmWall movies={this.state.movies} />
 
