@@ -12,7 +12,7 @@ injectTapEventPlugin();
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       movies: []
     }
@@ -21,11 +21,17 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://0.0.0.0:3000/movies')
       .then((response) => {
+        // console.log(response.data)
+
         this.setState({ movies: response.data })
       })
       .catch((error) => {
         console.log(error)
       })
+  }
+
+  updateMoviesFromSearchResult = (resultingArray) => {
+    this.setState({movies: resultingArray})
   }
 
   render() {
@@ -34,7 +40,7 @@ class App extends Component {
 
         <div className="App">
 
-          <NavBar/>
+          <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
 
         <FilmWall movies={this.state.movies} />
 

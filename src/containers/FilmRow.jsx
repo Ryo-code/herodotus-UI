@@ -1,45 +1,51 @@
 import React, {Component} from 'react';
 import Card from '../components/Card.jsx';
+import DetailedCard from './DetailedCard';
 
 class FilmRow extends Component {
 
   constructor(props) {
     super(props)
       this.state = {
-        movies: [],
+        movies: this.props.movies,
+        currentMovie: null,
       }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.moviesTest !== this.props.moviesTest) {
-      this.setState({movies: nextProps.moviesTest})
-    }
-  }
+
+componentdidmount
 
   selectMovie = (movie) => {
-    this.props.currentMovie(movie)
+    this.setState({currentMovie: movie})
+  }
+
+  hideDetails = () => {
+    this.setState({ currentMovie: null });
   }
 
   render() {
     return (
-      <div className="row">
-        <h2 className="film-row-title">
-          Row Title
-        </h2>
+      <div>
+        <div className="row">
+          <h2 className="film-row-title">
+            Row Title
+          </h2>
 
-        <div className="film-row col-md-12 col-sm-12 col-xs-12">
-          {
-            this.state.movies.map((movie, index) => {
-              return (
-                <Card
-                  key={index}
-                  movieData={movie}
-                  selectMovie={this.selectMovie}
-                />
-              );
-            })
-          }
+          <div className="film-row col-md-12 col-sm-12 col-xs-12">
+            {
+              this.props.movies.map((movie, index) => {
+                return (
+                  <Card
+                    key={index}
+                    movieData={movie}
+                    selectMovie={this.selectMovie}
+                  />
+                );
+              })
+            }
+          </div>
         </div>
+        { this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} hideDetails={this.hideDetails} /> : '' }
       </div>
     );
   }
