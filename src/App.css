@@ -52,3 +52,7 @@ article.film-card {
   padding-left: 0.6rem !important;
   padding-right: 1rem !important;
 } /*This fixes an annoying styling bug*/
+
+.detailed-card-tab{
+  /*background-color: black*/
+}

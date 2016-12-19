@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
+
 import DetailedCard from './DetailedCard';
 
 class FilmWall extends Component {
@@ -13,9 +14,11 @@ class FilmWall extends Component {
   }
 
   render() {
+    // console.log(this.props.movies)
     return (
       <div className="container">
 
+        <h1>Displaying {this.props.movies.length} movies</h1>
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
 
@@ -24,5 +27,5 @@ class FilmWall extends Component {
     );
   }
 }
-
+// <DetailedCard/>
 export default FilmWall;

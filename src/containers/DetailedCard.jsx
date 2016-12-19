@@ -1,19 +1,25 @@
 import React, {Component} from 'react';
+import DetailedTabs from './../components/DetailedTabs.jsx';
 
 class DetailedCard extends Component {
 
   render() {
     return (
       <div className="detailed-card">
-        <img role="presentation" className="big-movie-poster" src="http://www.stunningmesh.com/wp-content/uploads/2011/08/stunningmesh-war-battlefield-movie-poster%20(3).jpg"/>
+        <img role="presentation" className="big-movie-poster" src={this.props.stuff.poster}/>
         <div className="stuff-next-to-poster">
-          <h3> Title: {this.props.stuff.title}</h3>
-
-          <p>some info</p>
-          <p>some more info</p>
-          <p>boring info</p>
-          <p>cool info!</p>
-          <p>some info that's really long and takes up a lot of space and such so that there's stuff to see and whatever blah blah blah</p>
+          <DetailedTabs/>
+          <h3> Title: {this.props.stuff.title} </h3>
+          <p>Year Released: {this.props.stuff.year}</p>
+          <p>Runtime: {this.props.stuff.runtime}</p>
+          <p>Genre(s): {this.props.stuff.genre}</p>
+          <p>Plot: {this.props.stuff.plot}</p>
+          <p>IMDB Rating: {this.props.stuff.imdbrating}</p>
+          <p>Country(ies): {this.props.stuff.country}</p>
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
         </div>
       </div>
 
@@ -22,3 +28,23 @@ class DetailedCard extends Component {
 }
 
 export default DetailedCard;
+
+// t.string :title
+//       t.integer :year
+//       t.string :rated
+//       t.string :released
+//       t.string :runtime
+//       t.string :genre
+//       t.string :director
+//       t.string :writer
+//       t.string :actors
+//       t.text :plot
+//       t.string :language
+//       t.string :country
+//       t.string :awards
+//       t.string :poster
+//       t.integer :metascore
+//       t.integer :imdbrating
+//       t.string :imdbid
+//       t.text :keywords
+//       t.text :summary_text
