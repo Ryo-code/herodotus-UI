@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import DetailedTabs from '../components/DetailedTabs.jsx'
 
 class DetailedCard extends Component {
 
@@ -10,28 +11,20 @@ class DetailedCard extends Component {
   }
 
   handleClick = (e) => {
-    // console.log(this.props.hideDetails)
-    return this.props.hideDetails
+    this.props.hideDetails
   }
 
   render() {
 
     const currentMovie = this.props.currentMovie
+    console.log("detailed card", this.props)
     return (
-      <div onClick={this.props.hideDetails}>
         <div className="detailed-card">
           <img role="presentation" className="big-movie-poster" src={currentMovie.poster}/>
           <div className="stuff-next-to-poster">
-            <h3> Title: {currentMovie.title}</h3>
-            <p>Year Released: {currentMovie.year}</p>
-            <p>Runtime: {currentMovie.runtime}</p>
-            <p>Genre(s): {currentMovie.genre}</p>
-            <p>Plot: {currentMovie.plot}</p>
-            <p>IMDB Rating: {currentMovie.imdbrating}</p>
-            <p>Country(ies): {currentMovie.country}</p>
+            <DetailedTabs currentMovie={this.props.currentMovie} />
           </div>
         </div>
-      </div>
     );
   }
 }

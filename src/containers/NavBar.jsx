@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import SearchBar from '../components/SearchBar.jsx'
+import AdvancedSearchBox from '../components/AdvancedSearchBox.jsx'
 
 
 class NavBar extends Component {
@@ -16,11 +17,9 @@ class NavBar extends Component {
         >
           <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
 
-
         </AppBar>
 
-
-        NAV BARRRRRRR
+        <AdvancedSearchBox/>
       </nav>
     );
   }

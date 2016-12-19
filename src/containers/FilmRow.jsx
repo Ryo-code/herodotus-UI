@@ -16,6 +16,7 @@ class FilmRow extends Component {
 componentdidmount
 
   selectMovie = (movie) => {
+    console.log(movie)
     this.setState({currentMovie: movie})
   }
 

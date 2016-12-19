@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FilmWall from './containers/FilmWall.jsx';
 import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import axios from 'axios'
+import axios from 'axios';
 
 import './App.css';
 import 'flexboxgrid';
@@ -21,8 +21,6 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://0.0.0.0:3000/movies')
       .then((response) => {
-        // console.log(response.data)
-
         this.setState({ movies: response.data })
       })
       .catch((error) => {
