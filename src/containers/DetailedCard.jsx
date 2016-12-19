@@ -1,4 +1,11 @@
 import React, {Component} from 'react';
+import DetailedTabs from './../components/DetailedTabs.jsx';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
+const style = {
+  // marginRight: 20,
+};
 
 class DetailedCard extends Component {
 
@@ -7,13 +14,13 @@ class DetailedCard extends Component {
       <div className="detailed-card">
         <img role="presentation" className="big-movie-poster" src={this.props.stuff.poster}/>
         <div className="stuff-next-to-poster">
-          <h3> Title: {this.props.stuff.title}</h3>
-          <p>Year Released: {this.props.stuff.year}</p>
-          <p>Runtime: {this.props.stuff.runtime}</p>
-          <p>Genre(s): {this.props.stuff.genre}</p>
-          <p>Plot: {this.props.stuff.plot}</p>
-          <p>IMDB Rating: {this.props.stuff.imdbrating}</p>
-          <p>Country(ies): {this.props.stuff.country}</p>
+          <DetailedTabs stuff={this.props.stuff} />
+          {console.log(this.props.stuff)}
+
+          {/* <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p> */}
         </div>
       </div>
 

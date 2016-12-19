@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 
 import DetailedCard from './DetailedCard';
+
 class FilmWall extends Component {
   constructor(props) {
     super(props)
@@ -22,6 +23,7 @@ class FilmWall extends Component {
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
 
         <DetailedCard stuff={this.state.currentMovie} />
+        <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
       </div>
     );
   }

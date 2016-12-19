@@ -37,10 +37,7 @@ class SearchBar extends Component {
     handleQuerySumbit = (event) => {
       if (event.key === 'Enter'){
         let search = this.state.value
-        console.log("The query title is: " + search)
-
         this.makeRequest(search)
-
         this.setState({value: ""});
       }
     }
