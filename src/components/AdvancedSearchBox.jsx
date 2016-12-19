@@ -18,7 +18,7 @@ class AdvancedSearchBox extends Component {
 
     const {title, genre, keywords, date} = this.state;
 
-    axios.get(`http://0.0.0.0:3001/movies/title?=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
+    axios.get(`http://0.0.0.0:3000/movies/title?=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
     .then((response) => {
       this.props.updateMoviesFromSearchResult(response.data)
     })

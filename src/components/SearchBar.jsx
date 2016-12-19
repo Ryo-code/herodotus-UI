@@ -14,7 +14,7 @@ class SearchBar extends Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
 
     makeRequest = (search = this.state.value) => {
-      axios.get('http://0.0.0.0:3001/titles?name=' +search)
+      axios.get('http://0.0.0.0:3000/titles?name=' +search)
         .then((response) => {
           // console.log(response.data)
           //UPDATE MOVIE METHOD
