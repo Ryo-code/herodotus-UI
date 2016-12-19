@@ -23,6 +23,7 @@ class FilmWall extends Component {
         <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
 
         <DetailedCard stuff={this.state.currentMovie} />
+        <FilmRow moviesTest={this.props.movies} currentMovie={this.updateCurrentMovie}/>
       </div>
     );
   }

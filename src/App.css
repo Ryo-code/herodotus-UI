@@ -30,7 +30,7 @@ article.film-card {
 .stuff-next-to-poster {
   display: flex;
   flex-direction: column;
-  padding: 40px 100px 0 40px;
+  /*padding: 40px 100px 0 40px;*/
 }
 
 .detailed-card .big-movie-poster {
@@ -54,5 +54,5 @@ article.film-card {
 } /*This fixes an annoying styling bug*/
 
 .detailed-card-tab{
-  /*background-color: black*/
+  background-color: black
 }
