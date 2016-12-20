@@ -8,7 +8,6 @@ class DetailedCard extends Component {
   }
 
   render() {
-
     const currentMovie = this.props.currentMovie
     return (
         <div className="detailed-card">

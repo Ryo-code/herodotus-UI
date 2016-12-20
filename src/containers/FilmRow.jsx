@@ -22,7 +22,7 @@ class FilmRow extends Component {
 
 
   selectMovie = (movie) => {
-    this.props.setMovie(movie)
+    this.props.setMovie(movie, this.props.rowGenre)
   }
 
   hideDetails = () => {
@@ -51,7 +51,10 @@ class FilmRow extends Component {
             }
           </div>
         </div>
-        { this.props.loneCard ? <DetailedCard currentMovie={this.props.loneCard} hideDetails={this.hideDetails} /> : null }
+        {
+          this.props.card === this.props.rowGenre ?
+            <DetailedCard currentMovie={this.props.currentMovie} hideDetails={this.hideDetails} /> : null
+        }
       </div>
     );
   }

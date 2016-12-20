@@ -5,13 +5,15 @@ class FilmWall extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentMovie: null
+      currentMovie: null,
+      currentGenre: null
     }
   }
 
-  setCurrentMovie = (movie) => {
+  setCurrentMovieAndCard = (movie, genre) => {
     this.setState({
-      currentMovie: movie
+      currentMovie: movie,
+      currentGenre: genre
     })
   }
 
@@ -19,9 +21,18 @@ class FilmWall extends Component {
     return (
       <div className="container">
 
-        <FilmRow movie={this.props.movies} />
-        <FilmRow rowGenre="Action" loneCard={this.state.currentMovie} setMovie={this.setCurrentMovie}/>
-        <FilmRow rowGenre="Drama" loneCard={this.state.currentMovie} setMovie={this.setCurrentMovie}/>
+        <FilmRow
+          rowGenre="Action"
+          card={this.state.currentGenre}
+          currentMovie={this.state.currentMovie}
+          setMovie={this.setCurrentMovieAndCard}
+        />
+        <FilmRow
+          rowGenre="Drama"
+          card={this.state.currentGenre}
+          currentMovie={this.state.currentMovie}
+          setMovie={this.setCurrentMovieAndCard}
+        />
 
       </div>
     );
