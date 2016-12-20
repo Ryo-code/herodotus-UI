@@ -37,7 +37,6 @@ class App extends Component {
       <MuiThemeProvider>
 
         <div className="App">
-
           <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
 
         <FilmWall movies={this.state.movies} />

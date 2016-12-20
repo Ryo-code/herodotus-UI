@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router'
 
 class AdvancedSearchBox extends Component {
   state = {
@@ -14,17 +15,24 @@ class AdvancedSearchBox extends Component {
     // console.log(event.target);
 
     let {title, genre, keywords, date} = this.state;
-    keywords = JSON.stringify(keywords.split(" "))
 
-    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
-    .then((response) => {
-      this.props.updateMoviesFromSearchResult(response.data)
-      console.log(response.data)
-    })
-    .catch((error) => {
-      console.log(error)
+
+    axios.get('/results').then((response) =>{
+      console.log(response)
     })
 
+    // axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
+    // .then((response) => {
+    //   this.props.updateMoviesFromSearchResult(response.data)
+    //   // console.log(response.data)
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    // })
+
+
+
+// PLZ DO NOT DELETE
     // axios.post(`/login`, {
     //   body: {
     //     username:
@@ -48,7 +56,7 @@ class AdvancedSearchBox extends Component {
   render(){
     const { title, genre, keywords, date } = this.state;
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form action="/results" method="get">
         <label>
           Advanced Search
         </label>
@@ -69,7 +77,9 @@ class AdvancedSearchBox extends Component {
          Date Released:
         </label>
           <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-          <input type="submit" value="Search" />
+
+            <input type="submit" value="Search" />
+
       </form>
     );
 
