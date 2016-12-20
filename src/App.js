@@ -3,7 +3,6 @@ import FilmWall from './containers/FilmWall.jsx';
 import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import axios from 'axios';
-// const data = require('./media.json');
 
 import './App.css';
 import 'flexboxgrid';
@@ -18,19 +17,6 @@ class App extends Component {
       movies: []
     }
   }
-
-
-  // componentWillMount() {
-  //  axios.get('http://0.0.0.0:3001/movies')
-  //    .then((response) => {
-  //      this.setState({ movies: [...this.state.movies, response.data] })
-  //    })
-  //    .catch((error) => {
-  //      console.log(error)
-  //    });
-  // }
-  // render() {
-
 
   componentDidMount() {
     axios.get('http://0.0.0.0:3000/movies')

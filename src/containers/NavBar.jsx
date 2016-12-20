@@ -19,7 +19,7 @@ class NavBar extends Component {
 
         </AppBar>
 
-        <AdvancedSearchBox/>
+        <AdvancedSearchBox updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
       </nav>
     );
   }

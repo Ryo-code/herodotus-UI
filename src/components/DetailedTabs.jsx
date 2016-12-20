@@ -39,6 +39,7 @@ class DetailedTabs extends React.Component {
   };
 
   render() {
+    const currentMovie = this.props.currentMovie
     return (
       <div>
         <Tabs
@@ -58,36 +59,36 @@ class DetailedTabs extends React.Component {
           // style={{height:"35em"}} //attempting to make it scroll if there's tons of text
         >
           <div style={scrollStyles.slide}>
-            <h2 style={scrollStyles.headline}>{this.props.stuff.title}</h2>
-            <p>{this.props.stuff.year}</p>
-            <p>{this.props.stuff.plot}</p>
-            <p>Star rating... {this.props.stuff.imdbrating / 2}</p>
+            <h2 style={scrollStyles.headline}>{currentMovie.title}</h2>
+            <p>{currentMovie.year}</p>
+            <p>{currentMovie.plot}</p>
+            <p>Star rating... {currentMovie.imdbrating / 2}</p>
             <p>Set in: (year)</p>
             <p>Era:</p>
-            <p>Location(s): (locations)</p>
-            <p>Genre(s): {this.props.stuff.genre}</p>
+            <p>Location(s): {currentMovie.country}</p>
+            <p>Genre(s): {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
 
 
           </div>
           <div style={scrollStyles.slide}>
-            <p>IMDB Rating: {this.props.stuff.imdbrating}</p>
+            <p>IMDB Rating: {currentMovie.imdbrating}</p>
             <p>Metascore:</p> {/*IF it exists*/}
             <p></p>
-            <p>Country(ies): {this.props.stuff.country}</p>
+            <p>Country(ies): {currentMovie.country}</p>
 
-            <p>Runtime: {this.props.stuff.runtime}</p>
-            <p>Director: {this.props.stuff.director}</p>
-            <p>Main actor(s): {this.props.stuff.actors}</p>
-            <p>Awards: {this.props.stuff.awards}</p> {/*IF it exists*/}
-            <p>Rated: {this.props.stuff.rated}</p>
+            <p>Runtime: {currentMovie.runtime}</p>
+            <p>Director: {currentMovie.director}</p>
+            <p>Main actor(s): {currentMovie.actors}</p>
+            <p>Awards: {currentMovie.awards}</p> {/*IF it exists*/}
+            <p>Rated: {currentMovie.rated}</p>
             <p></p>
             <p></p>
 
 
           </div>
           <div style={scrollStyles.slide}>
-            <p>keywords: {this.props.stuff.keywords}</p>
+            <p>keywords: {currentMovie.keywords}</p>
           </div>
           <div style={scrollStyles.slide}>
             slide n°4

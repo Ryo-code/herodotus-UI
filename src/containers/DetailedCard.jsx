@@ -1,36 +1,37 @@
 import React, {Component} from 'react';
-import DetailedTabs from './../components/DetailedTabs.jsx';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-
-const style = {
-  // marginRight: 20,
-};
+import DetailedTabs from '../components/DetailedTabs.jsx'
 
 class DetailedCard extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      showDetailedCard: false
+    }
+  }
+
+  handleClick = (e) => {
+    this.props.hideDetails
+  }
+
   render() {
+
+    const currentMovie = this.props.currentMovie
+    console.log("detailed card", this.props)
     return (
-      <div className="detailed-card">
-        <img role="presentation" className="big-movie-poster" src={this.props.stuff.poster}/>
-        <div className="stuff-next-to-poster">
-          <DetailedTabs stuff={this.props.stuff} />
-          {console.log(this.props.stuff)}
-
-          {/* <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p> */}
+        <div className="detailed-card">
+          <img role="presentation" className="big-movie-poster" src={currentMovie.poster}/>
+          <div className="stuff-next-to-poster">
+            <DetailedTabs currentMovie={this.props.currentMovie} />
+          </div>
         </div>
-      </div>
-
     );
   }
 }
 
 export default DetailedCard;
 
-// t.string :title
+//       t.string :title
 //       t.integer :year
 //       t.string :rated
 //       t.string :released

@@ -10,37 +10,32 @@ class SearchBar extends Component {
     this.makeRequest = _.debounce(this.makeRequest, 0)
   }
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
 
-    makeRequest = (search = this.state.value) => {
-      axios.get('http://0.0.0.0:3000/titles?name=' +search)
-        .then((response) => {
-          // console.log(response.data)
-          //UPDATE MOVIE METHOD
-          this.props.updateMoviesFromSearchResult(response.data)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+  makeRequest = (search = this.state.value) => {
+    axios.get('http://0.0.0.0:3000/titles?name=' +search)
+      .then((response) => {
+        //UPDATE MOVIE METHOD
+        this.props.updateMoviesFromSearchResult(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  handleChange = (event) => {
+    this.setState({value: event.target.value}, () =>{
+      this.makeRequest();
+    });
+  }
+
+  handleQuerySumbit = (event) => {
+    if (event.key === 'Enter'){
+      let search = this.state.value
+
+      this.makeRequest(search)
+      this.setState({value: ""});
     }
-
-    handleChange = (event) => {
-      this.setState({value: event.target.value}, () =>{
-        console.log(this.state.value)
-        this.makeRequest();
-      });
-
-
-    }
-
-    handleQuerySumbit = (event) => {
-      if (event.key === 'Enter'){
-        let search = this.state.value
-        this.makeRequest(search)
-        this.setState({value: ""});
-      }
-    }
+  }
 
 
   render() {
