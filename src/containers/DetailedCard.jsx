@@ -3,24 +3,16 @@ import DetailedTabs from '../components/DetailedTabs.jsx'
 
 class DetailedCard extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      showDetailedCard: false
-    }
-  }
-
-  handleClick = (e) => {
-    this.props.hideDetails
+  handleClick = () => {
+    this.props.hideDetails()
   }
 
   render() {
 
     const currentMovie = this.props.currentMovie
-    console.log("detailed card", this.props)
     return (
         <div className="detailed-card">
-          <img role="presentation" className="big-movie-poster" src={currentMovie.poster}/>
+          <img role="presentation" className="big-movie-poster" src={currentMovie.poster} />
           <div className="stuff-next-to-poster">
             <DetailedTabs currentMovie={this.props.currentMovie} />
           </div>

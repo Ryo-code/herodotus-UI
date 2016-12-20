@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 
-import FontIcon from 'material-ui/FontIcon';
+// import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
 import Face from 'material-ui/svg-icons/action/face';
 import Forum from 'material-ui/svg-icons/communication/forum';
