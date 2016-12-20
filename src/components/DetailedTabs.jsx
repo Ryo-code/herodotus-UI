@@ -65,7 +65,7 @@ class DetailedTabs extends React.Component {
             <p>Star rating... {currentMovie.imdbrating / 2}</p>
             <p>Set in: (year)</p>
             <p>Era:</p>
-            <p>Location(s): (locations)</p>
+            <p>Location(s): {currentMovie.country}</p>
             <p>Genre(s): {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
 

@@ -1,30 +1,45 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router'
 
 class AdvancedSearchBox extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {title: '',
-                  genre: '',
-                  keywords: '',
-                  date: ''
-                  }
+  state = {
+    title: '',
+    genre: '',
+    keywords: '',
+    date: ''
   }
 
   handleSubmit = (event) => {
-    // event.preventDefault();
-    console.log(event.target);
+    event.preventDefault();
+    // console.log(event.target);
 
-    const {title, genre, keywords, date} = this.state;
+    let {title, genre, keywords, date} = this.state;
 
-    axios.get(`http://0.0.0.0:3001/movies/title?=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
-    .then((response) => {
-      this.props.updateMoviesFromSearchResult(response.data)
+
+    axios.get('/results').then((response) =>{
+      console.log(response)
     })
-    .catch((error) => {
-      console.log(error)
-    })
+
+    // axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
+    // .then((response) => {
+    //   this.props.updateMoviesFromSearchResult(response.data)
+    //   // console.log(response.data)
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    // })
+
+
+
+// PLZ DO NOT DELETE
+    // axios.post(`/login`, {
+    //   body: {
+    //     username:
+    //     password:
+    //   }
+    // }).then(data => localStorage.token = data.token)
+
 
   }
 
@@ -41,7 +56,7 @@ class AdvancedSearchBox extends Component {
   render(){
     const { title, genre, keywords, date } = this.state;
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form action="/results" method="get">
         <label>
           Advanced Search
         </label>
@@ -59,10 +74,12 @@ class AdvancedSearchBox extends Component {
         </label>
           <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
         <label>
-         Date:
+         Date Released:
         </label>
           <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-          <input type="submit" value="Search" />
+
+            <input type="submit" value="Search" />
+
       </form>
     );
 
