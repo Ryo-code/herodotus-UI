@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 
 class Card extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      currentMovie: {}
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     currentMovie: {}
+  //   }
+  // }
 
   handleClick = (e) => {
     this.props.selectMovie(this.props.movieData)
