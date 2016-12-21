@@ -15,6 +15,12 @@ article.film-card {
   overflow-x: scroll;
 }
 
+.search-film-row {
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: wrap;
+}
+
 .film-row-title{
   /*margin-top: 50px;*/
   text-align: left;
