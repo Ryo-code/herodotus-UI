@@ -1,6 +1,23 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 
+const categories = ['Action', 'Drama', 'Not about war', 'Set in Japan', 'Vintage', 'Before CE']
+const shuffleArray = (array) => {
+  let counter = array.length;
+
+  while (counter > 0) {
+    let index = Math.floor(Math.random() * counter);
+
+    counter--;
+
+    let temp = array[counter]
+    array[counter] = array[index]
+    array[index] = temp
+  }
+  return array
+}
+shuffleArray(categories)
+
 class FilmWall extends Component {
   constructor(props) {
     super(props)
@@ -22,13 +39,13 @@ class FilmWall extends Component {
       <div className="container">
 
         <FilmRow
-          rowGenre="Action"
+          rowGenre={categories[0]}
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
         />
         <FilmRow
-          rowGenre="Drama"
+          rowGenre={categories[1]}
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}

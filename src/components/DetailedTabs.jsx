@@ -63,7 +63,7 @@ class DetailedTabs extends React.Component {
             <p>{currentMovie.year}</p>
             <p>{currentMovie.plot}</p>
             <p>Star rating... {currentMovie.imdbrating / 2}</p>
-            <p>Set in: (year)</p>
+            <p>Set in: {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
             <p>Era:</p>
             <p>Location(s): {currentMovie.country}</p>
             <p>Genre(s): {currentMovie.genre}</p>
@@ -73,14 +73,14 @@ class DetailedTabs extends React.Component {
           </div>
           <div style={scrollStyles.slide}>
             <p>IMDB Rating: {currentMovie.imdbrating}</p>
-            <p>Metascore:</p> {/*IF it exists*/}
+            <p>Metascore: {currentMovie.metascore ? currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
             <p></p>
             <p>Country(ies): {currentMovie.country}</p>
 
             <p>Runtime: {currentMovie.runtime}</p>
             <p>Director: {currentMovie.director}</p>
             <p>Main actor(s): {currentMovie.actors}</p>
-            <p>Awards: {currentMovie.awards}</p> {/*IF it exists*/}
+            <p>Awards: {currentMovie.awards ? currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
             <p>Rated: {currentMovie.rated}</p>
             <p></p>
             <p></p>
