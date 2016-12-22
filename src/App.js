@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
-import FilmWall from './containers/FilmWall.jsx';
-import NavBar from './containers/NavBar.jsx';
+// import FilmWall from './containers/FilmWall.jsx';
+// import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';

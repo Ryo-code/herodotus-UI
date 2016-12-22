@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+// import React, {Component} from 'react';
+import React from 'react';
 import SearchFilmRow from './SearchFilmRow.jsx';
-import axios from 'axios'
+// import axios from 'axios'
 import {Link} from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -37,7 +38,6 @@ export default props => {
     // })
 //   // }
 
-console.log(props.searchResults)
 // console.log(props.movies)
 
 //   setCurrentMovieAndCard = (movie, genre) => {
@@ -65,8 +65,3 @@ console.log(props.searchResults)
     );
   // }
 }
-
-            // card={this.state.currentGenre}
-            // setMovie={this.setCurrentMovieAndCard}
-            // query={this.state.searchQuery}
-            // rowGenre="Action"
