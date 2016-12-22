@@ -11,6 +11,7 @@ class NavBar extends Component {
     return (
       <nav>
         <AppBar
+          className="Hero-title"
           title="Herodotus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"

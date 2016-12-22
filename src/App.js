@@ -3,9 +3,6 @@ import FilmWall from './containers/FilmWall.jsx';
 import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// import axios from 'axios';
-import LandingPage from './containers/LandingPage.jsx'
-
 import './App.css';
 import 'flexboxgrid';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -13,38 +10,30 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 class App extends Component {
-  state = {
-    movies: [],
-    loggedIn: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: [],
+      searchResults: [],
+    }
   }
 
   updateMoviesFromSearchResult = (resultingArray) => {
-    // console.log(resultingArray)
     this.setState({movies: resultingArray})
   }
 
-  setLoggedInTrue = () => {
-    this.setState({loggedIn: true})
+  updateToSearchResults = (results) => {
+    this.setState({searchResults: results})
   }
 
   render() {
-    // if (!this.state.loggedIn)
-    //   return (
-    //     <div>
-    //
-    //       <LandingPage setLoggedInTrue={this.setLoggedInTrue}/>
-    //     </div>
-    //   )
-
     return (
       <MuiThemeProvider>
-
-        <div>
-          <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
-
-          <FilmWall movies={this.state.movies}/>
-
-        </div>
+        {React.cloneElement(this.props.children, {
+          ...this.state,
+          updateToSearchResults: this.updateToSearchResults,
+          updateMoviesFromSearchResult: this.updateMoviesFromSearchResult,
+        })}
       </MuiThemeProvider>
 
     );

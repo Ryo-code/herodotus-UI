@@ -16,6 +16,7 @@ class DetailedCard extends Component {
 
   render() {
     const currentMovie = this.props.currentMovie
+    // console.log(currentMovie.poster)
     return (
       <div onClick={this.props.hideDetails}>
         <div className="detailed-card">
