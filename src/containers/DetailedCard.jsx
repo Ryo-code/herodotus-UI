@@ -9,7 +9,6 @@ class DetailedCard extends Component {
 
   render() {
     const currentMovie = this.props.currentMovie
-    // console.log(currentMovie.poster)
     return (
         <div className="detailed-card">
           <img role="presentation" className="big-movie-poster" src={currentMovie.poster} />

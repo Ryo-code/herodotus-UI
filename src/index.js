@@ -3,11 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import FilmWall from './containers/FilmWall.jsx';
 import SearchResultPage from './containers/SearchResultPage.jsx'
 import Home from './components/Home.js'
 import LandingPage from './components/LandingPage.jsx'
-
 import { browserHistory, Link, Route, IndexRoute, Router } from 'react-router'
 
 
@@ -38,4 +36,3 @@ ReactDOM.render(
    </Router>,
   document.getElementById('root')
 );
-      // <Route path="/results" component={SearchResultPage} />

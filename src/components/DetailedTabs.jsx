@@ -40,7 +40,6 @@ class DetailedTabs extends React.Component {
 
   render() {
     const currentMovie = this.props.currentMovie
-    console.log(currentMovie)
     return (
       <div>
         <Tabs
@@ -91,7 +90,7 @@ class DetailedTabs extends React.Component {
           <div style={scrollStyles.slide}>
             <p>keywords:
             {
-              currentMovie.keywords.split(",")
+              currentMovie.keywords
             }
             </p>
           </div>

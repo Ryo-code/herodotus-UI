@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {browserHistory} from 'react-router'
 
-import {Link, browserHistory} from 'react-router'
+// import {Link, browserHistory} from 'react-router'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+// import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 

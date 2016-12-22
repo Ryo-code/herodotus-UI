@@ -7,15 +7,12 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentMovie: null
+      currentMovie: this.props.movieData,
     }
   }
 
   handleClick = (e) => {
-    // this.setState({currentMovie: true})
     this.props.selectMovie(this.props.movieData)
-    // console.log(this.props.movieData)
-    // console.log(this.props.showCard)
   }
 
   render() {
@@ -31,7 +28,7 @@ class Card extends Component {
           style={style}
         >
         </article>
-        {this.state.currentMovie ? <DetailedCard currentMovie={this.props.movieData} hideDetails={this.hideDetails} /> : null }
+        {this.props.showCard === this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
       </div>
 
     );
