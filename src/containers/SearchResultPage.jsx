@@ -5,7 +5,7 @@ import {Link} from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 var query = window.location.search
-var url = `http://0.0.0.0:3000/adv_searches/${query}`
+// var url = `http://0.0.0.0:3000/adv_searches/${query}`
 
 class SearchResultPage extends Component {
   constructor(props) {
@@ -15,15 +15,15 @@ class SearchResultPage extends Component {
     }
   }
 
-  componentDidMount() {
-    axios.get(url)
-    .then((response) => {
-      this.setState({ movies: response.data })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+  // componentDidMount() {
+  //   axios.get(url)
+  //   .then((response) => {
+  //     this.setState({ movies: response.data })
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }
 
   setCurrentMovieAndCard = (movie, genre) => {
     this.setState({
