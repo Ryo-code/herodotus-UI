@@ -74,7 +74,7 @@ class DetailedTabs extends React.Component {
           </div>
           <div style={scrollStyles.slide}>
             <p>IMDB Rating: {currentMovie.imdbrating}</p>
-            <p>Metascore: {currentMovie.metascore ? currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
+            <p>{currentMovie.metascore ? "Metascore: " + currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
             <p></p>
             <p>Country(ies): {currentMovie.country}</p>
 

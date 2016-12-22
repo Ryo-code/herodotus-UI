@@ -6,10 +6,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 export default props => {
-  console.log(333, props)
+//   console.log(333, props)
 
-  return null
-}
+//   return null
+// }
+
+  // state = {
+  //   movies: []
+  // }
 
 // var query = window.location.search
 // // var url = `http://0.0.0.0:3000/adv_searches/${query}`
@@ -23,14 +27,18 @@ export default props => {
 //   }
 
 //   // componentDidMount() {
-//   //   axios.get(url)
-//   //   .then((response) => {
-//   //     this.setState({ movies: response.data })
-//   //   })
-//   //   .catch((error) => {
-//   //     console.log(error)
-//   //   })
+    // axios.get('http://0.0.0.0:3000/results')
+    // .then((response) => {
+    //   console.log(response)
+    //   // this.setState({ movies: response.data })
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    // })
 //   // }
+
+console.log(props.searchResults)
+// console.log(props.movies)
 
 //   setCurrentMovieAndCard = (movie, genre) => {
 //     // console.log('setCurrentMovieAndCard inside SearchResultPage')
@@ -40,25 +48,25 @@ export default props => {
 //     })
 //   }
 
-//   render() {
-//     return (
-//       <MuiThemeProvider>
-//         <div>
-//           <h1>
-//             <Link to="/">Back to Home</Link>
-//           </h1>
-//           <h1>Here are your search results</h1>
-//           <SearchFilmRow
-//             query={this.state.searchQuery}
-//             rowGenre="Action"
-//             card={this.state.currentGenre}
-//             currentMovie={this.state.currentMovie}
-//             setMovie={this.setCurrentMovieAndCard}
-//           />
+  // render() {
+    return (
+      <MuiThemeProvider>
+        <div>
+          <h1>
+            <Link to="/">Back to Home</Link>
+          </h1>
+          <h1>Here are your search results</h1>
+          <SearchFilmRow
+            currentMovies={props.searchResults}
+          />
 
-//         </div>
-//       </MuiThemeProvider>
-//     );
-//   }
-// }
+        </div>
+      </MuiThemeProvider>
+    );
+  // }
+}
 
+            // card={this.state.currentGenre}
+            // setMovie={this.setCurrentMovieAndCard}
+            // query={this.state.searchQuery}
+            // rowGenre="Action"

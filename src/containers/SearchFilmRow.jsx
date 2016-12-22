@@ -6,19 +6,19 @@ import axios from 'axios';
 class SearchFilmRow extends Component {
 
   state = {
-    movies: [],
+    movies: this.props.currentMovies,
     currentMovie: null,
   }
 
-  componentDidMount() {
-    axios.get(`${this.props.query}`)
-      .then((response) => {
-        this.setState({ movies: response.data })
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  // componentDidMount() {
+  //   axios.get(`${this.props.query}`)
+  //     .then((response) => {
+  //       this.setState({ movies: response.data })
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
 
   selectMovie = (movie) => {
@@ -45,7 +45,7 @@ class SearchFilmRow extends Component {
                     key={index}
                     movieData={movie}
                     selectMovie={this.selectMovie}
-                    showCard={this.state.currentMovie}
+                    showCard={this.state.currentMovies}
                   />
                 );
               })

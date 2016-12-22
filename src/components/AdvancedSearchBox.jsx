@@ -21,6 +21,7 @@ class AdvancedSearchBox extends Component {
     open: false
   }
 
+
   handleOpen = () => {
     this.setState({open: true});
   };
@@ -30,11 +31,8 @@ class AdvancedSearchBox extends Component {
   };
 
   handleSubmit = (event) => {
+  let {title, genre, keywords, date} = this.state;
     event.preventDefault();
-
-    let {title, genre, keywords, date} = this.state;
-
-    // searchQuery: `http://0.0.0.0:3000/adv_searches/${query}`
 
     axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
       .then((response) => {
