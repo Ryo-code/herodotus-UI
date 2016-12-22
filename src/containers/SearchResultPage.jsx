@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import SearchFilmRow from './SearchFilmRow.jsx';
 // import axios from 'axios'
 import {Link} from 'react-router'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
 
 
