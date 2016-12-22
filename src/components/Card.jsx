@@ -33,3 +33,29 @@ class Card extends Component {
 }
 
 export default Card;
+//
+// const Card = (props) => {
+//
+//   // setting stuff up
+//   const img_url = props.movieData.poster;
+//   const style = {
+//     backgroundImage: `url(${img_url})`
+//   };
+//   const handleClick = () => {
+//     props.selectMovie(props.movieData);
+//   };
+//
+//   // the output
+//   return (
+//     <div className="card col-md-2 col-sm-4 col-xs-6">
+//       <article
+//         onClick={this.handleClick}
+//         className="film-card"
+//         style={style}
+//       >
+//       </article>
+//     </div>
+//   )
+// };
+//
+// export default Card;

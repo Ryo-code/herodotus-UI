@@ -34,7 +34,7 @@ article.film-card {
 }
 
 .detailed-card .big-movie-poster {
-  float: left;
+  float: right;
  /*NOTE: Float removes it from normal flow and has inline elements wrap around it */
      /*margin-left: 180px;*/
      /*overflow: hidden;*/
@@ -42,9 +42,7 @@ article.film-card {
 
   min-height: 100%;
   max-height: 100%;
-  -webkit-box-reflect: right -1px -webkit-gradient(linear, left top, right top, from(transparent), color-stop(.3, transparent), to(rgba(250, 250, 250, .4)));
-    /* -> apparently this "webkit-box-reflect" has various browser compatibility issues*/
-
+  -webkit-box-reflect: left -1px -webkit-gradient(linear, right bottom, left bottom, from(transparent), color-stop(.3, transparent), to(rgba(250, 250, 250, .4)));
 }
 
 .card {
@@ -59,4 +57,17 @@ article.film-card {
 .login-registration-bar{
   background: blue;
 
+}
+
+.advancedSearchForm{
+  height: 200px;
+}
+
+form{
+  display: inline-block;
+  color: black;
+  padding: 20px;
+  height: 400px;
+  background: pink;
+  border-radius: 15px;
 }

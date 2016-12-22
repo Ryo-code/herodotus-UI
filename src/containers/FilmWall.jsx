@@ -4,20 +4,38 @@ import FilmRow from './FilmRow.jsx';
 class FilmWall extends Component {
   constructor(props) {
     super(props)
-    this.state = {currentMovie: ''}
+    this.state = {
+      currentMovie: null,
+      currentGenre: null
+    }
+  }
+
+  setCurrentMovieAndCard = (movie, genre) => {
+    this.setState({
+      currentMovie: movie,
+      currentGenre: genre
+    })
   }
 
   render() {
     return (
-      <div className="container">
+      <div>
 
-        <h1>Displaying {this.props.movies.length} movies</h1>
-        <FilmRow movies={this.props.movies} genre="action" />
-        <FilmRow movies={this.props.movies} genre="drama" />
+        <FilmRow
+          rowGenre="Action"
+          card={this.state.currentGenre}
+          currentMovie={this.state.currentMovie}
+          setMovie={this.setCurrentMovieAndCard}
+        />
+        <FilmRow
+          rowGenre="Drama"
+          card={this.state.currentGenre}
+          currentMovie={this.state.currentMovie}
+          setMovie={this.setCurrentMovieAndCard}
+        />
 
       </div>
     );
   }
 }
-// <DetailedCard/>
 export default FilmWall;

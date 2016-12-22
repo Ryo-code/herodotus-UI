@@ -10,8 +10,9 @@ class SearchBar extends Component {
     this.makeRequest = _.debounce(this.makeRequest, 0)
   }
 
+
   makeRequest = (search = this.state.value) => {
-    axios.get('http://0.0.0.0:3000/titles?name=' +search)
+    axios.get(`http://0.0.0.0:3000/titles?name=${search}`)
       .then((response) => {
         //UPDATE MOVIE METHOD
         this.props.updateMoviesFromSearchResult(response.data)

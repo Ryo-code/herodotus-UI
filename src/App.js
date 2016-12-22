@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import FilmWall from './containers/FilmWall.jsx';
 import NavBar from './containers/NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import axios from 'axios';
+
+// import axios from 'axios';
 import LandingPage from './containers/LandingPage.jsx'
 
 import './App.css';
@@ -17,15 +18,8 @@ class App extends Component {
     loggedIn: false
   }
 
-  componentDidMount() {
-    axios.get('http://0.0.0.0:3000/movies').then((response) => {
-      this.setState({movies: response.data})
-    }).catch((error) => {
-      console.log(error)
-    })
-  }
-
   updateMoviesFromSearchResult = (resultingArray) => {
+    // console.log(resultingArray)
     this.setState({movies: resultingArray})
   }
 
@@ -34,24 +28,18 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.loggedIn)
-      return (
-        <div>
-
-          {/* not logged in...
-          <button onClick={() => this.setState({loggedIn: true})}>
-            Please login!
-          </button> */}
-
-          <LandingPage setLoggedInTrue={this.setLoggedInTrue}/>
-        </div>
-      )
+    // if (!this.state.loggedIn)
+    //   return (
+    //     <div>
+    //
+    //       <LandingPage setLoggedInTrue={this.setLoggedInTrue}/>
+    //     </div>
+    //   )
 
     return (
       <MuiThemeProvider>
 
-        <div className="App">
-
+        <div>
           <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
 
           <FilmWall movies={this.state.movies}/>

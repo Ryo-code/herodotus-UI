@@ -1,68 +1,91 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router'
 
 class AdvancedSearchBox extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {title: '',
-                  genre: '',
-                  keywords: '',
-                  date: ''
-                  }
+  state = {
+    title: '',
+    genre: '',
+    keywords: '',
+    date: ''
   }
 
   handleSubmit = (event) => {
-    // event.preventDefault();
-    console.log(event.target);
+    event.preventDefault();
+    // console.log(event.target);
 
-    const {title, genre, keywords, date} = this.state;
+    let {title, genre, keywords, date} = this.state;
 
-    axios.get(`http://0.0.0.0:3001/movies/title?=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
-    .then((response) => {
-      this.props.updateMoviesFromSearchResult(response.data)
+    axios.get('/results').then((response) => {
+      console.log(response)
     })
-    .catch((error) => {
-      console.log(error)
-    })
+
+    // axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
+    // .then((response) => {
+    //   this.props.updateMoviesFromSearchResult(response.data)
+    //   // console.log(response.data)
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    // })
+
+    // PLZ DO NOT DELETE
+    // axios.post(`/login`, {
+    //   body: {
+    //     username:
+    //     password:
+    //   }
+    // }).then(data => localStorage.token = data.token)
 
   }
 
   handleFormChange = (event) => {
     const {value, name} = event.target;
     // const value = event.target.value;
-    this.setState({
-      [name]: value
-    })
+    this.setState({[name]: value})
   }
 
-
-
-  render(){
-    const { title, genre, keywords, date } = this.state;
-    return(
-      <form onSubmit={this.handleSubmit}>
-        <label>
+  render() {
+    const {title, genre, keywords, date} = this.state;
+    return (
+      <form action="/results" method="get">
+        <h2>
           Advanced Search
-        </label>
-
+        </h2>
+        <h3>Title Filter</h3>
         <label>
           Title:
         </label>
-          <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
+        <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
+
+        <h3>Genre Filter</h3>
         <label>
-          Genre:
+          Include these genres:
         </label>
-          <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
+        <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
+
         <label>
-          Keyword:
+          Exclude these genres:
         </label>
-          <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
+        <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
+
+        <h3>Keyword Filter</h3>
         <label>
-         Date:
+          Include these keywords, separated by commas:
         </label>
-          <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-          <input type="submit" value="Search" />
+        <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
+
+        <h3>Release Date</h3>
+        <label>
+          Date Released:
+        </label>
+
+        <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
+
+
+
+
+        <input type="submit" value="Search"/>
       </form>
     );
 
