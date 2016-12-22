@@ -15,17 +15,19 @@ class NavBar extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"
         >
-          <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
-
-        </AppBar>
-
         <AdvancedSearchBox
+          className="advanced-search-button"
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
+
+        </AppBar>
+
       </nav>
     );
   }
 }
 
 export default NavBar;
+
+          // <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>

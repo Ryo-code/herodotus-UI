@@ -10,6 +10,10 @@ article.film-card {
   margin: 20px 0px;
 }
 
+.advanced-search-button {
+  margin-top: 10px;
+}
+
 .film-row {
   display: flex;
   overflow-x: scroll;
@@ -17,7 +21,7 @@ article.film-card {
 
 .search-film-row {
   display: flex;
-  overflow-x: scroll;
+  /*overflow-x: scroll;*/
   flex-wrap: wrap;
 }
 
