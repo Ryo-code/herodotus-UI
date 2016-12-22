@@ -26,18 +26,10 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-
-        <div className="App">
-          <NavBar updateMoviesFromSearchResult={this.updateMoviesFromSearchResult}/>
-
-        <FilmWall movies={this.state.movies} />
-
-          <div>
-            <br/><br/><br/><br/><br/><br/><br/><br/>
-            - - - -
-          </div>
-
-        </div>
+        {React.cloneElement(this.props.children, {
+          movies: this.state.movies,
+          updateMoviesFromSearchResult: this.updateMoviesFromSearchResult,
+        })}
       </MuiThemeProvider>
 
     );
