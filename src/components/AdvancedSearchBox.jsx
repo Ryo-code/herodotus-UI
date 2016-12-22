@@ -6,10 +6,20 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 const style = {
   margin: 12,
   float: "right"
+};
+
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  radioButton: {
+    marginBottom: 16,
+  },
 };
 
 class AdvancedSearchBox extends Component {
@@ -17,9 +27,12 @@ class AdvancedSearchBox extends Component {
     title: '',
     genre: '',
     keywords: '',
+    location: '',
     date: '',
+    era: 'AD' ,
     open: false
   }
+
 
 
   handleOpen = () => {
@@ -31,10 +44,12 @@ class AdvancedSearchBox extends Component {
   };
 
   handleSubmit = (event) => {
-  let {title, genre, keywords, date} = this.state;
+  let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
 
-    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
+    console.log(event)
+
+    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
       .then((response) => {
         this.props.updateToSearchResults(response.data)
         browserHistory.push('/results')
@@ -69,6 +84,10 @@ class AdvancedSearchBox extends Component {
 
   }
 
+  handleEraChange = (event) => {
+    this.setState({era: event.target.value})
+  }
+
   handleFormChange = (event) => {
     const {value, name} = event.target;
     // const value = event.target.value;
@@ -77,12 +96,9 @@ class AdvancedSearchBox extends Component {
     })
   }
 
-  // const style = {
-  // margin: 12,
-  // };
 
   render(){
-    const { title, genre, keywords, date } = this.state;
+    const { title, genre, keywords, date, location } = this.state;
 
     // const actions = [
     //   <FlatButton
@@ -134,9 +150,30 @@ class AdvancedSearchBox extends Component {
 
               <br/>
 
-              <TextField hintText="1941" floatingLabelText="Set Date" fullWidth={true}>
+              <TextField hintText="USA" floatingLabelText="Set Location (Where did the movie take place?)" fullWidth={true}>
+                <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
+              </TextField>
+
+              <br/>
+
+              <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
+
+               <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
+                  <RadioButton
+                    onClick={this.handleEraChange}
+                    value="BC"
+                    label="BC"
+                    style={styles.radioButton}
+                  />
+                  <RadioButton
+                    onClick={this.handleEraChange}
+                    value="AD"
+                    label="AD"
+                    style={styles.radioButton}
+                  />
+                </RadioButtonGroup>
 
               <br/>
 

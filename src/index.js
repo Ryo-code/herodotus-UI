@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -9,14 +10,14 @@ import Home from './components/Home.js'
 import { browserHistory, Link, Route, IndexRoute, Router } from 'react-router'
 
 
-let App2 = props =>
-  <div>
-    <h1>Hey hey</h1>
+// let App2 = props =>
+//   <div>
+//     <h1>Hey hey</h1>
 
-    {React.cloneElement(props.children, {
-      result: 'best movie bro'
-    })}
-  </div>
+//     {React.cloneElement(props.children, {
+//       result: 'best movie bro'
+//     })}
+//   </div>
 
 // let Results = props =>
 //   <div>
