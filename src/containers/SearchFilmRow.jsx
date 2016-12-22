@@ -6,8 +6,12 @@ import DetailedCard from './DetailedCard';
 class SearchFilmRow extends Component {
 
   state = {
-    movies: this.props.currentMovies,
+    movies: [],
     currentMovie: null,
+  }
+
+  componentDidMount() {
+    this.setState({movies: this.props.currentMovies})
   }
 
   selectMovie = (movie) => {

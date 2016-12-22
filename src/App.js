@@ -19,12 +19,30 @@ class App extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProp) {
+    // console.log("inside app.js nextProp: ", nextProp)
+    // console.log("inside app.js this.state.searchResults: ", this.state.searchResults)
+    // if (this.state.searchResults !== nextProp){
+      // this.setState({searchResults: nextProp})
+      console.log(nextProp)
+      // console.log(this.state.)
+    // } else {
+    //   this.setState()
+    // console.log("componentDidMount")
+    // }
+  }
+
   updateMoviesFromSearchResult = (resultingArray) => {
     this.setState({movies: resultingArray})
   }
 
   updateToSearchResults = (results) => {
+    // console.log(this.state.searchResults)
     this.setState({searchResults: results})
+  }
+
+  clearSearchResults = () => {
+    this.setState({searchResults: [] })
   }
 
   render() {

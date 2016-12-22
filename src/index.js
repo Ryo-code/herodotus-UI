@@ -9,7 +9,6 @@ import Home from './components/Home.js'
 import { browserHistory, Route, IndexRoute, Router } from 'react-router'
 
 // import { browserHistory, Link, Route, IndexRoute, Router } from 'react-router'
-import { browserHistory, Link, Route, IndexRoute, Router } from 'react-router'
 
 
 // let App2 = props =>
@@ -33,6 +32,7 @@ ReactDOM.render(
         <IndexRoute component={Home}/>
         <Route path="/results" component={SearchResultPage} />
       </Route>
+      <Route path="/results" component={SearchResultPage} />
    </Router>,
   document.getElementById('root')
 );

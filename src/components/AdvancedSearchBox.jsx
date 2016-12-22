@@ -31,7 +31,8 @@ class AdvancedSearchBox extends Component {
     location: '',
     date: '',
     era: 'AD' ,
-    open: false
+    open: false,
+    // currentSearch: []
   }
 
 
@@ -53,7 +54,9 @@ class AdvancedSearchBox extends Component {
     axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
       .then((response) => {
         this.props.updateToSearchResults(response.data)
+        // this.setState({currentSearch: response.data})
         browserHistory.push('/results')
+        // console.log('pushing')
       })
       .catch((error) => {
         console.log(error)
