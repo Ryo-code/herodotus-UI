@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -31,14 +31,15 @@ class AdvancedSearchBox extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target);
 
-    // let {title, genre, keywords, date} = this.state;
+    let {title, genre, keywords, date} = this.state;
 
-    console.log(123 ,this.state)
-    axios.get(`${this.props.query}`)
+    // searchQuery: `http://0.0.0.0:3000/adv_searches/${query}`
+
+    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
       .then((response) => {
-        this.setState({ movies: response.data })
+        this.props.updateToSearchResults(response.data)
+        browserHistory.push('/results')
       })
       .catch((error) => {
         console.log(error)

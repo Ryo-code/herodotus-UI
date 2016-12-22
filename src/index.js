@@ -28,6 +28,7 @@ ReactDOM.render(
    <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
+        <Route path="/results" component={SearchResultPage} />
       </Route>
    </Router>,
   document.getElementById('root')

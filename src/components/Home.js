@@ -4,6 +4,9 @@ import NavBar from '../containers/NavBar.jsx';
 
 export default props =>
   <div className="App">
-    <NavBar updateMoviesFromSearchResult={props.updateMoviesFromSearchResult} />
+    <NavBar
+      updateMoviesFromSearchResult={props.updateMoviesFromSearchResult}
+      updateToSearchResults={props.updateToSearchResults}
+    />
     <FilmWall movies={props.movies} />
   </div>

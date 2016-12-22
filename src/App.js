@@ -14,20 +14,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      searchResults: [],
     }
   }
 
   updateMoviesFromSearchResult = (resultingArray) => {
-    // console.log(resultingArray)
     this.setState({movies: resultingArray})
+  }
+
+  updateToSearchResults = (results) => {
+    this.setState({searchResults: results})
   }
 
   render() {
     return (
       <MuiThemeProvider>
         {React.cloneElement(this.props.children, {
-          movies: this.state.movies,
+          ...this.state,
+          updateToSearchResults: this.updateToSearchResults,
           updateMoviesFromSearchResult: this.updateMoviesFromSearchResult,
         })}
       </MuiThemeProvider>
