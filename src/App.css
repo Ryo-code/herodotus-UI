@@ -10,6 +10,10 @@ article.film-card {
   margin: 20px 0px;
 }
 
+#submit-button {
+  width : 35%;
+}
+
 .advanced-search-button {
   margin-top: 10px;
 }

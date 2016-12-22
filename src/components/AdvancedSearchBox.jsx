@@ -46,10 +46,10 @@ class AdvancedSearchBox extends Component {
   };
 
   handleSubmit = (event) => {
-  let {title, genre, keywords, date, era, location} = this.state;
+    let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
 
-    console.log(event)
+    // console.log(event)
 
     axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
       .then((response) => {
@@ -164,6 +164,9 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
 
+              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
+
+              <div id="submit-button">
                <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
                   <RadioButton
                     onClick={this.handleEraChange}
@@ -178,10 +181,10 @@ class AdvancedSearchBox extends Component {
                     style={styles.radioButton}
                   />
                 </RadioButtonGroup>
+              </div>
 
               <br/>
 
-              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
             </form>
 
