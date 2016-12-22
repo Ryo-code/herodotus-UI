@@ -13,7 +13,7 @@ class NavBar extends Component {
         <AppBar
           title="Herodotus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          // iconStyleRight="o"
+          iconStyleRight="o"
         >
         <AdvancedSearchBox
           className="advanced-search-button"

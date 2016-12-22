@@ -39,7 +39,7 @@ class SearchFilmRow extends Component {
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
             {
-              this.state.movies.map((movie, index) => {
+              this.props.currentMovies.map((movie, index) => {
                 return (
                   <Card
                     key={index}

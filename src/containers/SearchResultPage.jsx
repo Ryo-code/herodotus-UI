@@ -6,7 +6,37 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
 
 
-export default props => {
+export default class SearchResultPage extends Component {
+
+  // componentWillUpdate(nextProps) {
+  //   console.log(nextProps.searchResults)
+  // }
+
+  render() {
+    let props = this.props
+
+    return (
+      <div>
+        <NavBar
+          updateMoviesFromSearchResult={props.updateMoviesFromSearchResult}
+          updateToSearchResults={props.updateToSearchResults}
+        />
+        <h1>
+          <Link to="/">Back to Home</Link>
+        </h1>
+        <h1>Here are your search results</h1>
+        <h2>Your search has yielded {props.searchResults.length} results</h2>
+        <SearchFilmRow
+          currentMovies={props.searchResults}
+        />
+      </div>
+    );
+  }
+}
+
+
+
+
 //   console.log(333, props)
 
 //   return null
@@ -38,7 +68,7 @@ export default props => {
     // })
 //   // }
 
-console.log(props.searchResults)
+// console.log(props.searchResults)
 // console.log(props.movies)
 
 //   setCurrentMovieAndCard = (movie, genre) => {
@@ -49,28 +79,6 @@ console.log(props.searchResults)
 //     })
 //   }
 
-  // render() {
-    return (
-      <MuiThemeProvider>
-        <div>
-        <NavBar
-          updateMoviesFromSearchResult={props.updateMoviesFromSearchResult}
-          updateToSearchResults={props.updateToSearchResults}
-        />
-          <h1>
-            <Link to="/">Back to Home</Link>
-          </h1>
-          <h1>Here are your search results</h1>
-          <h2>Your search has yielded {props.searchResults.length} results</h2>
-          <SearchFilmRow
-            currentMovies={props.searchResults}
-          />
-
-        </div>
-      </MuiThemeProvider>
-    );
-  // }
-}
 
             // card={this.state.currentGenre}
             // setMovie={this.setCurrentMovieAndCard}

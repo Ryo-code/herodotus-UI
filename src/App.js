@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   updateToSearchResults = (results) => {
+    console.log("called")
     this.setState({searchResults: results})
   }
 
