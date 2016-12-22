@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router'
+// import {Link} from 'react-router'
 
 class AdvancedSearchBox extends Component {
   state = {
@@ -14,7 +14,7 @@ class AdvancedSearchBox extends Component {
     event.preventDefault();
     // console.log(event.target);
 
-    let {title, genre, keywords, date} = this.state;
+    // let {title, genre, keywords, date} = this.state;
 
 
     axios.get('/results').then((response) =>{

@@ -22,7 +22,7 @@ class SearchFilmRow extends Component {
 
 
   selectMovie = (movie) => {
-    this.props.setMovie(movie, this.props.rowGenre)
+    this.setState({currentMovie: true})
   }
 
   hideDetails = () => {
@@ -45,14 +45,12 @@ class SearchFilmRow extends Component {
                     key={index}
                     movieData={movie}
                     selectMovie={this.selectMovie}
+                    showCard={this.state.currentMovie}
                   />
                 );
               })
             }
-          </div>{
-          this.props.card === this.props.rowGenre ?
-            <DetailedCard currentMovie={this.props.currentMovie} hideDetails={this.hideDetails} /> : null
-          }
+          </div>
         </div>
 
       </div>

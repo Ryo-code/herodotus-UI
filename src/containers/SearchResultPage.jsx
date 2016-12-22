@@ -26,6 +26,7 @@ class SearchResultPage extends Component {
   }
 
   setCurrentMovieAndCard = (movie, genre) => {
+    // console.log('setCurrentMovieAndCard inside SearchResultPage')
     this.setState({
       currentMovie: movie,
       currentGenre: genre
@@ -39,7 +40,7 @@ class SearchResultPage extends Component {
           <h1>
             <Link to="/">Back to Home</Link>
           </h1>
-          <h1>Heare are your search results</h1>
+          <h1>Here are your search results</h1>
           <SearchFilmRow
             query={this.state.searchQuery}
             rowGenre="Action"
