@@ -8,6 +8,7 @@ import Create from 'material-ui/svg-icons/content/create';
 import Face from 'material-ui/svg-icons/action/face';
 import Forum from 'material-ui/svg-icons/communication/forum';
 import Videocam from 'material-ui/svg-icons/av/videocam';
+import Clear from 'material-ui/svg-icons/content/clear';
 
 const scrollStyles = {
   headline: {
@@ -38,6 +39,10 @@ class DetailedTabs extends React.Component {
     });
   };
 
+  handleCloseClick = () => {
+    this.props.hideCard()
+  }
+
   render() {
     const currentMovie = this.props.currentMovie
     return (
@@ -51,6 +56,7 @@ class DetailedTabs extends React.Component {
           <Tab label="FILM" icon={<Videocam/>} style={{background:"black"}} value={1} />
           <Tab label="NOTES" icon={<Create/>} style={{background:"black"}} value={2} />
           <Tab label="COMMENTS" icon={<Forum/>} style={{background:"black"}} value={3} />
+          <Tab label="CLOSE" icon={<Clear/>} onClick={this.handleCloseClick} style={{background:"black"}} value={4}/>
 
         </Tabs>
         <SwipeableViews

@@ -29,38 +29,39 @@ class AdvancedSearchBox extends Component {
     era: 'AD' ,
     open: false,
   }
+
   handleOpen = () => {
     this.setState({open: true});
   };
   handleClose = () => {
     this.setState({open: false});
   };
+
+  clearForm = () => {
+    this.setState({
+      title: '',
+      genre: '',
+      keywords: '',
+      location: '',
+      date: '',
+      open: false
+    })
+  }
+
   handleSubmit = (event) => {
-  let {title, genre, keywords, date, era, location} = this.state;
+    let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
-    console.log(event)
+
     axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
       .then((response) => {
         this.props.updateToSearchResults(response.data)
-        // this.setState({currentSearch: response.data})
         browserHistory.push('/results')
-        // console.log('pushing')
       })
       .catch((error) => {
         console.log(error)
       })
-    this.handleClose()
-    // axios.get('/results').then((response) =>{
-    //   console.log(response)
-    // })
-    // axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
-    // .then((response) => {
-    //   this.props.updateMoviesFromSearchResult(response.data)
-    //   // console.log(response.data)
-    // })
-    // .catch((error) => {
-    //   console.log(error)
-    // })
+    this.clearForm()
+
 // PLZ DO NOT DELETE
     // axios.post(`/login`, {
     //   body: {
@@ -74,38 +75,24 @@ class AdvancedSearchBox extends Component {
   }
   handleFormChange = (event) => {
     const {value, name} = event.target;
-    // const value = event.target.value;
     this.setState({
       [name]: value
     })
   }
   render(){
-    // this.setState({open: false})
     const { title, genre, keywords, date, location } = this.state;
-    // const actions = [
-    //   <FlatButton
-    //     label="Cancel"
-    //     primary={true}
-    //     onTouchTap={this.handleClose}
-    //   />,
-    //   <FlatButton
-    //     label="Submit"
-    //     primary={true}
-    //     keyboardFocused={true}
-    //     onTouchTap={this.handleClose}
-    //   />,
-    // ];
+
     return(
       <div>
         <div>
           <RaisedButton label="Film Search" onTouchTap={this.handleOpen} />
           <Dialog
             title="Advanced Film Search"
-            // actions={actions}
             modal={false}
             open={this.state.open}
             onRequestClose={this.handleClose}
           >
+
             <form onSubmit={this.handleSubmit}>
               <TextField hintText="Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
@@ -126,6 +113,11 @@ class AdvancedSearchBox extends Component {
               <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
+
+
+              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
+
+              <div id="submit-button">
                <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
                   <RadioButton
                     onClick={this.handleEraChange}
@@ -142,6 +134,9 @@ class AdvancedSearchBox extends Component {
                 </RadioButtonGroup>
               <br/>
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
+              </div>
+              <br/>
+
             </form>
           </Dialog>
         </div>
