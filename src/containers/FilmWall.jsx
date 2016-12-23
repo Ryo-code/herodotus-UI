@@ -34,6 +34,10 @@ class FilmWall extends Component {
     })
   }
 
+  hideCard = () => {
+    this.setState({currentGenre: null})
+  }
+
   render() {
     return (
       <div className="container">
@@ -43,12 +47,14 @@ class FilmWall extends Component {
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
+          hideCard={this.hideCard}
         />
         <FilmRow
           rowGenre={categories[1]}
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
+          hideCard={this.hideCard}
         />
 
       </div>

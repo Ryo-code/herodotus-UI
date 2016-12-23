@@ -125,6 +125,9 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
 
+              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
+
+              <div id="submit-button">
                <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
                   <RadioButton
                     onClick={this.handleEraChange}
@@ -139,10 +142,8 @@ class AdvancedSearchBox extends Component {
                     style={styles.radioButton}
                   />
                 </RadioButtonGroup>
-
+              </div>
               <br/>
-
-              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
             </form>
 
