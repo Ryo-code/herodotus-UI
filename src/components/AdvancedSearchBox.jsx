@@ -32,10 +32,7 @@ class AdvancedSearchBox extends Component {
     date: '',
     era: 'AD' ,
     open: false,
-    // currentSearch: []
   }
-
-
 
   handleOpen = () => {
     this.setState({open: true});
@@ -46,36 +43,18 @@ class AdvancedSearchBox extends Component {
   };
 
   handleSubmit = (event) => {
-  let {title, genre, keywords, date, era, location} = this.state;
+    let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
-
-    console.log(event)
 
     axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
       .then((response) => {
         this.props.updateToSearchResults(response.data)
-        // this.setState({currentSearch: response.data})
         browserHistory.push('/results')
-        // console.log('pushing')
       })
       .catch((error) => {
         console.log(error)
       })
-
-    // axios.get('/results').then((response) =>{
-    //   console.log(response)
-    // })
-
-    // axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}`)
-    // .then((response) => {
-    //   this.props.updateMoviesFromSearchResult(response.data)
-    //   // console.log(response.data)
-    // })
-    // .catch((error) => {
-    //   console.log(error)
-    // })
-
-
+    this.handleClose()
 
 // PLZ DO NOT DELETE
     // axios.post(`/login`, {
@@ -84,8 +63,6 @@ class AdvancedSearchBox extends Component {
     //     password:
     //   }
     // }).then(data => localStorage.token = data.token)
-
-    this.handleClose()
   }
 
   handleEraChange = (event) => {
@@ -102,22 +79,7 @@ class AdvancedSearchBox extends Component {
 
 
   render(){
-    // this.setState({open: false})
     const { title, genre, keywords, date, location } = this.state;
-
-    // const actions = [
-    //   <FlatButton
-    //     label="Cancel"
-    //     primary={true}
-    //     onTouchTap={this.handleClose}
-    //   />,
-    //   <FlatButton
-    //     label="Submit"
-    //     primary={true}
-    //     keyboardFocused={true}
-    //     onTouchTap={this.handleClose}
-    //   />,
-    // ];
 
     return(
 
@@ -127,12 +89,10 @@ class AdvancedSearchBox extends Component {
           <RaisedButton label="Film Search" onTouchTap={this.handleOpen} />
           <Dialog
             title="Advanced Film Search"
-            // actions={actions}
             modal={false}
             open={this.state.open}
             onRequestClose={this.handleClose}
           >
-
 
             <form onSubmit={this.handleSubmit}>
 
@@ -188,10 +148,7 @@ class AdvancedSearchBox extends Component {
 
           </Dialog>
         </div>
-
       </div>
-
-
     );
 
   }
@@ -199,11 +156,3 @@ class AdvancedSearchBox extends Component {
 }
 
 export default AdvancedSearchBox;
-
-
-
-
-
-
-
-
