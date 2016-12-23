@@ -42,6 +42,17 @@ class AdvancedSearchBox extends Component {
     this.setState({open: false});
   };
 
+  clearForm = () => {
+    this.setState({
+      title: '',
+      genre: '',
+      keywords: '',
+      location: '',
+      date: '',
+      open: false
+    })
+  }
+
   handleSubmit = (event) => {
     let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
@@ -54,7 +65,7 @@ class AdvancedSearchBox extends Component {
       .catch((error) => {
         console.log(error)
       })
-    this.handleClose()
+    this.clearForm()
 
 // PLZ DO NOT DELETE
     // axios.post(`/login`, {
@@ -71,7 +82,6 @@ class AdvancedSearchBox extends Component {
 
   handleFormChange = (event) => {
     const {value, name} = event.target;
-    // const value = event.target.value;
     this.setState({
       [name]: value
     })

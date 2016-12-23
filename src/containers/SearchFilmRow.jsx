@@ -15,12 +15,10 @@ class SearchFilmRow extends Component {
   }
 
   selectMovie = (movie) => {
-    console.log('clicked selectmovie in searchfilmrow')
     this.setState({ currentMovie: movie })
   }
 
   hideDetails = () => {
-    console.log('clicked hidedetails in searchfilmrow')
     this.setState({ currentMovie: null });
   }
 

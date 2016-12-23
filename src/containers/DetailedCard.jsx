@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import DetailedTabs from '../components/DetailedTabs.jsx'
-import Clear from 'material-ui/svg-icons/content/clear';
 
 class DetailedCard extends Component {
 
