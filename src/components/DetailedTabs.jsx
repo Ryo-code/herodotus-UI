@@ -40,7 +40,6 @@ class DetailedTabs extends React.Component {
 
   render() {
     const currentMovie = this.props.currentMovie
-    console.log(currentMovie)
     return (
       <div>
         <Tabs
@@ -74,7 +73,7 @@ class DetailedTabs extends React.Component {
           </div>
           <div style={scrollStyles.slide}>
             <p>IMDB Rating: {currentMovie.imdbrating}</p>
-            <p>Metascore: {currentMovie.metascore ? currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
+            <p>{currentMovie.metascore ? "Metascore: " + currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
             <p></p>
             <p>Country(ies): {currentMovie.country}</p>
 
@@ -91,7 +90,7 @@ class DetailedTabs extends React.Component {
           <div style={scrollStyles.slide}>
             <p>keywords:
             {
-              currentMovie.keywords.split(",")
+              currentMovie.keywords
             }
             </p>
           </div>

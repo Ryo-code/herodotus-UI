@@ -1,15 +1,7 @@
 
-@font-face {
-  font-family: 'CFX';
-  src: url('CFXerographyDemo-Regular.ttf') format('truetype'), /* Safari, Android, iOS*/
-}
-
-.Hero-title{
-  font-family: 'CFX', 'Roboto', sans-serif;
-}
-
 body {
   margin: 0;
   padding: 0;
-  font-family: 'CFX', 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background: rgba(0, 0, 0, 0.65);
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
-import SearchBar from '../components/SearchBar.jsx'
+// import SearchBar from '../components/SearchBar.jsx'
 import AdvancedSearchBox from '../components/AdvancedSearchBox.jsx'
 
 
@@ -11,19 +11,26 @@ class NavBar extends Component {
     return (
       <nav>
         <AppBar
-          className="Hero-title"
+          className="hero-title"
+          style={{background: 'black', padding: '15px'}}
           title="Herodotus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"
         >
-          <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
+
+        <AdvancedSearchBox
+          className="advanced-search-button"
+          updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
+          updateToSearchResults={this.props.updateToSearchResults}
+        />
 
         </AppBar>
 
-        <AdvancedSearchBox updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
       </nav>
     );
   }
 }
 
 export default NavBar;
+
+          // <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
