@@ -20,25 +20,44 @@ class LandingPage extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      open: false,
+      registrationOpen: false,
+      loginUsername: '',
+      loginPassword: '',
+      loginOpen: false,
     }
   }
 
-  handleOpen = () => {
-    this.setState({open: true});
+
+  handleRegistrationOpen = () => {
+    this.setState({ registrationOpen: true });
   };
 
+  handleRegistrationClose = () => {
+    this.setState({ registrationOpen: false });
+  }
+
+  handleLoginOpen = () => {
+    this.setState({ loginOpen: true });
+  };
+
+  handleLoginClose = () => {
+    this.setState({ loginOpen: false });
+  }
+
   handleFormChange = (event) => {
+    console.log(this.state.loginUsername)
+    console.log(this.state.loginPassword)
     const {name, value} = event.target
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmit = (event) => {
+  handleRegistrationSubmit = (event) => {
     event.preventDefault()
     const { username, email, password, password_confirmation } = this.state
-    axios.post(`http://0.0.0.0:3000/users/`, {
+
+    axios.post('http://0.0.0.0:3000/users/', {
         username: username,
         email: email,
         password: password,
@@ -46,17 +65,23 @@ class LandingPage extends Component {
       })
       .then((response) => {
         browserHistory.push('/movies')
-        console.log(response)
       })
       .catch((response) => {
         console.log(response)
       })
   }
 
+  // handleLoginSubmit = (event) => {
+  //   event.preventDefault()
+  //   const { loginUsername, loginPassword } = this.state
+
+  //   axios.post('http://0.0.0.0:3000')
+  // }
+
 
   render() {
     const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
-    const { username, email, password, password_confirmation } = this.state
+    const { username, email, password, password_confirmation, loginUsername, loginPassword } = this.state
     return (
       <MuiThemeProvider>
 
@@ -72,14 +97,14 @@ class LandingPage extends Component {
             Jeff: an elaborate video of how herodotus came to be
           </div>
 
-          <RaisedButton label="Registration" onTouchTap={this.handleOpen} />
+          <RaisedButton label="Registration" onTouchTap={this.handleRegistrationOpen} />
             <Dialog
-              title="Regstration"
+              title="Registration"
               modal={false}
-              open={this.state.open}
-              onRequestClose={this.handleClose}
+              open={this.state.registrationOpen}
+              onRequestClose={this.handleRegistrationClose}
             >
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleRegistrationSubmit}>
 
             <TextField hintText="AwesomeUsername" floatingLabelText="Username" fullWidth={true}>
               <input onChange={this.handleFormChange} type="text" name="username" value={username} />
@@ -101,6 +126,28 @@ class LandingPage extends Component {
             </form>
             </Dialog>
 
+          {/*LOGIN BUTTON BELOW */}
+
+            <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
+            <Dialog
+              title="Login"
+              modal={false}
+              open={this.state.loginOpen}
+              onRequestClose={this.handleLoginClose}
+            >
+            <form onSubmit={this.handleLoginSubmit}>
+
+            <TextField hintText="AwesomeUsername" floatingLabelText="Username" fullWidth={true}>
+              <input onChange={this.handleFormChange} type="text" name="loginUsername" value={loginUsername} />
+            </TextField>
+
+            <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
+              <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
+            </TextField>
+
+            <RaisedButton label="Login" primary={true} style={style} type="submit"/>
+            </form>
+            </Dialog>
 
           {/* <footer className="login-registration-bar">
             hi
