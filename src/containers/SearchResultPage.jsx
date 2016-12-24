@@ -20,7 +20,8 @@ export default class SearchResultPage extends Component {
           <Link to="/">Back to Home</Link>
         </h1>
         <h1>Here are your search results</h1>
-        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
+        <h2>Your search has yielded {this.props.searchResults.length}
+          results</h2>
         <SearchFilmRow
           currentMovies={this.props.searchResults}
         />
@@ -28,5 +29,3 @@ export default class SearchResultPage extends Component {
     );
   }
 }
-
-

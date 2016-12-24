@@ -114,7 +114,6 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
 
-
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
               <div id="submit-button">

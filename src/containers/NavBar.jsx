@@ -12,7 +12,7 @@ class NavBar extends Component {
       <nav>
         <AppBar
           className="hero-title"
-          style={{background: 'black', padding: '15px'}}
+          style={{background: 'rgba(0, 0, 0, 0.88)', padding: '15px'}}
           title="Herodotus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           // iconStyleRight="o"
