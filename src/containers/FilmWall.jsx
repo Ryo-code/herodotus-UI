@@ -43,6 +43,7 @@ class FilmWall extends Component {
       <div>
 
         <FilmRow
+          className="film-row"
           rowGenre={categories[0]}
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
@@ -50,6 +51,7 @@ class FilmWall extends Component {
           hideCard={this.hideCard}
         />
         <FilmRow
+          className="film-row"
           rowGenre={categories[1]}
           card={this.state.currentGenre}
           currentMovie={this.state.currentMovie}
