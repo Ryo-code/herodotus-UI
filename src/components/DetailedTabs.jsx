@@ -40,7 +40,7 @@ class DetailedTabs extends React.Component {
   };
 
   handleCloseClick = () => {
-    // this.props.hideCard()
+    this.props.hideCard()
   }
 
   render() {
