@@ -52,7 +52,16 @@ class AdvancedSearchBox extends Component {
     let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
 
-    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
+    axios.get('http://0.0.0.0:3000/adv_searches', {
+        params: {
+          title: title,
+          genre: genre,
+          keywords: keywords,
+          date: date,
+          era: era,
+          location: location,
+        }
+      })
       .then((response) => {
         this.props.updateToSearchResults(response.data)
         browserHistory.push('/results')

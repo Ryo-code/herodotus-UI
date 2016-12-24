@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
+import {browserHistory} from 'react-router'
 
 
 const style = {
@@ -34,10 +35,17 @@ class LandingPage extends Component {
     })
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault()
     const { username, email, password, password_confirmation } = this.state
-    axios.post(`http://0.0.0.0:3000/users/?username=${username}&email=${email}&password=${password}&password_confirmation=${password_confirmation}`)
+    axios.post(`http://0.0.0.0:3000/users/`, {
+        username: username,
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+      })
       .then((response) => {
+        browserHistory.push('/movies')
         console.log(response)
       })
       .catch((response) => {
