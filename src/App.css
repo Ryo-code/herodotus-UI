@@ -20,27 +20,25 @@ article.film-card:hover {
 
 article div{
   position: absolute;
-  display: ;
+  /*display: flex;*/
   background-color: black;
   padding: 10px;
-  opacity: 0.5;
+  opacity: 0.0;
   color: white;
   bottom: 0;
   /*border-radius: 30px;*/
 }
 
-article div:hover{
+article:hover div {
   display: flex;
   background-color: black;
   padding: 10px;
-  opacity: 1;
-  color: red;
-  border:radius
-}
+  overflow: hidden;
+  opacity: .7;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 
-article:hover div {
-
-  color: blue;
 }
 
 #submit-button {
