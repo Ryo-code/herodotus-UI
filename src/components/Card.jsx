@@ -3,13 +3,6 @@ import DetailedCard from '../containers/DetailedCard.jsx';
 
 class Card extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     currentMovie: {}
-  //   }
-  // }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -26,6 +19,16 @@ class Card extends Component {
     const style = {
       backgroundImage: `url(${img_url})`
     };
+    // const starRatingPercentage = (this.props.movieData.imdbrating / 2) / 5 * 100
+    // const starRatingStyle = {
+    //   background: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x',
+    //   backgroundPosition: '0 100%',
+    //   float: 'left',
+    //   height: '21px',
+    //   display: 'block',
+    //   overflow: 'hidden',
+    //   width: `${starRatingPercentage}%`
+    // }
     return (
       <div className="card
         col-lg-2
@@ -41,7 +44,10 @@ class Card extends Component {
             {this.props.movieData.title} ({this.props.movieData.year})
           </div>
         </article>
-        {this.props.showCard === this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
+        {
+          this.props.showCard === this.state.currentMovie ?
+          <DetailedCard currentMovie={this.state.currentMovie} /> : null
+        }
       </div>
 
     );

@@ -51,7 +51,7 @@ class DetailedTabs extends React.Component {
       float: 'left',
       height: '21px',
       display: 'block',
-      width: starRatingPercentage
+      width: `${starRatingPercentage}%`
     }
 
     return (
