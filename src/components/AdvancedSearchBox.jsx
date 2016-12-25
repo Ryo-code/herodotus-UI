@@ -26,7 +26,7 @@ class AdvancedSearchBox extends Component {
     keywords: '',
     location: '',
     date: '',
-    era: 'AD' ,
+    era: '' ,
     open: false,
   }
 
@@ -126,7 +126,7 @@ class AdvancedSearchBox extends Component {
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
               <div id="submit-button">
-               <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
+               <RadioButtonGroup name="shipSpeed">
                   <RadioButton
                     onClick={this.handleEraChange}
                     value="BC"
