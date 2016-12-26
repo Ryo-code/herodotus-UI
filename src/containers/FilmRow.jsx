@@ -25,13 +25,9 @@ class FilmRow extends Component {
     this.props.setMovie(movie, this.props.rowGenre)
   }
 
-  hideDetails = () => {
-    this.setState({ currentMovie: null });
-  }
-
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <h2 className="film-row-title">
             {this.props.rowGenre}
@@ -53,7 +49,7 @@ class FilmRow extends Component {
         </div>
         {
           this.props.card === this.props.rowGenre ?
-            <DetailedCard currentMovie={this.props.currentMovie} hideDetails={this.hideDetails} /> : null
+            <DetailedCard currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} /> : null
         }
       </div>
     );

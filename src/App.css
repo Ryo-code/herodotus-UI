@@ -2,21 +2,51 @@
 article.film-card {
   height: 275px; /* Max 275px */
   max-width: 180px;
-  /*min-width: 16opx;*/
-  background-size: cover;
+  /*min-width: 160px;*/
+  background-size: 100% 100%;
   background-position: 50%;
   border-radius: 10px;
   box-shadow: 4px 0px 25px 2px rgba(0, 0, 0, 0.2);
-  margin: 20px 0px;
+  margin: 40px 0px;
+  transition: all .1s ease-in-out;
+  opacity: .9;
+  position: relative;
+}
+
+article.film-card:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+article div{
+  position: absolute;
+  /*display: flex;*/
+  background-color: black;
+  padding: 10px;
+  opacity: 0.0;
+  color: white;
+  bottom: 0;
+  /*border-radius: 30px;*/
+}
+
+article:hover div {
+  display: flex;
+  background-color: black;
+  padding: 10px;
+  overflow: hidden;
+  opacity: .7;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #submit-button {
   width : 35%;
 }
 
-#advanced-search-button {
+/*.advanced-search-button {
   margin-top: 10px;
-}
+}*/
 
 .film-row {
   display: flex;
@@ -48,18 +78,15 @@ article.film-card {
 }
 
 .detailed-card .big-movie-poster {
-  float: left;
+  float: right;
  /*NOTE: Float removes it from normal flow and has inline elements wrap around it */
      /*margin-left: 180px;*/
      /*overflow: hidden;*/
      /*text-align: left;*/
 
-
   min-height: 100%;
   max-height: 100%;
-  -webkit-box-reflect: right -1px -webkit-gradient(linear, left top, right top, from(transparent), color-stop(.3, transparent), to(rgba(250, 250, 250, .4)));
-    /* -> apparently this "webkit-box-reflect" has various browser compatibility issues*/
-
+  -webkit-box-reflect: left -1px -webkit-gradient(linear, right bottom, left bottom, from(transparent), color-stop(.3, transparent), to(rgba(250, 250, 250, .4)));
 }
 
 .card {
@@ -69,4 +96,46 @@ article.film-card {
 
 .detailed-card-tab{
   background-color: black
+}
+
+.login-registration-bar{
+  background: blue;
+}
+
+.advancedSearchForm{
+  height: 200px;
+}
+
+/*form{
+  display: inline-block;
+  color: black;
+  padding: 20px;
+  height: 400px;
+  background: pink;
+  border-radius: 15px;
+}*/
+
+.film-row{
+  height: 390px;
+}
+
+.detailed-card-content p{
+  font-size: 1.9vmin;
+  overflow-y:scroll;
+}
+
+.detailed-card-content span{
+  color: darkgrey;
+  overflow: hidden;
+}
+
+.star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 105px;
+  margin: 0;
 }

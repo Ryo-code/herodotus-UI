@@ -8,6 +8,7 @@ import Create from 'material-ui/svg-icons/content/create';
 import Face from 'material-ui/svg-icons/action/face';
 import Forum from 'material-ui/svg-icons/communication/forum';
 import Videocam from 'material-ui/svg-icons/av/videocam';
+import Clear from 'material-ui/svg-icons/content/clear';
 
 const scrollStyles = {
   headline: {
@@ -21,7 +22,6 @@ const scrollStyles = {
     padding: 50,
     overflowY: "scroll"
   },
-
 };
 
 class DetailedTabs extends React.Component {
@@ -38,8 +38,22 @@ class DetailedTabs extends React.Component {
     });
   };
 
+  handleCloseClick = () => {
+    this.props.hideCard()
+  }
+
   render() {
     const currentMovie = this.props.currentMovie
+    const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100
+    const starRatingStyle = {
+      background: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x',
+      backgroundPosition: '0 100%',
+      float: 'left',
+      height: '21px',
+      display: 'block',
+      width: `${starRatingPercentage}%`
+    }
+
     return (
       <div>
         <Tabs
@@ -51,6 +65,7 @@ class DetailedTabs extends React.Component {
           <Tab label="FILM" icon={<Videocam/>} style={{background:"black"}} value={1} />
           <Tab label="NOTES" icon={<Create/>} style={{background:"black"}} value={2} />
           <Tab label="COMMENTS" icon={<Forum/>} style={{background:"black"}} value={3} />
+          <Tab label="CLOSE" icon={<Clear/>} onClick={this.handleCloseClick} style={{background:"black"}} value={4}/>
 
         </Tabs>
         <SwipeableViews
@@ -58,43 +73,45 @@ class DetailedTabs extends React.Component {
           onChangeIndex={this.handleChange}
           // style={{height:"35em"}} //attempting to make it scroll if there's tons of text
         >
-          <div style={scrollStyles.slide}>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
             <h2 style={scrollStyles.headline}>{currentMovie.title}</h2>
             <p>{currentMovie.year}</p>
             <p>{currentMovie.plot}</p>
-            <p>Star rating... {currentMovie.imdbrating / 2}</p>
-            <p>Set in: {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
-            <p>Era:</p>
-            <p>Location(s): {currentMovie.country}</p>
-            <p>Genre(s): {currentMovie.genre}</p>
+            <p>{currentMovie.imbdrating}</p>
+
+            <div className="star-ratings-sprite">
+              <span style={starRatingStyle}> </span>
+            </div>
+
+            <p><span>Set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
+            <p><span>Era:</span>    </p>
+            <p><span>Location(s):</span> {currentMovie.country}</p>
+            <p><span>Genre(s):</span> {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
 
 
           </div>
-          <div style={scrollStyles.slide}>
-            <p>IMDB Rating: {currentMovie.imdbrating}</p>
-            <p>{currentMovie.metascore ? "Metascore: " + currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
-            <p></p>
-            <p>Country(ies): {currentMovie.country}</p>
-
-            <p>Runtime: {currentMovie.runtime}</p>
-            <p>Director: {currentMovie.director}</p>
-            <p>Main actor(s): {currentMovie.actors}</p>
-            <p>Awards: {currentMovie.awards ? currentMovie.metascore : "N/A"}</p> {/*IF it exists*/}
-            <p>Rated: {currentMovie.rated}</p>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
+            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? "| Metascore: " + currentMovie.metascore : ""}</p> {/*IF it exists*/}
+            <p><span>Runtime:</span> {currentMovie.runtime}</p>
+            <p><span>Country(ies):</span> {currentMovie.country}</p>
+            <p><span>Awards:</span> {currentMovie.awards ? currentMovie.metascore : ""}</p> {/*IF it exists*/}
+            <p><span>Director:</span> {currentMovie.director}</p>
+            <p><span>Main actor(s):</span> {currentMovie.actors}</p>
+            <p><span>Rated:</span> {currentMovie.rated}</p>
             <p></p>
             <p></p>
 
 
           </div>
-          <div style={scrollStyles.slide}>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
             <p>keywords:
             {
               currentMovie.keywords
             }
             </p>
           </div>
-          <div style={scrollStyles.slide}>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
             slide n°4
           </div>
         </SwipeableViews>
