@@ -21,7 +21,7 @@ class LandingPage extends Component {
       password: '',
       password_confirmation: '',
       registrationOpen: false,
-      loginUsername: '',
+      loginEmail: '',
       loginPassword: '',
       loginOpen: false,
     }
@@ -36,12 +36,47 @@ class LandingPage extends Component {
     this.setState({ registrationOpen: false });
   }
 
+  handleRegistrationSubmit = (event) => {
+    event.preventDefault()
+    const { username, email, password, password_confirmation } = this.state
+
+    axios.post('http://0.0.0.0:3000/users/', {
+      username: username,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+    })
+    .then((response) => {
+      browserHistory.push('/movies')
+    })
+    .catch((response) => {
+      console.log(response)
+    })
+  }
+
   handleLoginOpen = () => {
     this.setState({ loginOpen: true });
   };
 
   handleLoginClose = () => {
     this.setState({ loginOpen: false });
+  }
+
+  handleLoginSubmit = (event) => {
+    event.preventDefault()
+    const { loginEmail, loginPassword } = this.state
+
+    axios.post('http://0.0.0.0:3000/v1/login', {
+      username: loginEmail,
+      password: loginPassword,
+    })
+    .then((response) => {
+      console.log(response)
+      browserHistory.push('/movies')
+    })
+    .catch((response) => {
+      console.log(response)
+    })
   }
 
   handleFormChange = (event) => {
@@ -53,35 +88,9 @@ class LandingPage extends Component {
     })
   }
 
-  handleRegistrationSubmit = (event) => {
-    event.preventDefault()
-    const { username, email, password, password_confirmation } = this.state
-
-    axios.post('http://0.0.0.0:3000/users/', {
-        username: username,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation,
-      })
-      .then((response) => {
-        browserHistory.push('/movies')
-      })
-      .catch((response) => {
-        console.log(response)
-      })
-  }
-
-  // handleLoginSubmit = (event) => {
-  //   event.preventDefault()
-  //   const { loginUsername, loginPassword } = this.state
-
-  //   axios.post('http://0.0.0.0:3000')
-  // }
-
-
   render() {
     const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
-    const { username, email, password, password_confirmation, loginUsername, loginPassword } = this.state
+    const { username, email, password, password_confirmation, loginEmail, loginPassword } = this.state
     return (
       <MuiThemeProvider>
 
@@ -137,8 +146,8 @@ class LandingPage extends Component {
             >
             <form onSubmit={this.handleLoginSubmit}>
 
-            <TextField hintText="AwesomeUsername" floatingLabelText="Username" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="text" name="loginUsername" value={loginUsername} />
+            <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
+              <input onChange={this.handleFormChange} type="text" name="loginEmail" value={loginEmail} />
             </TextField>
 
             <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
