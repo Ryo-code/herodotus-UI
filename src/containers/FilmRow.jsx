@@ -11,7 +11,14 @@ class FilmRow extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://0.0.0.0:3000/movies?genre=${this.props.rowGenre}`)
+    axios.get('http://0.0.0.0:3000/movies', {
+      params: {
+        genre: this.props.rowGenre
+      },
+      headers: {
+        Authorization: localStorage.token
+      }
+    })
       .then((response) => {
         this.setState({ movies: response.data })
       })

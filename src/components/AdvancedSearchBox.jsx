@@ -60,6 +60,9 @@ class AdvancedSearchBox extends Component {
           date: date,
           era: era,
           location: location,
+        },
+        headers: {
+          Authorization: localStorage.token
         }
       })
       .then((response) => {

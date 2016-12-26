@@ -6,7 +6,6 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import {browserHistory} from 'react-router'
 
-
 const style = {
   margin: 12,
   float: "right"
@@ -27,7 +26,6 @@ class LandingPage extends Component {
     }
   }
 
-
   handleRegistrationOpen = () => {
     this.setState({ registrationOpen: true });
   };
@@ -47,6 +45,8 @@ class LandingPage extends Component {
       password_confirmation: password_confirmation,
     })
     .then((response) => {
+      localStorage.user = response.data.email
+      localStorage.token = response.data.access_token
       browserHistory.push('/movies')
     })
     .catch((response) => {
@@ -71,7 +71,8 @@ class LandingPage extends Component {
       password: loginPassword,
     })
     .then((response) => {
-      console.log(response)
+      localStorage.user = response.data.email
+      localStorage.token = response.data.access_token
       browserHistory.push('/movies')
     })
     .catch((response) => {
@@ -80,8 +81,6 @@ class LandingPage extends Component {
   }
 
   handleFormChange = (event) => {
-    console.log(this.state.loginUsername)
-    console.log(this.state.loginPassword)
     const {name, value} = event.target
     this.setState({
       [name]: value
