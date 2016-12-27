@@ -15,7 +15,6 @@ class LandingPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
       email: '',
       password: '',
       password_confirmation: '',
@@ -36,15 +35,15 @@ class LandingPage extends Component {
 
   handleRegistrationSubmit = (event) => {
     event.preventDefault()
-    const { username, email, password, password_confirmation } = this.state
+    const { email, password, password_confirmation } = this.state
 
-    axios.post('http://0.0.0.0:3000/users/', {
-      username: username,
+    axios.post('http://0.0.0.0:3000/users', {
       email: email,
       password: password,
       password_confirmation: password_confirmation,
     })
     .then((response) => {
+      console.log(response)
       localStorage.user = response.data.email
       localStorage.token = response.data.access_token
       browserHistory.push('/movies')
@@ -66,7 +65,7 @@ class LandingPage extends Component {
     event.preventDefault()
     const { loginEmail, loginPassword } = this.state
 
-    axios.post('http://0.0.0.0:3000/v1/login', {
+    axios.post('http://0.0.0.0:3000/users/sign_in', {
       username: loginEmail,
       password: loginPassword,
     })
@@ -89,7 +88,7 @@ class LandingPage extends Component {
 
   render() {
     const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
-    const { username, email, password, password_confirmation, loginEmail, loginPassword } = this.state
+    const { email, password, password_confirmation, loginEmail, loginPassword } = this.state
     return (
       <MuiThemeProvider>
 
@@ -113,10 +112,6 @@ class LandingPage extends Component {
               onRequestClose={this.handleRegistrationClose}
             >
             <form onSubmit={this.handleRegistrationSubmit}>
-
-            <TextField hintText="AwesomeUsername" floatingLabelText="Username" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="text" name="username" value={username} />
-            </TextField>
 
             <TextField hintText="awesome@username.com" floatingLabelText="Email" fullWidth={true}>
               <input onChange={this.handleFormChange} type="email" name="email" value={email} />

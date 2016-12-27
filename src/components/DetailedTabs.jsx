@@ -105,14 +105,12 @@ class DetailedTabs extends React.Component {
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <p>keywords:
-            {
-              currentMovie.keywords
-            }
-            </p>
+            <h1>User self notes will go in here</h1>
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            slide n°4
+            <h1>All user comments will go in here</h1>
+            <p>a movie can have many comments</p>
+            <p>a user can only have 1 comment on 1 movie</p>
           </div>
         </SwipeableViews>
       </div>
