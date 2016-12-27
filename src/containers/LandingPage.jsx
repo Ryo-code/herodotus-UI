@@ -25,6 +25,7 @@ class LandingPage extends Component {
     }
   }
 
+  // All registration functions are below
   handleRegistrationOpen = () => {
     this.setState({ registrationOpen: true });
   };
@@ -43,16 +44,17 @@ class LandingPage extends Component {
       password_confirmation: password_confirmation,
     })
     .then((response) => {
-      console.log(response)
+      console.log("in user registration", response)
       localStorage.user = response.data.email
       localStorage.token = response.data.access_token
-      browserHistory.push('/movies')
+      // browserHistory.push('/movies')
     })
     .catch((response) => {
       console.log(response)
     })
   }
 
+  // All login functions are below
   handleLoginOpen = () => {
     this.setState({ loginOpen: true });
   };
@@ -70,15 +72,18 @@ class LandingPage extends Component {
       password: loginPassword,
     })
     .then((response) => {
+      console.log("in handle login", response)
       localStorage.user = response.data.email
       localStorage.token = response.data.access_token
-      browserHistory.push('/movies')
+      // browserHistory.push('/movies')
     })
     .catch((response) => {
       console.log(response)
     })
   }
 
+
+  // Sets the values of the target field
   handleFormChange = (event) => {
     const {name, value} = event.target
     this.setState({
@@ -113,6 +118,8 @@ class LandingPage extends Component {
             >
             <form onSubmit={this.handleRegistrationSubmit}>
 
+            {/* REGISTRATION BUTTON AND FIELDS BELOW*/}
+
             <TextField hintText="awesome@username.com" floatingLabelText="Email" fullWidth={true}>
               <input onChange={this.handleFormChange} type="email" name="email" value={email} />
             </TextField>
@@ -129,7 +136,7 @@ class LandingPage extends Component {
             </form>
             </Dialog>
 
-          {/*LOGIN BUTTON BELOW */}
+            {/* LOGIN BUTTON BELOW */}
 
             <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
             <Dialog
