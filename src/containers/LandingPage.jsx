@@ -22,7 +22,6 @@ class LandingPage extends Component {
       loginEmail: '',
       loginPassword: '',
       loginOpen: false,
-      signedIn: false,
     }
   }
 
@@ -83,6 +82,13 @@ class LandingPage extends Component {
     })
   }
 
+  // handleLogout = () => {
+  //   axios.get('http://0.0.0.0:3000/users/sign_out')
+  //   .then((repsonse) => {
+  //     localStorage.clear()
+  //     browserHistory.push('/')
+  //   })
+  // }
 
   // Sets the values of the target field
   handleFormChange = (event) => {
@@ -160,6 +166,7 @@ class LandingPage extends Component {
             </form>
             </Dialog>
 
+
           {/* <footer className="login-registration-bar">
             hi
           </footer> */}
@@ -168,5 +175,6 @@ class LandingPage extends Component {
     );
   }
 }
+            // <RaisedButton label="Logout" onTouchTap={this.handleLogout} />
 
 export default LandingPage;
