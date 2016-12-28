@@ -9,7 +9,7 @@ class DetailedCard extends Component {
         <div className="detailed-card">
           <img role="presentation" className="big-movie-poster" src={currentMovie.poster} />
           <div className="stuff-next-to-poster">
-            <DetailedTabs currentMovie={this.props.currentMovie} hideCard={this.props.hideCard}/>
+            <DetailedTabs currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} user={this.props.user}/>
           </div>
         </div>
       </div>

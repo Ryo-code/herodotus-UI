@@ -8,5 +8,5 @@ export default props =>
       updateMoviesFromSearchResult={props.updateMoviesFromSearchResult}
       updateToSearchResults={props.updateToSearchResults}
     />
-    <FilmWall movies={props.movies} />
+    <FilmWall movies={props.movies} user={props.user}/>
   </div>

@@ -22,6 +22,7 @@ class LandingPage extends Component {
       loginEmail: '',
       loginPassword: '',
       loginOpen: false,
+      signedIn: false,
     }
   }
 
@@ -44,10 +45,10 @@ class LandingPage extends Component {
       password_confirmation: password_confirmation,
     })
     .then((response) => {
-      console.log("in user registration", response)
-      localStorage.user = response.data.email
-      localStorage.token = response.data.access_token
-      // browserHistory.push('/movies')
+      localStorage.userID = response.data.user.id
+      localStorage.email = response.data.user.email
+      localStorage.signedIn = response.data.signed_in
+      browserHistory.push('/movies')
     })
     .catch((response) => {
       console.log(response)
@@ -72,10 +73,10 @@ class LandingPage extends Component {
       password: loginPassword,
     })
     .then((response) => {
-      console.log("in handle login", response)
-      localStorage.user = response.data.email
-      localStorage.token = response.data.access_token
-      // browserHistory.push('/movies')
+      localStorage.userID = response.data.user.id
+      localStorage.email = response.data.user.email
+      localStorage.signedIn = response.data.signed_in
+      browserHistory.push('/movies')
     })
     .catch((response) => {
       console.log(response)

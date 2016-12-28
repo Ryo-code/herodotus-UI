@@ -49,6 +49,7 @@ class FilmWall extends Component {
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
+          user={this.props.user}
         />
         <FilmRow
           className="film-row"
@@ -57,6 +58,7 @@ class FilmWall extends Component {
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
+          user={this.props.user}
         />
 
       </div>
