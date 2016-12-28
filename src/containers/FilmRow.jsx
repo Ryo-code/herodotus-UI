@@ -11,13 +11,9 @@ class FilmRow extends Component {
   }
 
   componentDidMount() {
-    // console.log("localstorage in filmrow", localStorage)
     axios.get('http://0.0.0.0:3000/movies', {
       params: {
         category: this.props.rowGenre
-      },
-      headers: {
-        Authorization: localStorage.token
       }
     })
       .then((response) => {

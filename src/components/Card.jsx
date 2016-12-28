@@ -10,7 +10,7 @@ class Card extends Component {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     this.props.selectMovie(this.props.movieData)
   }
 
@@ -19,16 +19,6 @@ class Card extends Component {
     const style = {
       backgroundImage: `url(${img_url})`
     };
-    // const starRatingPercentage = (this.props.movieData.imdbrating / 2) / 5 * 100
-    // const starRatingStyle = {
-    //   background: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x',
-    //   backgroundPosition: '0 100%',
-    //   float: 'left',
-    //   height: '21px',
-    //   display: 'block',
-    //   overflow: 'hidden',
-    //   width: `${starRatingPercentage}%`
-    // }
     return (
       <div className="card
         col-lg-2

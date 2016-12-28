@@ -166,6 +166,7 @@ class LandingPage extends Component {
             </form>
             </Dialog>
 
+            {/* <RaisedButton label="Logout" onTouchTap={this.handleLogout} /> */}
 
           {/* <footer className="login-registration-bar">
             hi
@@ -175,6 +176,5 @@ class LandingPage extends Component {
     );
   }
 }
-            // <RaisedButton label="Logout" onTouchTap={this.handleLogout} />
 
 export default LandingPage;

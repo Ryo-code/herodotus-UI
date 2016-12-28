@@ -92,7 +92,7 @@ class DetailedTabs extends React.Component {
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? "| Metascore: " + currentMovie.metascore : ""}</p> {/*IF it exists*/}
+            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
             <p><span>Runtime:</span> {currentMovie.runtime}</p>
             <p><span>Country(ies):</span> {currentMovie.country}</p>
             <p><span>Awards:</span> {currentMovie.awards ? currentMovie.metascore : ""}</p> {/*IF it exists*/}

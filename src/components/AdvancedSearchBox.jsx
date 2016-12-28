@@ -21,12 +21,12 @@ const styles = {
 };
 class AdvancedSearchBox extends Component {
   state = {
-    title: '',
-    genre: '',
-    keywords: '',
-    location: '',
-    date: '',
-    era: '' ,
+    title: null,
+    genre: null,
+    keywords: null,
+    location: null,
+    date: null,
+    era: null,
     open: false,
   }
 
@@ -39,11 +39,11 @@ class AdvancedSearchBox extends Component {
 
   clearForm = () => {
     this.setState({
-      title: '',
-      genre: '',
-      keywords: '',
-      location: '',
-      date: '',
+      title: null,
+      genre: null,
+      keywords: null,
+      location: null,
+      date: null,
       open: false
     })
   }
