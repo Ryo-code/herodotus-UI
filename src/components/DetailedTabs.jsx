@@ -2,6 +2,7 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
+import TextField from 'material-ui/TextField'
 
 // import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
@@ -29,6 +30,7 @@ class DetailedTabs extends React.Component {
     super(props);
     this.state = {
       slideIndex: 0,
+      comment: '',
     };
   }
 
@@ -40,6 +42,12 @@ class DetailedTabs extends React.Component {
 
   handleCloseClick = () => {
     this.props.hideCard()
+  }
+
+  handleCommentChange = (event) => {
+    this.setState({
+      comment: event.target.value
+    })
   }
 
   render() {
@@ -54,6 +62,7 @@ class DetailedTabs extends React.Component {
       width: `${starRatingPercentage}%`
     }
 
+      const {comment} = this.state
     return (
       <div>
         <Tabs
@@ -108,6 +117,11 @@ class DetailedTabs extends React.Component {
             <h1>User self notes will go in here</h1>
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
+            <form onSubmit={this.handleCommentSubmit}>
+              <TextField hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
+                <input onChange={this.handleCommentChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
+              </TextField>
+            </form>
             <h1>All user comments will go in here</h1>
             <p>a movie can have many comments</p>
             <p>a user can only have 1 comment on 1 movie</p>
