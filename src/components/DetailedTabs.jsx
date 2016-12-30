@@ -3,6 +3,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import TextField from 'material-ui/TextField'
+import axios from 'axios'
 
 // import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
@@ -54,8 +55,12 @@ class DetailedTabs extends React.Component {
 
   handleCommentSubmit = (event) => {
     event.preventDefault()
-
-
+    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`, {
+      user_id: localStorage.userID,
+      username: localStorage.username,
+      movie_id: this.props.currentMovie.id,
+      comment: this.state.comment,
+    })
   }
 
   render() {
@@ -69,8 +74,6 @@ class DetailedTabs extends React.Component {
       display: 'block',
       width: `${starRatingPercentage}%`
     }
-
-    console.log(this.props.currentMovieComments)
     return (
       <div>
         <Tabs
@@ -130,9 +133,10 @@ class DetailedTabs extends React.Component {
                 <input onChange={this.handleCommentChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
               </TextField>
             </form>
-            {this.props.currentMovieComments ? this.props.currentMovieComments.forEach(function(comments) {
+            {this.props.currentMovieComments ? this.props.currentMovieComments.map((comments, index) => {
+                console.log(comments)
               return (
-                <p>comments.comment</p>
+                <p key={index}>{comments.username} : {comments.comment}</p>
               )
             }) : null
             }
