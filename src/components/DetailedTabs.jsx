@@ -38,6 +38,8 @@ class DetailedTabs extends React.Component {
     this.setState({
       slideIndex: value,
     });
+
+
   };
 
   handleCloseClick = () => {
@@ -48,6 +50,12 @@ class DetailedTabs extends React.Component {
     this.setState({
       comment: event.target.value
     })
+  }
+
+  handleCommentSubmit = (event) => {
+    event.preventDefault()
+
+
   }
 
   render() {
@@ -62,7 +70,7 @@ class DetailedTabs extends React.Component {
       width: `${starRatingPercentage}%`
     }
 
-      const {comment} = this.state
+    console.log(this.props.currentMovieComments)
     return (
       <div>
         <Tabs
@@ -122,9 +130,12 @@ class DetailedTabs extends React.Component {
                 <input onChange={this.handleCommentChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
               </TextField>
             </form>
-            <h1>All user comments will go in here</h1>
-            <p>a movie can have many comments</p>
-            <p>a user can only have 1 comment on 1 movie</p>
+            {this.props.currentMovieComments ? this.props.currentMovieComments.forEach(function(comments) {
+              return (
+                <p>comments.comment</p>
+              )
+            }) : null
+            }
           </div>
         </SwipeableViews>
       </div>

@@ -27,6 +27,14 @@ class FilmRow extends Component {
 
   selectMovie = (movie) => {
     this.props.setMovie(movie, this.props.rowGenre)
+
+    axios.get(`http://0.0.0.0:3000/movies/${movie.id}`)
+      .then((response) => {
+        this.setState({currentMovieComments: response.data})
+      })
+      .catch((response) => {
+        console.log(response)
+      })
   }
 
   render() {
@@ -53,7 +61,12 @@ class FilmRow extends Component {
         </div>
         {
           this.props.card === this.props.rowGenre ?
-            <DetailedCard currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} user={this.props.user} /> : null
+            <DetailedCard
+              currentMovie={this.props.currentMovie}
+              hideCard={this.props.hideCard}
+              user={this.props.user}
+              currentMovieComments={this.state.currentMovieComments}
+            /> : null
         }
       </div>
     );
