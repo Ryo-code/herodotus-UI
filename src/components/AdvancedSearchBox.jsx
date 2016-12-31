@@ -21,12 +21,12 @@ const styles = {
 };
 class AdvancedSearchBox extends Component {
   state = {
-    title: '',
-    genre: '',
-    keywords: '',
-    location: '',
-    date: '',
-    era: 'AD' ,
+    title: null,
+    genre: null,
+    keywords: null,
+    location: null,
+    date: null,
+    era: null,
     open: false,
   }
 
@@ -39,11 +39,11 @@ class AdvancedSearchBox extends Component {
 
   clearForm = () => {
     this.setState({
-      title: '',
-      genre: '',
-      keywords: '',
-      location: '',
-      date: '',
+      title: null,
+      genre: null,
+      keywords: null,
+      location: null,
+      date: null,
       open: false
     })
   }
@@ -52,7 +52,19 @@ class AdvancedSearchBox extends Component {
     let {title, genre, keywords, date, era, location} = this.state;
     event.preventDefault();
 
-    axios.get(`http://0.0.0.0:3000/adv_searches/?title=${title}&genre=${genre}&keywords=${keywords}&date=${date}&era=${era}&location=${location}`)
+    axios.get('http://0.0.0.0:3000/adv_searches', {
+        params: {
+          title: title,
+          genre: genre,
+          keywords: keywords,
+          date: date,
+          era: era,
+          location: location,
+        },
+        headers: {
+          Authorization: localStorage.token
+        }
+      })
       .then((response) => {
         this.props.updateToSearchResults(response.data)
         browserHistory.push('/results')
@@ -117,7 +129,7 @@ class AdvancedSearchBox extends Component {
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
               <div id="submit-button">
-               <RadioButtonGroup name="shipSpeed" defaultSelected="AD">
+               <RadioButtonGroup name="shipSpeed">
                   <RadioButton
                     onClick={this.handleEraChange}
                     value="BC"

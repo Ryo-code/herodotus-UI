@@ -1,15 +1,29 @@
 import React, {Component} from 'react';
 // import React from 'react';
-import SearchFilmRow from './SearchFilmRow.jsx';
+// import SearchFilmRow from './SearchFilmRow.jsx';
 // import axios from 'axios'
 import {Link} from 'react-router'
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
+import Card from '../components/Card.jsx'
+// import DetailedCard from './DetailedCard.jsx'
 
 export default class SearchResultPage extends Component {
 
-  render() {
+  state = {
+    movies: [],
+    currentMovie: null,
+  }
 
+  componentDidMount() {
+    this.setState({movies: this.props.searchResults})
+  }
+
+  selectMovie = (movie) => {
+    this.setState({ currentMovie: movie })
+  }
+
+  render() {
     return (
       <div>
         <NavBar
@@ -17,15 +31,29 @@ export default class SearchResultPage extends Component {
           updateToSearchResults={this.props.updateToSearchResults}
         />
         <h1>
-          <Link to="/">Back to Home</Link>
+          <Link to="/movies">Back to Home</Link>
         </h1>
         <h1>Here are your search results</h1>
-        <h2>Your search has yielded {this.props.searchResults.length}
-          results</h2>
-        <SearchFilmRow
-          currentMovies={this.props.searchResults}
-        />
+        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
+          <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
+            {
+              this.props.searchResults.map((movie, index) => {
+                return (
+                  <Card
+                    key={index}
+                    movieData={movie}
+                    selectMovie={this.selectMovie}
+                    showCard={this.state.currentMovie}
+                  />
+                );
+            // {this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
+              })
+            }
+          </div>
       </div>
     );
   }
 }
+        // <SearchFilmRow
+        //   currentMovies={this.props.searchResults}
+        // />

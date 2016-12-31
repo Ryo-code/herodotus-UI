@@ -11,8 +11,8 @@ import { browserHistory, Route, IndexRoute, Router } from 'react-router'
 ReactDOM.render(
    <Router history={browserHistory}>
 
-      <Route path="/landing" component={LandingPage}/>
-      <Route path="/" component={App}>
+      <Route path="/" component={LandingPage}/>
+        <Route path="/movies" component={App}>
         <IndexRoute component={Home}/>
         <Route path="/results" component={SearchResultPage} />
       </Route>

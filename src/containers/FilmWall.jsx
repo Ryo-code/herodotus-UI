@@ -23,19 +23,19 @@ class FilmWall extends Component {
     super(props)
     this.state = {
       currentMovie: null,
-      currentGenre: null
+      currentCategory: null
     }
   }
 
   setCurrentMovieAndCard = (movie, genre) => {
     this.setState({
       currentMovie: movie,
-      currentGenre: genre
+      currentCategory: genre
     })
   }
 
   hideCard = () => {
-    this.setState({currentGenre: null})
+    this.setState({currentCategory: null})
   }
 
   render() {
@@ -45,18 +45,20 @@ class FilmWall extends Component {
         <FilmRow
           className="film-row"
           rowGenre={categories[0]}
-          card={this.state.currentGenre}
+          card={this.state.currentCategory}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
+          user={this.props.user}
         />
         <FilmRow
           className="film-row"
           rowGenre={categories[1]}
-          card={this.state.currentGenre}
+          card={this.state.currentCategory}
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
+          user={this.props.user}
         />
 
       </div>

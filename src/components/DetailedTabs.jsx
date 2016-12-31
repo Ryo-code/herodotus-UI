@@ -22,7 +22,6 @@ const scrollStyles = {
     padding: 50,
     overflowY: "scroll"
   },
-
 };
 
 class DetailedTabs extends React.Component {
@@ -45,6 +44,16 @@ class DetailedTabs extends React.Component {
 
   render() {
     const currentMovie = this.props.currentMovie
+    const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100
+    const starRatingStyle = {
+      background: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x',
+      backgroundPosition: '0 100%',
+      float: 'left',
+      height: '21px',
+      display: 'block',
+      width: `${starRatingPercentage}%`
+    }
+
     return (
       <div>
         <Tabs
@@ -68,7 +77,12 @@ class DetailedTabs extends React.Component {
             <h2 style={scrollStyles.headline}>{currentMovie.title}</h2>
             <p>{currentMovie.year}</p>
             <p>{currentMovie.plot}</p>
-            <p><span>Star rating:</span> {currentMovie.imdbrating / 2}</p>
+            <p>{currentMovie.imbdrating}</p>
+
+            <div className="star-ratings-sprite">
+              <span style={starRatingStyle}> </span>
+            </div>
+
             <p><span>Set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
             <p><span>Era:</span>    </p>
             <p><span>Location(s):</span> {currentMovie.country}</p>
@@ -78,7 +92,7 @@ class DetailedTabs extends React.Component {
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? "| Metascore: " + currentMovie.metascore : ""}</p> {/*IF it exists*/}
+            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
             <p><span>Runtime:</span> {currentMovie.runtime}</p>
             <p><span>Country(ies):</span> {currentMovie.country}</p>
             <p><span>Awards:</span> {currentMovie.awards ? currentMovie.metascore : ""}</p> {/*IF it exists*/}
@@ -91,14 +105,12 @@ class DetailedTabs extends React.Component {
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <p>keywords:
-            {
-              currentMovie.keywords
-            }
-            </p>
+            <h1>User self notes will go in here</h1>
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            slide n°4
+            <h1>All user comments will go in here</h1>
+            <p>a movie can have many comments</p>
+            <p>a user can only have 1 comment on 1 movie</p>
           </div>
         </SwipeableViews>
       </div>

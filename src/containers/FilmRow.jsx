@@ -11,7 +11,11 @@ class FilmRow extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://0.0.0.0:3000/movies?genre=${this.props.rowGenre}`)
+    axios.get('http://0.0.0.0:3000/movies', {
+      params: {
+        category: this.props.rowGenre
+      }
+    })
       .then((response) => {
         this.setState({ movies: response.data })
       })
@@ -49,7 +53,7 @@ class FilmRow extends Component {
         </div>
         {
           this.props.card === this.props.rowGenre ?
-            <DetailedCard currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} /> : null
+            <DetailedCard currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} user={this.props.user} /> : null
         }
       </div>
     );

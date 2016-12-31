@@ -3,13 +3,6 @@ import DetailedCard from '../containers/DetailedCard.jsx';
 
 class Card extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     currentMovie: {}
-  //   }
-  // }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +10,7 @@ class Card extends Component {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     this.props.selectMovie(this.props.movieData)
   }
 
@@ -41,7 +34,10 @@ class Card extends Component {
             {this.props.movieData.title} ({this.props.movieData.year})
           </div>
         </article>
-        {this.props.showCard === this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
+        {
+          this.props.showCard === this.state.currentMovie ?
+          <DetailedCard currentMovie={this.state.currentMovie} /> : null
+        }
       </div>
 
     );

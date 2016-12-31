@@ -18,6 +18,16 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    this.setState({
+      user: {
+        id: localStorage.userID,
+        email: localStorage.email,
+        signedIn: localStorage.signedIn,
+      }
+    })
+  }
+
   updateMoviesFromSearchResult = (resultingArray) => {
     this.setState({movies: resultingArray})
   }
