@@ -40,7 +40,7 @@ class DetailedTabs extends React.Component {
   };
 
   handleCloseClick = () => {
-    // this.props.hideCard()
+    this.props.hideCard()
   }
 
   render() {
@@ -103,35 +103,6 @@ class DetailedTabs extends React.Component {
         </SwipeableViews>
       </div>
 
-      // <Tabs
-      //   onChange={this.handleChange}
-      //   value={this.state.slideIndex}
-      // >
-      //   <Tab
-      //     icon={<Face/>}
-      //     label="STORY"
-      //     className="detailed-card-tab"
-      //   >
-      //     test text for tab 1
-      //   </Tab>
-      //   <Tab
-      //     icon={<Videocam/>}
-      //     label="FILM"
-      //     className="detailed-card-tab"
-      //   >
-      //     test text for tab 2
-      //   </Tab>
-      //   <Tab
-      //     icon={<Create/>}
-      //     label="NOTES"
-      //     className="detailed-card-tab"
-      //   />
-      //   <Tab
-      //     icon={<Forum/>}
-      //     label="COMMENTS"
-      //     className="detailed-card-tab"
-      //   />
-      // </Tabs>
     );
   }
 }

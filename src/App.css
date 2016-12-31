@@ -23,10 +23,12 @@ article div{
   /*display: flex;*/
   background-color: black;
   padding: 10px;
-  opacity: 0.0;
+  opacity: 0.3;
   color: white;
   bottom: 0;
   /*border-radius: 30px;*/
+  width: 89%;
+  overflow: hidden;
 }
 
 article:hover div {
@@ -38,6 +40,7 @@ article:hover div {
   color: white;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  width: 89%;
 }
 
 #submit-button {
