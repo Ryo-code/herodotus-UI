@@ -32,7 +32,7 @@ class DetailedTabs extends React.Component {
     this.state = {
       slideIndex: 0,
       comment: '',
-      currentMovieComments: '',
+      currentMovieComments: [],
     };
   }
 
@@ -47,7 +47,7 @@ class DetailedTabs extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.currentMovie != this.props.currentMovie) {
+    if (prevProps.currentMovie !== this.props.currentMovie) {
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({currentMovieComments: response.data})
@@ -138,7 +138,6 @@ class DetailedTabs extends React.Component {
             <p><span>Location(s):</span> {currentMovie.country}</p>
             <p><span>Genre(s):</span> {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
-
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
