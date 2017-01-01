@@ -46,15 +46,14 @@ class LandingPage extends Component {
       password_confirmation: password_confirmation,
     })
     .then((response) => {
-      localStorage.user = response.data.user
       localStorage.username = response.data.user.username
       localStorage.userID = response.data.user.id
       localStorage.email = response.data.user.email
       localStorage.signedIn = response.data.signed_in
       browserHistory.push('/movies')
     })
-    .catch((response) => {
-      console.log(response)
+    .catch((error) => {
+      console.log(error)
     })
   }
 
@@ -82,8 +81,8 @@ class LandingPage extends Component {
       localStorage.signedIn = response.data.signed_in
       browserHistory.push('/movies')
     })
-    .catch((response) => {
-      console.log(response)
+    .catch((error) => {
+      console.log(error)
     })
   }
 
@@ -92,6 +91,9 @@ class LandingPage extends Component {
   //   .then((repsonse) => {
   //     localStorage.clear()
   //     browserHistory.push('/')
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
   //   })
   // }
 

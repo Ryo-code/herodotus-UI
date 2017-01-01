@@ -21,12 +21,12 @@ const styles = {
 };
 class AdvancedSearchBox extends Component {
   state = {
-    title: null,
-    genre: null,
-    keywords: null,
-    location: null,
-    date: null,
-    era: null,
+    title: '',
+    genre: '',
+    keywords: '',
+    location: '',
+    date: '',
+    era: '',
     open: false,
   }
 
@@ -39,11 +39,11 @@ class AdvancedSearchBox extends Component {
 
   clearForm = () => {
     this.setState({
-      title: null,
-      genre: null,
-      keywords: null,
-      location: null,
-      date: null,
+      title: '',
+      genre: '',
+      keywords: '',
+      location: '',
+      date: '',
       open: false
     })
   }
@@ -53,16 +53,13 @@ class AdvancedSearchBox extends Component {
     event.preventDefault();
 
     axios.get('http://0.0.0.0:3000/adv_searches', {
-        params: {
+      params: {
           title: title,
           genre: genre,
           keywords: keywords,
           date: date,
           era: era,
           location: location,
-        },
-        headers: {
-          Authorization: localStorage.token
         }
       })
       .then((response) => {

@@ -32,15 +32,24 @@ class DetailedTabs extends React.Component {
     this.state = {
       slideIndex: 0,
       comment: '',
+      currentMovieComments: '',
     };
+  }
+
+  componentDidMount() {
+    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+      .then((response) => {
+        this.setState({currentMovieComments: response.data})
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
     });
-
-
   };
 
   handleCloseClick = () => {
@@ -60,6 +69,15 @@ class DetailedTabs extends React.Component {
       username: localStorage.username,
       movie_id: this.props.currentMovie.id,
       comment: this.state.comment,
+    })
+    .then((response) => {
+      this.setState({
+        currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
+        comment: '',
+      })
+    })
+    .catch((error) => {
+      console.log(error)
     })
   }
 
@@ -122,7 +140,6 @@ class DetailedTabs extends React.Component {
             <p></p>
             <p></p>
 
-
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <h1>User self notes will go in here</h1>
@@ -133,10 +150,9 @@ class DetailedTabs extends React.Component {
                 <input onChange={this.handleCommentChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
               </TextField>
             </form>
-            {this.props.currentMovieComments ? this.props.currentMovieComments.map((comments, index) => {
-                console.log(comments)
+            {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
               return (
-                <p key={index}>{comments.username} : {comments.comment}</p>
+                <p key={index}><span>{comment.username}</span> : {comment.comment}</p>
               )
             }) : null
             }
