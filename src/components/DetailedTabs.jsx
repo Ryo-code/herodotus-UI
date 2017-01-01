@@ -46,6 +46,18 @@ class DetailedTabs extends React.Component {
       })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currentMovie != this.props.currentMovie) {
+      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+        .then((response) => {
+          this.setState({currentMovieComments: response.data})
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  }
+
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
