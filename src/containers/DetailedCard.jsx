@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 import DetailedTabs from '../components/DetailedTabs.jsx'
 
 class DetailedCard extends Component {
-  // componentDidMount(){
-  //   timeline = new TL.Timeline('timeline-embed',
-  //      'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
-  // }
 
   render() {
     const currentMovie = this.props.currentMovie
