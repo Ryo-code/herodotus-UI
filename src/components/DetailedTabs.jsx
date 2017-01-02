@@ -32,14 +32,27 @@ class DetailedTabs extends React.Component {
     this.state = {
       slideIndex: 0,
       comment: '',
+      note: '',
       currentMovieComments: [],
+      userNotes: [],
     };
   }
 
+  getComments = () => {
+    // return axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+  }
+
   componentDidMount() {
-    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`, {
+      params: {
+        userID: localStorage.userID
+      }
+    })
       .then((response) => {
-        this.setState({currentMovieComments: response.data})
+        this.setState({
+          currentMovieComments: response.data.comments,
+          userNotes: response.data.notes,
+        })
       })
       .catch((error) => {
         console.log(error)
@@ -48,9 +61,17 @@ class DetailedTabs extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentMovie !== this.props.currentMovie) {
-      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`, {
+        params: {
+          userID: localStorage.userID
+        }
+      })
         .then((response) => {
-          this.setState({currentMovieComments: response.data})
+          console.log(response)
+          this.setState({
+            currentMovieComments: response.data.comments,
+            userNotes: response.data.notes,
+          })
         })
         .catch((error) => {
           console.log(error)
@@ -68,25 +89,39 @@ class DetailedTabs extends React.Component {
     this.props.hideCard()
   }
 
-  handleCommentChange = (event) => {
+  handleFormChange = (event) => {
+    const {name, value} = event.target
     this.setState({
-      comment: event.target.value
+      [name]: value
     })
   }
 
-  handleCommentSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`, {
+    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${event.target.name}`, {
       user_id: localStorage.userID,
       username: localStorage.username,
       movie_id: this.props.currentMovie.id,
       comment: this.state.comment,
+      note: this.state.note,
     })
     .then((response) => {
-      this.setState({
-        currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
-        comment: '',
-      })
+      switch (response.data.type){
+        case 'comment':
+          this.setState({
+            currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
+            comment: '',
+          })
+          break
+        case 'note':
+        this.setState({
+          userNotes: [...this.state.userNotes, response.data.note],
+          note: '',
+        })
+        break
+        default:
+        break
+      }
     })
     .catch((error) => {
       console.log(error)
@@ -144,7 +179,7 @@ class DetailedTabs extends React.Component {
             <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
             <p><span>Runtime:</span> {currentMovie.runtime}</p>
             <p><span>Country(ies):</span> {currentMovie.country}</p>
-            <p><span>Awards:</span> {currentMovie.awards ? currentMovie.metascore : ""}</p> {/*IF it exists*/}
+            <p><span>Awards:</span> {currentMovie.awards ? currentMovie.awards : ""}</p> {/*IF it exists*/}
             <p><span>Director:</span> {currentMovie.director}</p>
             <p><span>Main actor(s):</span> {currentMovie.actors}</p>
             <p><span>Rated:</span> {currentMovie.rated}</p>
@@ -153,12 +188,23 @@ class DetailedTabs extends React.Component {
 
           </div>
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <h1>User self notes will go in here</h1>
+            <form onSubmit={this.handleSubmit} name='notes'>
+              <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
+                <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white"}}/>
+              </TextField>
+            </form>
+            {this.state.userNotes ? this.state.userNotes.map((note, index) => {
+              return (
+                <p key={index}>{note.note}</p>
+              )
+            }) : null
+            }
           </div>
+
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <form onSubmit={this.handleCommentSubmit}>
+            <form onSubmit={this.handleSubmit} name='comments'>
               <TextField hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
-                <input onChange={this.handleCommentChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
+                <input onChange={this.handleFormChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
               </TextField>
             </form>
             {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
