@@ -38,6 +38,7 @@ class DetailedTabs extends React.Component {
     };
   }
 
+  //As soon as the component mounts, it will grab the user notes and all the comments for the clicked movie
   componentDidMount() {
     if (localStorage.userID) {
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
@@ -61,6 +62,7 @@ class DetailedTabs extends React.Component {
       })
   }
 
+  //Will grab the user notes and all comments for the next movie the user clicks
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentMovie !== this.props.currentMovie) {
       if (localStorage.userID) {
@@ -86,16 +88,19 @@ class DetailedTabs extends React.Component {
     }
   }
 
+  //Changes the slide tab
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
     });
   };
 
+  //Closes the card when the X is clicked
   handleCloseClick = () => {
     this.props.hideCard()
   }
 
+  //Will update the value of the field being currently entered
   handleFormChange = (event) => {
     const {name, value} = event.target
     this.setState({
@@ -103,6 +108,7 @@ class DetailedTabs extends React.Component {
     })
   }
 
+  //Handles the user form submission and will post to the appropriate route
   handleSubmit = (event) => {
     event.preventDefault()
     let route;
