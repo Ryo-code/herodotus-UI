@@ -38,20 +38,22 @@ class DetailedTabs extends React.Component {
     };
   }
 
-  getComments = () => {
-    // return axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
-  }
-
   componentDidMount() {
-    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`, {
-      params: {
-        userID: localStorage.userID
-      }
-    })
+    if (localStorage.userID) {
+      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+        .then((response) => {
+          this.setState({
+            userNotes: response.data.notes,
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
       .then((response) => {
         this.setState({
           currentMovieComments: response.data.comments,
-          userNotes: response.data.notes,
         })
       })
       .catch((error) => {
@@ -61,16 +63,21 @@ class DetailedTabs extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentMovie !== this.props.currentMovie) {
-      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`, {
-        params: {
-          userID: localStorage.userID
-        }
-      })
+      if (localStorage.userID) {
+        axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+          .then((response) => {
+            this.setState({
+              userNotes: response.data.notes,
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
         .then((response) => {
-          console.log(response)
           this.setState({
             currentMovieComments: response.data.comments,
-            userNotes: response.data.notes,
           })
         })
         .catch((error) => {
@@ -98,9 +105,17 @@ class DetailedTabs extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${event.target.name}`, {
+    let route;
+    if (event.target.name === 'notes' && localStorage.userID) {
+      route = `users/${localStorage.userID}/notes`
+    } else if (event.target.name === 'comments') {
+      route = 'comments'
+    } else {
+      return
+    }
+    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${route}`, {
       user_id: localStorage.userID,
-      username: localStorage.username,
+      username: localStorage.username ? localStorage.username : 'Anonymous',
       movie_id: this.props.currentMovie.id,
       comment: this.state.comment,
       note: this.state.note,
