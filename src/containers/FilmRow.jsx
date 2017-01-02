@@ -24,7 +24,6 @@ class FilmRow extends Component {
       })
   }
 
-
   selectMovie = (movie) => {
     this.props.setMovie(movie, this.props.rowGenre)
   }
