@@ -18,7 +18,7 @@ const scrollStyles = {
     // paddingTop: 16,
     marginTop: 0,
     marginBottom: 12,
-    // fontWeight: 400,
+    // paddingTop: 16,
   },
   slide: {
     padding: 50,
