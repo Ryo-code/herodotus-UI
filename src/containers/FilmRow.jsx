@@ -52,7 +52,11 @@ class FilmRow extends Component {
         </div>
         {
           this.props.card === this.props.rowGenre ?
-            <DetailedCard currentMovie={this.props.currentMovie} hideCard={this.props.hideCard} user={this.props.user} /> : null
+            <DetailedCard
+              currentMovie={this.props.currentMovie}
+              hideCard={this.props.hideCard}
+              user={this.props.user}
+            /> : null
         }
       </div>
     );
