@@ -106,13 +106,15 @@ class DetailedTabs extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let route;
-    if (event.target.name === 'notes' && localStorage.userID) {
-      route = `users/${localStorage.userID}/notes`
-    } else if (event.target.name === 'comments') {
+    if (event.target.name === 'comments') {
       route = 'comments'
+    } else if (event.target.name === 'notes' && localStorage.userID) {
+      route = `users/${localStorage.userID}/notes`
     } else {
+      alert('Please login to make a note!')
       return
     }
+
     axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${route}`, {
       user_id: localStorage.userID,
       username: localStorage.username ? localStorage.username : 'Anonymous',
@@ -126,12 +128,14 @@ class DetailedTabs extends React.Component {
           this.setState({
             currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
             comment: '',
+            note: '',
           })
           break
         case 'note':
         this.setState({
           userNotes: [...this.state.userNotes, response.data.note],
           note: '',
+          comment: '',
         })
         break
         default:
