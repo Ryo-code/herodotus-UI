@@ -8,7 +8,7 @@ article.film-card {
   border-radius: 10px;
   box-shadow: 4px 0px 25px 2px rgba(0, 0, 0, 0.2);
   margin: 40px 0px;
-  transition: all .1s ease-in-out;
+  transition: all .2s ease-in-out;
   opacity: .9;
   position: relative;
 }
@@ -16,6 +16,7 @@ article.film-card {
 article.film-card:hover {
   opacity: 1;
   transform: scale(1.2);
+  z-index: 1;
 }
 
 article div{
@@ -27,17 +28,19 @@ article div{
   color: white;
   bottom: 0;
   /*border-radius: 30px;*/
+  width: inherit%;
 }
 
 article:hover div {
   display: flex;
   background-color: black;
   padding: 10px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   opacity: .7;
   color: white;
-  border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 89%;
 }
 
 #submit-button {
@@ -68,13 +71,12 @@ article:hover div {
   background-color: black;
   height: 35em;
   color: white;
-  /*padding: 10px;*/
 }
 
 .stuff-next-to-poster {
   display: flex;
   flex-direction: column;
-  /*padding: 40px 100px 0 40px;*/
+  /*min-width:400px;*/
 }
 
 .detailed-card .big-movie-poster {
@@ -90,8 +92,9 @@ article:hover div {
 }
 
 .card {
-  padding-left: 0.6rem !important;
-  padding-right: 1rem !important;
+  min-width: 170px;
+  /*padding-left: 0.6rem !important;
+  padding-right: 1rem !important;*/
 } /*This fixes an annoying styling bug*/
 
 .detailed-card-tab{
@@ -119,10 +122,18 @@ article:hover div {
   height: 390px;
 }
 
-.detailed-card-content p{
+.detailed-card-content{
+  font-size: 2vmin;
+  width: auto;
+  overflow-y:scroll;
+  /*min-width: 400px;*/
+}
+
+/*.detailed-card-content p{
   font-size: 1.9vmin;
   overflow-y:scroll;
-}
+  min-width: 400px;
+}*/
 
 .detailed-card-content span{
   color: darkgrey;
