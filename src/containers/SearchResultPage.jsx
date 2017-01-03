@@ -7,6 +7,7 @@ import {Link} from 'react-router'
 import NavBar from './NavBar.jsx';
 import Card from '../components/Card.jsx'
 // import DetailedCard from './DetailedCard.jsx'
+import Coverflow from './Coverflow.jsx';
 
 
 export default class SearchResultPage extends Component {
@@ -42,7 +43,6 @@ export default class SearchResultPage extends Component {
         <h1>
           <Link to="/movies">Back to Home</Link>
         </h1>
-        <h1>Here are your search results</h1>
         <h2>Your search has yielded {this.props.searchResults.length} results</h2>
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
             {
@@ -60,6 +60,9 @@ export default class SearchResultPage extends Component {
               })
             }
           </div>
+          <Coverflow movies={this.props.searchResults}/>
+          <br/>
+          <br/>
       </div>
     );
   }
