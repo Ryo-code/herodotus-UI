@@ -43,9 +43,9 @@ export default class SearchResultPage extends Component {
         <h1>
           <Link to="/movies">Back to Home</Link>
         </h1>
+        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
         <Coverflow movies={this.props.searchResults}/>
 
-        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
             {
               this.props.searchResults.map((movie, index) => {

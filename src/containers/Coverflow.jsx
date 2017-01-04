@@ -41,7 +41,7 @@ export default class CoverFlow extends Component {
           {
             this.props.movies.map((movie, index) => {
               return (
-                <img key={index} src={movie.poster} alt={[movie.title, ' (Set: ', movie.set_start_year,'~', movie.set_end_year, ')']} data-action={fn} />
+                <img key={index} src={movie.poster} alt={[movie.title, ' (', movie.set_start_year,'~', movie.set_end_year, ')']} data-action={fn} />
               );
             })
           }
