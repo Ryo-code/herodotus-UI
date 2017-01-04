@@ -40,10 +40,17 @@ export default class SearchResultPage extends Component {
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
-        <h1>
+        <h3>
           <Link to="/movies">Back to Home</Link>
-        </h1>
-        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
+        </h3>
+
+        <br/>
+
+        <h3>Your search has yielded {this.props.searchResults.length} results.</h3>
+        <p>Didn't find what you wanted? Add to the community by submitting your own</p>
+           {/* We can link this to the user submission page */}
+
+        <h1>Timeline</h1>
         <Coverflow movies={this.props.searchResults}/>
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
