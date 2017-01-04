@@ -18,7 +18,7 @@ const scrollStyles = {
     // paddingTop: 16,
     marginTop: 0,
     marginBottom: 12,
-    // fontWeight: 400,
+    // paddingTop: 16,
   },
   slide: {
     padding: 50,
@@ -38,6 +38,7 @@ class DetailedTabs extends React.Component {
     };
   }
 
+  //As soon as the component mounts, it will grab the user notes and all the comments for the clicked movie
   componentDidMount() {
     if (localStorage.userID) {
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
@@ -61,6 +62,7 @@ class DetailedTabs extends React.Component {
       })
   }
 
+  //Will grab the user notes and all comments for the next movie the user clicks
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentMovie !== this.props.currentMovie) {
       if (localStorage.userID) {
@@ -86,16 +88,19 @@ class DetailedTabs extends React.Component {
     }
   }
 
+  //Changes the slide tab
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
     });
   };
 
+  //Closes the card when the X is clicked
   handleCloseClick = () => {
     this.props.hideCard()
   }
 
+  //Will update the value of the field being currently entered
   handleFormChange = (event) => {
     const {name, value} = event.target
     this.setState({
@@ -103,48 +108,50 @@ class DetailedTabs extends React.Component {
     })
   }
 
+  //Handles the user form submission and will post to the appropriate route
   handleSubmit = (event) => {
     event.preventDefault()
     let route;
-    if (event.target.name === 'comments') {
-      route = 'comments'
-    } else if (event.target.name === 'notes' && localStorage.userID) {
-      route = `users/${localStorage.userID}/notes`
-    } else {
-      alert('Please login to make a note!')
-      return
-    }
+    if (localStorage.userID) {
+      if (event.target.name === 'comments') {
+        route = 'comments'
+      } else {
+        route = `users/${localStorage.userID}/notes`
+      }
 
-    axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${route}`, {
-      user_id: localStorage.userID,
-      username: localStorage.username ? localStorage.username : 'Anonymous',
-      movie_id: this.props.currentMovie.id,
-      comment: this.state.comment,
-      note: this.state.note,
-    })
-    .then((response) => {
-      switch (response.data.type){
-        case 'comment':
+      axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${route}`, {
+        user_id: localStorage.userID,
+        username: localStorage.username ? localStorage.username : 'Anonymous',
+        movie_id: this.props.currentMovie.id,
+        comment: this.state.comment,
+        note: this.state.note,
+      })
+      .then((response) => {
+        switch (response.data.type){
+          case 'comment':
+            this.setState({
+              currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
+              comment: '',
+              note: '',
+            })
+            break
+          case 'note':
           this.setState({
-            currentMovieComments: [...this.state.currentMovieComments, response.data.new_comment],
-            comment: '',
+            userNotes: [...this.state.userNotes, response.data.note],
             note: '',
+            comment: '',
           })
           break
-        case 'note':
-        this.setState({
-          userNotes: [...this.state.userNotes, response.data.note],
-          note: '',
-          comment: '',
-        })
-        break
-        default:
-        break
-      }
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+          default:
+          break
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    } else {
+      alert('Please login before you make a comment or a note!')
+    }
   }
 
   render() {
