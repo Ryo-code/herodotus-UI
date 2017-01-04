@@ -1,14 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 
-    <!--
+  <!-- NOTE: FOR THE TIMELINE... -->
+  <!-- For timeline: 1 -->
+  <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+
+  <!-- For timeline: 2 -->
+  <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+
+  <div id='timeline-embed' style="width: 100%; height: 600px"></div>
+
+  <!-- For timeline: 3 -->
+  <script type="text/javascript">
+    var timeline_json = make_the_json(); // you write this part
+    // two arguments: the id of the Timeline container (no '#')
+    // and the JSON object or an instance of TL.TimelineConfig created from
+    // a suitable JSON object
+    window.timeline = new TL.Timeline('timeline-embed', timeline_json);
+  </script>
+
+
+
+  <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -17,11 +38,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Herodotus</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!--
+  <title>Herodotus</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -31,5 +53,6 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
-  </body>
+</body>
+
 </html>
