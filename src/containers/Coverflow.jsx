@@ -23,6 +23,10 @@ export default class CoverFlow extends Component {
   }
 
   render () {
+
+    //TODO:put a function or variable here which will render the title and the years of the movies
+    // const carouselText = `{this.props.movie.title}, set in {this.props.movie.set_start_year}`
+
     return (
       <div>
         <Coverflow
@@ -37,7 +41,7 @@ export default class CoverFlow extends Component {
           {
             this.props.movies.map((movie, index) => {
               return (
-                <img key={index} src={movie.poster} alt={movie.title} data-action={fn} />
+                <img key={index} src={movie.poster} alt={[movie.title, ' (Set:', movie.set_start_year,'~', ')']} data-action={fn} />
               );
             })
           }
