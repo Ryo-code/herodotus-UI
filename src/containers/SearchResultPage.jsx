@@ -16,6 +16,7 @@ export default class SearchResultPage extends Component {
   state = {
     movies: [],
     currentMovie: null,
+    active: 0,
   }
 
   componentDidMount() {
@@ -32,6 +33,13 @@ export default class SearchResultPage extends Component {
     this.setState({ currentMovie: movie })
   }
 
+  _handleClick() {
+    var num = Math.floor((Math.random() * this.state.movies.length) + 1);
+    this.setState({
+      active: num
+    });
+  }
+
   render() {
 
     return (
@@ -41,11 +49,10 @@ export default class SearchResultPage extends Component {
           updateToSearchResults={this.props.updateToSearchResults}
         />
         <h1>
-          <Link to="/movies">Back to Home</Link>
+          <Link to="/movies">Back to Home</Link>  Your search has yielded {this.props.searchResults.length} results
         </h1>
-        <h2>Your search has yielded {this.props.searchResults.length} results</h2>
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
-            {
+            {/*
               this.props.searchResults.map((movie, index) => {
                 return (
                   <Card
@@ -55,11 +62,13 @@ export default class SearchResultPage extends Component {
                     showCard={this.state.currentMovie}
                   />
                 );
-        //         {window.timeline = new sheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml')}
             // {this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
               })
-            }
+            */}
           </div>
+
+
+        {/*<button className='randomButton' onClick={this._handleClick.bind(this)}>Random</button>*/}
           <Coverflow movies={this.props.searchResults}/>
           <br/>
           <br/>

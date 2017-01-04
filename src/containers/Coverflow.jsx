@@ -28,16 +28,17 @@ export default class CoverFlow extends Component {
         <Coverflow
           width={960}
           height={480}
-          displayQuantityOfSide={2}
+          displayQuantityOfSide={3}
           navigation={true}
           enableHeading={true}
-          active={this.state.active}
+          active={0}
           >
 
           {
             this.props.movies.map((movie, index) => {
+              const movieText = `${movie.title} (${movie.set_start_year} - ${movie.set_end_year})`
               return (
-                <img key={index} src={movie.poster} alt={movie.title} data-action={fn} />
+                <img key={index} src={movie.poster} alt={movieText} data-action={fn} />
               );
             })
           }
