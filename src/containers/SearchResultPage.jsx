@@ -12,10 +12,10 @@ import Coverflow from './Coverflow.jsx';
 
 export default class SearchResultPage extends Component {
 
+
   state = {
     movies: [],
     currentMovie: null,
-    active: 0,
   }
 
   componentDidMount() {
@@ -51,7 +51,7 @@ export default class SearchResultPage extends Component {
            {/* We can link this to the user submission page */}
 
         <h1>Timeline</h1>
-        <Coverflow movies={this.props.searchResults} />
+        <Coverflow movies={this.props.searchResults}/>
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
             {/*
@@ -64,13 +64,9 @@ export default class SearchResultPage extends Component {
                     showCard={this.state.currentMovie}
                   />
                 );
-            // {this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} /> : null}
               })
             */}
           </div>
-
-
-        {/*<button className='randomButton' onClick={this._handleClick.bind(this)}>Random</button>*/}
           <br/>
           <br/>
       </div>
