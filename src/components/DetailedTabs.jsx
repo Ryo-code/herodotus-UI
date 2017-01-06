@@ -194,9 +194,8 @@ class DetailedTabs extends React.Component {
               <span style={starRatingStyle}> </span>
             </div>
 
-            <p><span>Set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
-            <p><span>Era:</span>    </p>
-            <p><span>Location(s):</span> {currentMovie.country}</p>
+            <p><span>Story set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
+            <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
             <p><span>Genre(s):</span> {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
 

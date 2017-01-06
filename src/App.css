@@ -80,7 +80,6 @@ nav img{
 .stuff-next-to-poster {
   display: flex;
   flex-direction: column;
-  /*min-width:400px;*/
 }
 
 .detailed-card .big-movie-poster {
@@ -113,24 +112,14 @@ nav img{
   height: 200px;
 }
 
-/*form{
-  display: inline-block;
-  color: black;
-  padding: 20px;
-  height: 400px;
-  background: pink;
-  border-radius: 15px;
-}*/
-
 .film-row{
   height: 390px;
 }
 
 .detailed-card-content{
-  font-size: 2vmin;
+  font-size: 2.2vmin;
   width: auto;
-  overflow-y:scroll;
-  /*min-width: 400px;*/
+  overflow-y: scroll;
 }
 
 /*.detailed-card-content p{
@@ -155,4 +144,34 @@ nav img{
   margin: 0;
 }
 
-.randomButton {border:1px solid #616161;border-radius:2px;min-width:120px;padding:5px;margin:2px;background:#616161;color:hsla(0,0%,100%,.9)}
+.cover-flow-button {
+  border:1px solid #616161;
+  border-radius:2px;
+  min-width:120px;
+  padding:5px;
+  margin:2px;
+  background:#616161;
+  color:hsla(0,0%,100%,.9)
+}
+
+.carousel-custom-buttons{
+  position: relative;
+  /*top: 500px;*/
+  display:flex;
+  justify-content: space-around;
+  z-index: 1;
+  /*background:red;*/
+}
+
+.cover-flow-button .left{
+  position: absolute;
+  bottom: 50px;
+}
+
+.cover-flow-button .middle{
+  position: absolute;
+}
+
+.cover-flow-button .right{
+  position: absolute;
+}
