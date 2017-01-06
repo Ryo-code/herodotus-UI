@@ -70,14 +70,6 @@ class AdvancedSearchBox extends Component {
         console.log(error)
       })
     this.clearForm()
-
-// PLZ DO NOT DELETE
-    // axios.post(`/login`, {
-    //   body: {
-    //     username:
-    //     password:
-    //   }
-    // }).then(data => localStorage.token = data.token)
   }
   handleEraChange = (event) => {
     this.setState({era: event.target.value})

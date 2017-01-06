@@ -15,9 +15,9 @@ class NavBar extends Component {
           style={{background: 'rgba(0, 0, 0, 0.88)', padding: '15px', position: 'fixed', top: '0'}}
           title="Herodotus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          // iconStyleRight="o"
+          // iconElementLeft={<img src='../herodotus-white-on-black.png' role='presentation'/>}
         >
-
+        <p>{localStorage.username ? localStorage.username : ''}</p>
         <AdvancedSearchBox
           className="advanced-search-button"
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
