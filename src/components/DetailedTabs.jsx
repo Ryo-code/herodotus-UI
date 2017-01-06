@@ -115,8 +115,10 @@ class DetailedTabs extends React.Component {
   }
 
   deleteComment(commentID) {
-    console.log(commentID)
-    // axios.delete('http://')
+    axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`)
+    .then((response) => {
+      this.setState({currentMovieComments: response.data.comments})
+    })
   }
 
   //Handles the user form submission and will post to the appropriate route
@@ -252,7 +254,7 @@ class DetailedTabs extends React.Component {
               return (
                 <div key={comment.created_at}>
                   <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
-                  {localStorage.userID == comment.user_id ? <button onClick={this.deleteComment.bind(this, comment.id)} key={comment.id}>test</button> : ''}
+                  {Number(localStorage.userID) === comment.user_id ? <button onClick={this.deleteComment.bind(this, comment.id)} key={comment.id}>test</button> : ''}
                 </div>
               )
             }) : null
