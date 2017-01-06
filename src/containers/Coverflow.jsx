@@ -4,41 +4,49 @@ import DetailedCard from './DetailedCard.jsx'
 
 export default class CoverFlow extends Component {
 
-  // constructor(props) {
-  //   super(props);
-
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       currentMovie: '',
-      active: 2,
+      active: Math.floor((Math.random() * this.props.movies.length)),
     };
-  // }
-
-  // _handleClick() {
-  //   var num = Math.floor((Math.random() * this.props.movies.length) + 1);
-  //   this.setState({
-  //     active: num
-  //   });
-  // }
+  }
 
   movieData(movie, index) {
-    this.setState({currentMovie: movie})
+    this.setState({
+      currentMovie: movie,
+    })
   }
 
   hideCard = () => {
     this.setState({currentMovie: null})
   }
 
-  movieTest(movie) {
-    console.log(movie)
+  handleClick = (event) => {
+    let num;
+    if (event.target.name === 'first') {
+      num = 1
+    } else if (event.target.name === 'last') {
+      num = this.props.movies.length - 1
+    } else if (event.target.name === 'random') {
+      num = Math.floor((Math.random() * this.props.movies.length))
+    }
+
+    this.setState({
+      active: num
+    })
   }
 
   render () {
-
     //TODO:put a function or variable here which will render the title and the years of the movies
     // const carouselText = `{this.props.movie.title}, set in {this.props.movie.set_start_year}`
 
     return (
       <div>
+        <button name="first" onClick={this.handleClick}>First</button>
+        <button name="last" onClick={this.handleClick}>Last</button>
+        <button className='randomButton' name="random" onClick={this.handleClick}>Random</button>
+
         <Coverflow
           width={960}
           height={480}
@@ -54,8 +62,8 @@ export default class CoverFlow extends Component {
                 <img
                   key={index}
                   src={movie.poster}
-                  alt={[movie.title, ' (', movie.set_start_year,'~', movie.set_end_year, ')']}
-                  onClick={this.movieData.bind(this, movie, index)}
+                  alt={[movie.title, ' (', movie.set_start_year, movie.start_ad_bc === 'BC' ? movie.start_ad_bc : '','~', movie.set_end_year, movie.end_ad_bc === 'BC' ? movie.end_ad_bc : '',')']}
+                  onClick={this.movieData.bind(this, movie)}
                 />
               );
             })
@@ -63,7 +71,6 @@ export default class CoverFlow extends Component {
 
         </Coverflow>
         {this.state.currentMovie ? <DetailedCard currentMovie={this.state.currentMovie} hideCard={this.hideCard} /> : null}
-        {/*<button className='randomButton' onClick={this._handleClick.bind(this)}>Random</button>*/}
       </div>
     );
   }
