@@ -40,6 +40,7 @@ class DetailedTabs extends React.Component {
 
   //As soon as the component mounts, it will grab the user notes and all the comments for the clicked movie
   componentDidMount() {
+    // This grabs the specific user notes of the specific movie
     if (localStorage.userID) {
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
         .then((response) => {
@@ -51,20 +52,23 @@ class DetailedTabs extends React.Component {
           console.log(error)
         })
     }
-    axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
-      .then((response) => {
-        this.setState({
-          currentMovieComments: response.data.comments,
+
+    // This grabs all the comments of the specific movie
+      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+        .then((response) => {
+          this.setState({
+            currentMovieComments: response.data.comments,
+          })
         })
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+        .catch((error) => {
+          console.log(error)
+        })
   }
 
   //Will grab the user notes and all comments for the next movie the user clicks
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentMovie !== this.props.currentMovie) {
+      // This grabs the specific user notes of the specific movie
       if (localStorage.userID) {
         axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
           .then((response) => {
@@ -76,6 +80,8 @@ class DetailedTabs extends React.Component {
             console.log(error)
           })
       }
+
+      // This grabs all the comments
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({
@@ -106,6 +112,11 @@ class DetailedTabs extends React.Component {
     this.setState({
       [name]: value
     })
+  }
+
+  deleteComment(commentID) {
+    console.log(commentID)
+    // axios.delete('http://')
   }
 
   //Handles the user form submission and will post to the appropriate route
@@ -184,6 +195,8 @@ class DetailedTabs extends React.Component {
           onChangeIndex={this.handleChange}
           // style={{height:"35em"}} //attempting to make it scroll if there's tons of text
         >
+
+          {/* This is the tab for the film details */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <h2 style={scrollStyles.headline}>{currentMovie.title}</h2>
             <p>{currentMovie.year}</p>
@@ -198,8 +211,9 @@ class DetailedTabs extends React.Component {
             <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
             <p><span>Genre(s):</span> {currentMovie.genre}</p>
             <p>(BUTTON FOR ADDING TO LIST)</p>
-
           </div>
+
+          {/* This is the tab for film details of actual film */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
             <p><span>Runtime:</span> {currentMovie.runtime}</p>
@@ -210,8 +224,9 @@ class DetailedTabs extends React.Component {
             <p><span>Rated:</span> {currentMovie.rated}</p>
             <p></p>
             <p></p>
-
           </div>
+
+          {/* This is the tab for user notes */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <form onSubmit={this.handleSubmit} name='notes'>
               <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
@@ -226,6 +241,7 @@ class DetailedTabs extends React.Component {
             }
           </div>
 
+          {/* This is the tab for user comments */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <form onSubmit={this.handleSubmit} name='comments'>
               <TextField hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
@@ -234,7 +250,10 @@ class DetailedTabs extends React.Component {
             </form>
             {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
               return (
-                <p key={index}><span>{comment.username}</span> : {comment.comment}</p>
+                <div key={comment.created_at}>
+                  <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
+                  {localStorage.userID == comment.user_id ? <button onClick={this.deleteComment.bind(this, comment.id)} key={comment.id}>test</button> : ''}
+                </div>
               )
             }) : null
             }
