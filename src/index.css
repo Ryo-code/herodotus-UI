@@ -1,6 +1,7 @@
 
 body {
-  margin: 0;
+  /*margin-right: 10px;*/
+  margin-left: 10px;
   padding-top: 100px;
   font-family: 'Roboto', sans-serif;
   background: rgba(135, 135, 135, 0.31);

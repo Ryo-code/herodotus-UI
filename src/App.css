@@ -43,6 +43,10 @@ article:hover div {
   width: 89%;
 }
 
+nav img{
+  height: 35px;
+}
+
 #submit-button {
   width : 35%;
 }

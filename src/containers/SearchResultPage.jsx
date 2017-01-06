@@ -35,7 +35,7 @@ export default class SearchResultPage extends Component {
   render() {
 
     return (
-      <div>
+      <div className="container">
         <NavBar
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
@@ -46,11 +46,11 @@ export default class SearchResultPage extends Component {
 
         <br/>
 
-        <h3>Your search has yielded {this.props.searchResults.length} results.</h3>
+        <h3>Your search has yielded {this.props.searchResults.length} results. Scroll or click through </h3>
         <p>Didn't find what you wanted? Add to the community by submitting your own</p>
            {/* We can link this to the user submission page */}
 
-        <h1>Timeline</h1>
+        <h1>Interactive Timeline</h1>
         <Coverflow movies={this.props.searchResults}/>
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
