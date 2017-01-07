@@ -15,7 +15,6 @@ class DetailedCard extends Component {
             <DetailedTabs
               currentMovie={this.props.currentMovie}
               hideCard={this.props.hideCard}
-              user={this.props.user}
               currentMovieComments={this.props.currentMovieComments}
             />
           </div>

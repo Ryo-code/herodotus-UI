@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 
-const categories = ['Action', 'Drama', 'Biography', 'Set in Japan', 'Vintage', 'Before Common Era', 'Animation', 'World War 2']
+const categories = ['Action', 'Drama']
+// const categories = ['Action', 'Drama', 'Biography', 'Set in Japan', 'Vintage', 'Before Common Era', 'Animation', 'World War 2']
 const shuffleArray = (array) => {
   let counter = array.length;
 
@@ -49,7 +50,6 @@ class FilmWall extends Component {
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
-          user={this.props.user}
         />
         <FilmRow
           className="film-row"
@@ -58,7 +58,6 @@ class FilmWall extends Component {
           currentMovie={this.state.currentMovie}
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
-          user={this.props.user}
         />
 
       </div>

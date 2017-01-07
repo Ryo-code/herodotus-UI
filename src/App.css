@@ -43,6 +43,49 @@ article:hover div {
   width: 89%;
 }
 
+nav img{
+  height: 35px;
+}
+
+.landing-page{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: -80px;
+}
+
+.landing-page-fancy-text{
+  width: 100%;
+  max-width: 700px;
+  display:flex;
+  margin: auto;
+}
+
+.temp-landing{
+  display:flex;
+  border-radius: 105px;
+  box-shadow: 4px 0px 25px 25px white;
+  max-width: 99%;
+  margin: auto;
+}
+
+.comment{
+  /*display: flex;*/
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+  padding: 0 5px 0 5px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+}
+
+.notes{
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+  padding: 10px 5px 10px 5px;
+  position: relative;
+  overflow-y: scroll;
+}
+
 #submit-button {
   width : 35%;
 }
@@ -76,7 +119,6 @@ article:hover div {
 .stuff-next-to-poster {
   display: flex;
   flex-direction: column;
-  /*min-width:400px;*/
 }
 
 .detailed-card .big-movie-poster {
@@ -109,24 +151,14 @@ article:hover div {
   height: 200px;
 }
 
-/*form{
-  display: inline-block;
-  color: black;
-  padding: 20px;
-  height: 400px;
-  background: pink;
-  border-radius: 15px;
-}*/
-
 .film-row{
   height: 390px;
 }
 
 .detailed-card-content{
-  font-size: 2vmin;
+  font-size: 2.2vmin;
   width: auto;
-  overflow-y:scroll;
-  /*min-width: 400px;*/
+  overflow-y: scroll;
 }
 
 /*.detailed-card-content p{
@@ -151,4 +183,34 @@ article:hover div {
   margin: 0;
 }
 
-.randomButton {border:1px solid #616161;border-radius:2px;min-width:120px;padding:5px;margin:2px;background:#616161;color:hsla(0,0%,100%,.9)}
+.cover-flow-button {
+  border:1px solid #616161;
+  border-radius:2px;
+  min-width:120px;
+  padding:5px;
+  margin:2px;
+  background:#616161;
+  color:hsla(0,0%,100%,.9)
+}
+
+.carousel-custom-buttons{
+  position: relative;
+  /*top: 500px;*/
+  display:flex;
+  justify-content: space-around;
+  z-index: 1;
+  /*background:red;*/
+}
+
+.cover-flow-button .left{
+  position: absolute;
+  bottom: 50px;
+}
+
+.cover-flow-button .middle{
+  position: absolute;
+}
+
+.cover-flow-button .right{
+  position: absolute;
+}

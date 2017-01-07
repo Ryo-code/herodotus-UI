@@ -20,6 +20,7 @@
     "react-router": "^3.0.0",
     "react-swipeable-views": "^0.8.3",
     "react-tap-event-plugin": "^2.0.1",
+    "reactjs-coverflow": "^1.0.5",
     "timelinejs": "^2.35.6"
   },
   "scripts": {

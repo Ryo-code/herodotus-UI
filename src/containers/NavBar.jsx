@@ -11,13 +11,13 @@ class NavBar extends Component {
     return (
       <nav>
         <AppBar
-          className="nav"
-          style={{background: 'rgba(0, 0, 0, 0.88)', padding: '15px', position: 'fixed', top: '0'}}
+          style={{background: 'rgba(0, 0, 0, 0.88)', paddingLeft: '25px', paddingRight: '15px', position: 'fixed', top: '0', left: '0'}}
           title="Herodotus"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-          // iconStyleRight="o"
-        >
+          // iconClassNameRight="muidocs-icon-navigation-expand-more"
 
+          iconElementLeft={<img src='../herodotus-white-on-transparent.png' role='presentation'/>}
+        >
+        <p>{localStorage.username ? localStorage.username : ''}</p>
         <AdvancedSearchBox
           className="advanced-search-button"
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
@@ -25,7 +25,6 @@ class NavBar extends Component {
         />
 
         </AppBar>
-
       </nav>
     );
   }
@@ -33,4 +32,4 @@ class NavBar extends Component {
 
 export default NavBar;
 
-          // <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
+// <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
