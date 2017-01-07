@@ -203,7 +203,7 @@ class DetailedTabs extends React.Component {
           }
           break
         default:
-        break
+          throw new Error(`Unknown event type $(data.type}`);
       }
 
       // This will either post a new comment or a new note for the user
@@ -241,7 +241,7 @@ class DetailedTabs extends React.Component {
             })
             break
           default:
-          break
+            throw new Error(`Unknown event type $(response.data.type}`);
         }
       })
       .catch((error) => {
