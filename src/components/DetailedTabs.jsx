@@ -40,6 +40,7 @@ class DetailedTabs extends React.Component {
       currentMovieComments: [],
       userNotes: [],
       editForm: false,
+      editNoteForm: false,
     };
   }
 
@@ -146,9 +147,18 @@ class DetailedTabs extends React.Component {
     })
   }
 
-  handleEditFormClose = () => {
+  triggerEditNoteForm(currentNote, noteID) {
+    this.setState({
+      editNote: currentNote,
+      editNoteForm: true,
+      editNoteID: noteID,
+    })
+  }
+
+  handleFormClose = () => {
     this.setState({
       editForm: false,
+      editNoteForm: false,
     })
   }
 
@@ -187,7 +197,7 @@ class DetailedTabs extends React.Component {
           break
         case 'editNotes':
           method = 'put'
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
           data = {
             note: this.state.editNote,
           }
@@ -227,7 +237,7 @@ class DetailedTabs extends React.Component {
           case 'editedNote':
             this.setState({
               userNotes: response.data.notes,
-              editForm: false,
+              editNoteForm: false,
             })
             break
           default:
@@ -315,6 +325,23 @@ class DetailedTabs extends React.Component {
                 <div key={note.id}>
                   <p key={index}>{note.note}</p>
                   <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
+                  <button onClick={this.triggerEditNoteForm.bind(this, note.note, note.id)}>Edit</button>
+                     { this.state.editNoteForm ?
+                        <Dialog
+                          title="Edit your note"
+                          modal={false}
+                          open={this.state.editNoteForm}
+                          onRequestClose={this.handleFormClose}
+                        >
+                        <form onSubmit={this.handleSubmit} name="editNotes">
+                        <TextField floatingLabelText="Note" fullWidth={true}>
+                          <input onChange={this.handleFormChange} type="text" name="editNote" value={this.state.editNote} />
+                        </TextField>
+                        <RaisedButton label="Change!" primary={true} type="submit"/>
+                        </form>
+                        </Dialog>
+                        : false
+                      }
                 </div>
               )
             }) : null
@@ -341,7 +368,7 @@ class DetailedTabs extends React.Component {
                           title="Edit your comment"
                           modal={false}
                           open={this.state.editForm}
-                          onRequestClose={this.handleEditFormClose}
+                          onRequestClose={this.handleFormClose}
                         >
                         <form onSubmit={this.handleSubmit} name="editComments">
                         <TextField floatingLabelText="Comment" fullWidth={true}>
