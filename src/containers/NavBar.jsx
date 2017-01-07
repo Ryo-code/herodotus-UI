@@ -14,6 +14,7 @@ class NavBar extends Component {
           style={{background: 'rgba(0, 0, 0, 0.88)', paddingLeft: '25px', paddingRight: '15px', position: 'fixed', top: '0', left: '0'}}
           title="Herodotus"
           // iconClassNameRight="muidocs-icon-navigation-expand-more"
+
           iconElementLeft={<img src='../herodotus-white-on-transparent.png' role='presentation'/>}
         >
         <p>{localStorage.username ? localStorage.username : ''}</p>
