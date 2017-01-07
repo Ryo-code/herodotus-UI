@@ -106,7 +106,7 @@ class LandingPage extends Component {
   }
 
   render() {
-    const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
+    //const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
     const { username, email, password, password_confirmation, loginEmail, loginPassword } = this.state
     return (
       <MuiThemeProvider>

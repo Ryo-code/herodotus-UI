@@ -126,10 +126,11 @@ class DetailedTabs extends React.Component {
     })
   }
 
-  triggerEditCommentForm(currentComment) {
+  triggerEditCommentForm(currentComment, commentID) {
     this.setState({
       editComment: currentComment,
       editForm: true,
+      editCommentID: commentID
     })
   }
 
@@ -139,10 +140,12 @@ class DetailedTabs extends React.Component {
     })
   }
 
+  currentCommentID(id) {
+    console.log(id)
+  }
 
   //Handles the user form submission and will post to the appropriate route
   handleSubmit = (event) => {
-    console.log(event.target.name)
     event.preventDefault()
     let url, method, data
     if (localStorage.userID) {
@@ -168,8 +171,7 @@ class DetailedTabs extends React.Component {
           }
           break
         case 'editComments':
-        console.log('inside editcomment', event.target.value)
-          // url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${this.state.editCommentID}`
           method = 'put'
           data = {
             comment: this.state.editComment,
@@ -178,7 +180,7 @@ class DetailedTabs extends React.Component {
         default:
         break
       }
-/*
+
       // This will either post a new comment or a new note for the user
       axios({
         method: method,
@@ -195,12 +197,18 @@ class DetailedTabs extends React.Component {
             })
             break
           case 'note':
-          this.setState({
-            userNotes: [...this.state.userNotes, response.data.note],
-            note: '',
-            comment: '',
-          })
+            this.setState({
+              userNotes: [...this.state.userNotes, response.data.note],
+              note: '',
+              comment: '',
+            })
           break
+          case 'editedComment':
+            this.setState({
+              currentMovieComments: response.data.comments,
+              editForm: false,
+            })
+            break
           default:
           break
         }
@@ -211,8 +219,6 @@ class DetailedTabs extends React.Component {
     } else {
       alert('Please login before you make a comment or a note!')
     }
-    */
-  }
   }
 
   render() {
@@ -305,7 +311,7 @@ class DetailedTabs extends React.Component {
                   {Number(localStorage.userID) === comment.user_id ?
                     <div role='presentation'>
                       <button onClick={this.deleteComment.bind(this, comment.id)} role='presentation'>Delete</button>
-                      <button onClick={this.triggerEditCommentForm.bind(this, comment.comment)} role='presentation'>Edit</button>
+                      <button onClick={this.triggerEditCommentForm.bind(this, comment.comment, comment.id)} role='presentation'>Edit</button>
                       { this.state.editForm ?
                         <Dialog
                           title="Edit your comment"
@@ -313,12 +319,10 @@ class DetailedTabs extends React.Component {
                           open={this.state.editForm}
                           onRequestClose={this.handleEditFormClose}
                         >
-                        <form onSubmit={this.handleSubmit} name="editComment">
-
+                        <form onSubmit={this.handleSubmit} name="editComments">
                         <TextField floatingLabelText="Comment" fullWidth={true}>
                           <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
                         </TextField>
-                          <input type="hidden" name="editComments" value={comment.id} />
                         <RaisedButton label="Change!" primary={true} type="submit"/>
                         </form>
                         </Dialog>
