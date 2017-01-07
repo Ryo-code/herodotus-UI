@@ -36,6 +36,7 @@ class DetailedTabs extends React.Component {
       comment: '',
       note: '',
       editComment: '',
+      editNote: '',
       currentMovieComments: [],
       userNotes: [],
       editForm: false,
@@ -122,8 +123,19 @@ class DetailedTabs extends React.Component {
   deleteComment(commentID) {
     axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`)
     .then((response) => {
-      this.setState({currentMovieComments: response.data.comments})
+      this.setState({
+        currentMovieComments: response.data.comments,
+      })
     })
+  }
+
+  deleteNote(noteID) {
+    axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${noteID}`)
+      .then((response) => {
+        this.setState({
+          userNotes: response.data.notes,
+        })
+      })
   }
 
   triggerEditCommentForm(currentComment, commentID) {
@@ -140,10 +152,6 @@ class DetailedTabs extends React.Component {
     })
   }
 
-  currentCommentID(id) {
-    console.log(id)
-  }
-
   //Handles the user form submission and will post to the appropriate route
   handleSubmit = (event) => {
     event.preventDefault()
@@ -151,8 +159,8 @@ class DetailedTabs extends React.Component {
     if (localStorage.userID) {
       switch(event.target.name) {
         case 'comments':
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`
           method = 'post'
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`
           data = {
             user_id: localStorage.userID,
             username: localStorage.username,
@@ -161,8 +169,8 @@ class DetailedTabs extends React.Component {
           }
           break
         case 'notes':
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
           method = 'post'
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
           data = {
             user_id: localStorage.userID,
             username: localStorage.username,
@@ -171,10 +179,17 @@ class DetailedTabs extends React.Component {
           }
           break
         case 'editComments':
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${this.state.editCommentID}`
           method = 'put'
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${this.state.editCommentID}`
           data = {
             comment: this.state.editComment,
+          }
+          break
+        case 'editNotes':
+          method = 'put'
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
+          data = {
+            note: this.state.editNote,
           }
           break
         default:
@@ -206,6 +221,12 @@ class DetailedTabs extends React.Component {
           case 'editedComment':
             this.setState({
               currentMovieComments: response.data.comments,
+              editForm: false,
+            })
+            break
+          case 'editedNote':
+            this.setState({
+              userNotes: response.data.notes,
               editForm: false,
             })
             break
@@ -291,7 +312,10 @@ class DetailedTabs extends React.Component {
             </form>
             {this.state.userNotes ? this.state.userNotes.map((note, index) => {
               return (
-                <p key={index}>{note.note}</p>
+                <div key={note.id}>
+                  <p key={index}>{note.note}</p>
+                  <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
+                </div>
               )
             }) : null
             }
