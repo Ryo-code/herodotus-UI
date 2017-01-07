@@ -344,7 +344,6 @@ class DetailedTabs extends React.Component {
                         : false
                       }
                 </div>
-
               )
             }) : null
             }

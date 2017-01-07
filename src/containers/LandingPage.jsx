@@ -86,17 +86,6 @@ class LandingPage extends Component {
     })
   }
 
-  // handleLogout = () => {
-  //   axios.get('http://0.0.0.0:3000/users/sign_out')
-  //   .then((repsonse) => {
-  //     localStorage.clear()
-  //     browserHistory.push('/')
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
-
   // Sets the values of the target field
   handleFormChange = (event) => {
     const {name, value} = event.target
@@ -165,8 +154,6 @@ class LandingPage extends Component {
                   <RaisedButton label="Login" primary={true} style={style} type="submit"/>
                 </form>
               </Dialog>
-
-              {/* <RaisedButton label="Logout" onTouchTap={this.handleLogout} /> */}
 
               {/* <footer className="login-registration-bar">
                 hi
