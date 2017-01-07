@@ -3,6 +3,8 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import TextField from 'material-ui/TextField'
+import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 
 // import FontIcon from 'material-ui/FontIcon';
@@ -33,8 +35,10 @@ class DetailedTabs extends React.Component {
       slideIndex: 0,
       comment: '',
       note: '',
+      editComment: '',
       currentMovieComments: [],
       userNotes: [],
+      editForm: false,
     };
   }
 
@@ -99,12 +103,13 @@ class DetailedTabs extends React.Component {
     this.setState({
       slideIndex: value,
     });
-  };
+  }
 
   //Closes the card when the X is clicked
   handleCloseClick = () => {
     this.props.hideCard()
   }
+
 
   //Will update the value of the field being currently entered
   handleFormChange = (event) => {
@@ -121,23 +126,64 @@ class DetailedTabs extends React.Component {
     })
   }
 
+  triggerEditCommentForm(currentComment) {
+    this.setState({
+      editComment: currentComment,
+      editForm: true,
+    })
+  }
+
+  handleEditFormClose = () => {
+    this.setState({
+      editForm: false,
+    })
+  }
+
+
   //Handles the user form submission and will post to the appropriate route
   handleSubmit = (event) => {
+    console.log(event.target.name)
     event.preventDefault()
-    let route;
+    let url, method, data
     if (localStorage.userID) {
-      if (event.target.name === 'comments') {
-        route = 'comments'
-      } else {
-        route = `users/${localStorage.userID}/notes`
+      switch(event.target.name) {
+        case 'comments':
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`
+          method = 'post'
+          data = {
+            user_id: localStorage.userID,
+            username: localStorage.username,
+            movie_id: this.props.currentMovie.id,
+            comment: this.state.comment,
+          }
+          break
+        case 'notes':
+          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
+          method = 'post'
+          data = {
+            user_id: localStorage.userID,
+            username: localStorage.username,
+            movie_id: this.props.currentMovie.id,
+            note: this.state.note,
+          }
+          break
+        case 'editComments':
+        console.log('inside editcomment', event.target.value)
+          // url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`
+          method = 'put'
+          data = {
+            comment: this.state.editComment,
+          }
+          break
+        default:
+        break
       }
-
-      axios.post(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/${route}`, {
-        user_id: localStorage.userID,
-        username: localStorage.username ? localStorage.username : 'Anonymous',
-        movie_id: this.props.currentMovie.id,
-        comment: this.state.comment,
-        note: this.state.note,
+/*
+      // This will either post a new comment or a new note for the user
+      axios({
+        method: method,
+        url: url,
+        data: data,
       })
       .then((response) => {
         switch (response.data.type){
@@ -165,6 +211,8 @@ class DetailedTabs extends React.Component {
     } else {
       alert('Please login before you make a comment or a note!')
     }
+    */
+  }
   }
 
   render() {
@@ -230,7 +278,7 @@ class DetailedTabs extends React.Component {
 
           {/* This is the tab for user notes */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <form onSubmit={this.handleSubmit} name='notes'>
+            <form onSubmit={this.handleSubmit.bind(this)} name='notes'>
               <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
                 <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white"}}/>
               </TextField>
@@ -252,9 +300,32 @@ class DetailedTabs extends React.Component {
             </form>
             {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
               return (
-                <div key={comment.created_at}>
+                <div key={comment.id}>
                   <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
-                  {Number(localStorage.userID) === comment.user_id ? <button onClick={this.deleteComment.bind(this, comment.id)} key={comment.id}>test</button> : ''}
+                  {Number(localStorage.userID) === comment.user_id ?
+                    <div role='presentation'>
+                      <button onClick={this.deleteComment.bind(this, comment.id)} role='presentation'>Delete</button>
+                      <button onClick={this.triggerEditCommentForm.bind(this, comment.comment)} role='presentation'>Edit</button>
+                      { this.state.editForm ?
+                        <Dialog
+                          title="Edit your comment"
+                          modal={false}
+                          open={this.state.editForm}
+                          onRequestClose={this.handleEditFormClose}
+                        >
+                        <form onSubmit={this.handleSubmit} name="editComment">
+
+                        <TextField floatingLabelText="Comment" fullWidth={true}>
+                          <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
+                        </TextField>
+                          <input type="hidden" name="editComments" value={comment.id} />
+                        <RaisedButton label="Change!" primary={true} type="submit"/>
+                        </form>
+                        </Dialog>
+                        : false
+                      }
+                    </div>
+                    : ''}
                 </div>
               )
             }) : null
