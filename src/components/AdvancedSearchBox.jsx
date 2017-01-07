@@ -141,7 +141,6 @@ class AdvancedSearchBox extends Component {
                   />
                 </RadioButtonGroup>
               <br/>
-              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
               </div>
               <br/>
 
