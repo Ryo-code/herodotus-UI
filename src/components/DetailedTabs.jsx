@@ -232,12 +232,12 @@ class DetailedTabs extends React.Component {
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <form onSubmit={this.handleSubmit} name='notes'>
               <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
-                <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white"}}/>
+                <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white", position: "absolute", bottom: "0"}}/>
               </TextField>
             </form>
             {this.state.userNotes ? this.state.userNotes.map((note, index) => {
               return (
-                <p key={index}>{note.note}</p>
+                <p className="notes" key={index}>{note.note}</p>
               )
             }) : null
             }
@@ -252,7 +252,7 @@ class DetailedTabs extends React.Component {
             </form>
             {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
               return (
-                <div key={comment.created_at}>
+                <div className="comment" key={comment.created_at}>
                   <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
                   {Number(localStorage.userID) === comment.user_id ? <button onClick={this.deleteComment.bind(this, comment.id)} key={comment.id}>test</button> : ''}
                 </div>
