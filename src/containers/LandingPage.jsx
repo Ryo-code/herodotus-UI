@@ -111,49 +111,38 @@ class LandingPage extends Component {
     return (
       <MuiThemeProvider>
 
-        <div className="col-md-2 col-sm-4 col-xs-6">
-          not logged in...
-          <button onClick={setLoggedInTrue}>
-            Please login indeed...
-          </button>
-          <br/>
-          <div className="">
-            Maybe an elaborate video will go here...
-            <br></br>
-            Jeff: an elaborate video of how herodotus came to be
-          </div>
-
-          <RaisedButton label="Registration" onTouchTap={this.handleRegistrationOpen} />
-            <Dialog
-              title="Registration"
-              modal={false}
-              open={this.state.registrationOpen}
-              onRequestClose={this.handleRegistrationClose}
+        <div className="landing-page">
+          <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
+          <Dialog
+            title="Registration"
+            modal={false}
+            open={this.state.registrationOpen}
+            onRequestClose={this.handleRegistrationClose}
             >
-            <form onSubmit={this.handleRegistrationSubmit}>
+              <form onSubmit={this.handleRegistrationSubmit}>
 
-            {/* REGISTRATION BUTTON AND FIELDS BELOW*/}
+                {/* REGISTRATION BUTTON AND FIELDS BELOW*/}
 
-            <TextField hintText="awesomeUsername" floatingLabelText="Username" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="text" name="username" value={username} />
-            </TextField>
+                <TextField hintText="awesomeUsername" floatingLabelText="Username" fullWidth={true}>
+                  <input onChange={this.handleFormChange} type="text" name="username" value={username} />
+                </TextField>
 
-            <TextField hintText="awesome@username.com" floatingLabelText="Email" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="email" name="email" value={email} />
-            </TextField>
+                <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
+                  <input onChange={this.handleFormChange} type="email" name="email" value={email} />
+                </TextField>
 
-            <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="password" name="password" value={password} />
-            </TextField>
+                <TextField hintText="somethingclever123" floatingLabelText="Password" fullWidth={true}>
+                  <input onChange={this.handleFormChange} type="password" name="password" value={password} />
+                </TextField>
 
-            <TextField floatingLabelText="Password Confirmation" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
-            </TextField>
+                <TextField floatingLabelText="Password Confirmation" fullWidth={true}>
+                  <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
+                </TextField>
 
-            <RaisedButton label="Register" primary={true} style={style} type="submit"/>
-            </form>
+                <RaisedButton label="Register" primary={true} style={style} type="submit"/>
+              </form>
             </Dialog>
-
+            　
             {/* LOGIN BUTTON BELOW */}
 
             <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
@@ -162,26 +151,39 @@ class LandingPage extends Component {
               modal={false}
               open={this.state.loginOpen}
               onRequestClose={this.handleLoginClose}
-            >
-            <form onSubmit={this.handleLoginSubmit}>
+              >
+                <form onSubmit={this.handleLoginSubmit}>
 
-            <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="text" name="loginEmail" value={loginEmail} />
-            </TextField>
+                  <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
+                    <input onChange={this.handleFormChange} type="text" name="loginEmail" value={loginEmail} />
+                  </TextField>
 
-            <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
-              <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
-            </TextField>
+                  <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
+                    <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
+                  </TextField>
 
-            <RaisedButton label="Login" primary={true} style={style} type="submit"/>
-            </form>
-            </Dialog>
+                  <RaisedButton label="Login" primary={true} style={style} type="submit"/>
+                </form>
+              </Dialog>
 
-            {/* <RaisedButton label="Logout" onTouchTap={this.handleLogout} /> */}
+              {/* <RaisedButton label="Logout" onTouchTap={this.handleLogout} /> */}
 
-          {/* <footer className="login-registration-bar">
-            hi
-          </footer> */}
+              {/* <footer className="login-registration-bar">
+                hi
+              </footer> */}
+
+          <br/>
+          <br/>
+          <img src='../herodotus-black-on-transparent.png' role='presentation' className="landing-page-fancy-text"/>
+          <br/>
+          <br/>
+          <img src='../battle-of-marathon.png' role='presentation' className="temp-landing"/>
+          <img src='../herodotus-tagline-transparent-BG.png' role='presentation' className="landing-page-fancy-text"/>
+          <br/>
+
+          <br/>
+
+
         </div>
       </MuiThemeProvider>
     );

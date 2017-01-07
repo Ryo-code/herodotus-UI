@@ -47,6 +47,24 @@ nav img{
   height: 35px;
 }
 
+.landing-page{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: -80px;
+}
+
+.landing-page-fancy-text{
+  width: 100%;
+  max-width: 700px;
+}
+
+.temp-landing{
+  /*width:100%;*/
+  border-radius: 105px;
+  box-shadow: 4px 0px 25px 25px white;
+  max-width: 80%;
+}
+
 #submit-button {
   width : 35%;
 }
