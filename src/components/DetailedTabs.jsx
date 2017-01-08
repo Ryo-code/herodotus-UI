@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
@@ -6,6 +6,10 @@ import TextField from 'material-ui/TextField'
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
+import DetailTab from './DetailTab'
+import FilmTab from './FilmTab'
+// import NoteTab from './NoteTab'
+// import CommentTab from './CommentTab'
 
 // import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
@@ -28,7 +32,7 @@ const scrollStyles = {
   },
 };
 
-class DetailedTabs extends React.Component {
+class DetailedTabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -254,15 +258,6 @@ class DetailedTabs extends React.Component {
 
   render() {
     const currentMovie = this.props.currentMovie
-    const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100
-    const starRatingStyle = {
-      background: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x',
-      backgroundPosition: '0 100%',
-      float: 'left',
-      height: '21px',
-      display: 'block',
-      width: `${starRatingPercentage}%`
-    }
     return (
       <div>
         <Tabs
@@ -285,32 +280,12 @@ class DetailedTabs extends React.Component {
 
           {/* This is the tab for the film details */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <h2 style={scrollStyles.headline}>{currentMovie.title}</h2>
-            <p>{currentMovie.year}</p>
-            <p>{currentMovie.plot}</p>
-            <p>{currentMovie.imbdrating}</p>
-
-            <div className="star-ratings-sprite">
-              <span style={starRatingStyle}> </span>
-            </div>
-
-            <p><span>Story set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
-            <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
-            <p><span>Genre(s):</span> {currentMovie.genre}</p>
-            <p>(BUTTON FOR ADDING TO LIST)</p>
+            <DetailTab currentMovie={currentMovie} scrollStyles={scrollStyles.headline} />
           </div>
 
           {/* This is the tab for film details of actual film */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
-            <p><span>Runtime:</span> {currentMovie.runtime}</p>
-            <p><span>Country(ies):</span> {currentMovie.country}</p>
-            <p><span>Awards:</span> {currentMovie.awards ? currentMovie.awards : ""}</p> {/*IF it exists*/}
-            <p><span>Director:</span> {currentMovie.director}</p>
-            <p><span>Main actor(s):</span> {currentMovie.actors}</p>
-            <p><span>Rated:</span> {currentMovie.rated}</p>
-            <p></p>
-            <p></p>
+            <FilmTab currentMovie={currentMovie} />
           </div>
 
           {/* This is the tab for user notes */}
@@ -344,7 +319,6 @@ class DetailedTabs extends React.Component {
                         : false
                       }
                 </div>
-
               )
             }) : null
             }

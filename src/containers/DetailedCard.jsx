@@ -9,7 +9,6 @@ class DetailedCard extends Component {
       <div onClick={this.props.hideDetails}>
         <div className="detailed-card">
 
-
           <img role="presentation" className="big-movie-poster" src={currentMovie.poster} />
           <div className="stuff-next-to-poster">
             <DetailedTabs
@@ -18,7 +17,6 @@ class DetailedCard extends Component {
               currentMovieComments={this.props.currentMovieComments}
             />
           </div>
-
 
         </div>
       </div>
