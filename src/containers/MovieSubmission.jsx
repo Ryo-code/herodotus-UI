@@ -149,9 +149,9 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="imdbrating" value={this.state.imdbrating} />
             </TextField> */}
 
-            <TextField hintText="Japanese, America, Bombing, Boom, Splat, Kablamo" floatingLabelText="Keywords">
+            {/*<TextField hintText="Japanese, America, Bombing, Boom, Splat, Kablamo" floatingLabelText="Keywords">
               <input onChange={this.handleChange} type="text" name="keywords" value={this.state.keywords} />
-            </TextField>
+            </TextField>*/}
 
             <TextField hintText="1941" floatingLabelText="The film's story begins in year...">
               <input onChange={this.handleChange} type="text" name="startYear" value={this.state.startYear} />

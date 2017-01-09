@@ -48,6 +48,9 @@ export default class SearchResultPage extends Component {
 
         <h3>Your search has yielded {this.props.searchResults.length} results. Scroll or click through </h3>
         <p>Didn't find what you wanted? Add to the community by submitting your own</p>
+                <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
+        {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
+
            {/* We can link this to the user submission page */}
 
         <h1>Interactive Timeline</h1>
