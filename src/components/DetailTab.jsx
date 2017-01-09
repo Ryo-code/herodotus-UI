@@ -44,7 +44,9 @@ export default class DetailTab extends Component {
           <span style={starRatingStyle}> </span>
         </div>
 
-        <p><span>Story set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "N/A"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}</p>
+        <p><span>Story set in:</span> {currentMovie.set_start_year ? currentMovie.set_start_year : "unspecified"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''} - {currentMovie.set_end_year ? currentMovie.set_end_year : "unspecified"} {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}
+        </p>
+
         <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
         <p><span>Genre(s):</span> {currentMovie.genre}</p>
         <p>(BUTTON FOR ADDING TO LIST)</p>

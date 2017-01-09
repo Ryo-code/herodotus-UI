@@ -47,11 +47,6 @@ nav img{
   height: 35px;
 }
 
-nav{
-  display: flex;
-  justify-content: space-between;
-
-}
 
 nav .nav-button{
   height: 35px;
@@ -199,20 +194,14 @@ nav .nav-button{
 
 .carousel-custom-buttons{
   position: relative;
-  /*top: 500px;*/
   display:flex;
   justify-content: space-around;
   z-index: 1;
-  /*background:red;*/
 }
 
 .cover-flow-button .left{
   position: absolute;
   bottom: 50px;
-}
-
-.cover-flow-button .middle{
-  position: absolute;
 }
 
 .cover-flow-button .right{
