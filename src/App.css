@@ -74,6 +74,14 @@ nav img{
   border: 1px solid darkgrey;
   padding: 0 5px 0 5px;
   margin-bottom: 10px;
+}
+
+.comments-to-scroll-absolute{
+  position: relative;
+}
+
+.comments-to-scroll-absolute{
+  position: absolute;
   overflow-y: scroll;
 }
 
@@ -82,8 +90,8 @@ nav img{
   border-radius: 10px;
   border: 1px solid darkgrey;
   padding: 10px 5px 10px 5px;
-  position: relative;
-  overflow-y: scroll;
+  /*position: absolute;*/
+  /*overflow-y: scroll;*/
 }
 
 #submit-button {

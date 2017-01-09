@@ -272,21 +272,19 @@ class DetailedTabs extends Component {
           <Tab label="CLOSE" icon={<Clear/>} onClick={this.handleCloseClick} style={{background:"black"}} value={4}/>
 
         </Tabs>
-        <SwipeableViews
-          index={this.state.slideIndex}
-          onChangeIndex={this.handleChange}
-          // style={{height:"35em"}} //attempting to make it scroll if there's tons of text
-        >
+        <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
 
-          {/* This is the tab for the film details */}
+          {/* This is the tab for the film & story details */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <DetailTab currentMovie={currentMovie} scrollStyles={scrollStyles.headline} />
           </div>
 
-          {/* This is the tab for film details of actual film */}
+
+          {/* This is the tab for film details, not the story*/}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <FilmTab currentMovie={currentMovie} />
           </div>
+
 
           {/* This is the tab for user notes */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
@@ -324,44 +322,46 @@ class DetailedTabs extends Component {
             }
           </div>
 
-          {/* This is the tab for user comments */}
-          <div className="detailed-card-content" style={scrollStyles.slide}>
-            <form onSubmit={this.handleSubmit} name='comments'>
-              <TextField hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
-                <input onChange={this.handleFormChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
-              </TextField>
-            </form>
-            {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
-              return (
-                <div className="comment" key={comment.id}>
 
-                  <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
-                  {Number(localStorage.userID) === comment.user_id ?
-                    <div role='presentation'>
-                      <button onClick={this.deleteComment.bind(this, comment.id)} role='presentation'>Delete</button>
-                      <button onClick={this.triggerEditCommentForm.bind(this, comment.comment, comment.id)} role='presentation'>Edit</button>
-                      { this.state.editForm ?
-                        <Dialog
-                          title="Edit your comment"
-                          modal={false}
-                          open={this.state.editForm}
-                          onRequestClose={this.handleFormClose}
-                        >
-                        <form onSubmit={this.handleSubmit} name="editComments">
-                        <TextField floatingLabelText="Comment" fullWidth={true}>
-                          <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
-                        </TextField>
-                        <RaisedButton label="Change!" primary={true} type="submit"/>
-                        </form>
-                        </Dialog>
-                        : false
-                      }
-                    </div>
-                    : ''}
-                </div>
-              )
-            }) : null
-            }
+          {/* This is the tab for user comments */}
+          <div className="comments-to-scroll-relative">
+            <div className="detailed-card-content comments-to-scroll-absolute" style={scrollStyles.slide}>
+              <form onSubmit={this.handleSubmit} name='comments'>
+                <TextField className="detailed-card-inputs" hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
+                  <input onChange={this.handleFormChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
+                </TextField>
+              </form>
+              {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
+                return (
+                  <div className="comment" key={comment.id}>
+
+                    <p key={comment.comment}><span>{comment.username}</span> : {comment.comment}</p>
+                    {Number(localStorage.userID) === comment.user_id ?
+                      <div role='presentation'>
+                        <button onClick={this.deleteComment.bind(this, comment.id)} role='presentation'>Delete</button>
+                        <button onClick={this.triggerEditCommentForm.bind(this, comment.comment, comment.id)} role='presentation'>Edit</button>
+                        { this.state.editForm ?
+                          <Dialog
+                            title="Edit your comment"
+                            modal={false}
+                            open={this.state.editForm}
+                            onRequestClose={this.handleFormClose}
+                          >
+                          <form onSubmit={this.handleSubmit} name="editComments">
+                          <TextField floatingLabelText="Comment" fullWidth={true}>
+                            <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
+                          </TextField>
+                          <RaisedButton label="Change!" primary={true} type="submit"/>
+                          </form>
+                          </Dialog>
+                          : false}
+                      </div>
+                      : ''}
+                  </div>
+                )
+              }) : null
+              }
+            </div>
           </div>
         </SwipeableViews>
       </div>
