@@ -82,6 +82,7 @@ export default class MovieSubmission extends Component {
           modal={false}
           open={this.props.showForm}
           onRequestClose={this.props.handleClose}
+          scrollable={true}
         >
           <form onSubmit={this.handleSubmit}>
             <TextField hintText="Pearl Harbor" floatingLabelText="Title">
