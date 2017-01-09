@@ -88,96 +88,96 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="title" value={this.state.title} />
             </TextField>
 
-            <TextField hintText="2001" floatingLabelText="Release Year">
+            {/* <TextField hintText="2001" floatingLabelText="Release Year">
                 <input onChange={this.handleChange} type="text" name="releaseYear" value={this.state.releaseYear} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Rating" floatingLabelText="Rating">
+            {/* <TextField hintText="Rating" floatingLabelText="Rating">
               <input onChange={this.handleChange} type="text" name="rating" value={this.state.rating} />
-            </TextField>
+            </TextField> */}
 
             <TextField hintText="http://www.imdb.com/title/..." floatingLabelText="Corresponding IMDB Page">
               <input onChange={this.handleChange} type="text" name="IMDBpage" value={this.state.releaseDate} />
             </TextField>
 
-            <TextField hintText="183 Minutes" floatingLabelText="Runtime in minutes">
+            {/* <TextField hintText="183 Minutes" floatingLabelText="Runtime in minutes">
               <input onChange={this.handleChange} type="text" name="runtime" value={this.state.runtime} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Action" floatingLabelText="Genre">
+            {/* <TextField hintText="Action" floatingLabelText="Genre">
               <input onChange={this.handleChange} type="text" name="genre" value={this.state.genre} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Michael Bay" floatingLabelText="Director">
+            {/* <TextField hintText="Michael Bay" floatingLabelText="Director">
               <input onChange={this.handleChange} type="text" name="director" value={this.state.director} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Randall Wallace" floatingLabelText="Writer">
+            {/* <TextField hintText="Randall Wallace" floatingLabelText="Writer">
               <input onChange={this.handleChange} type="text" name="writer" value={this.state.writer} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Ben Affleck, Josh Hartnett, Kate Beckinsale, William Lee Scott" floatingLabelText="Main Actor(s)">
+            {/* <TextField hintText="Ben Affleck, Josh Hartnett, Kate Beckinsale, William Lee Scott" floatingLabelText="Main Actor(s)">
               <input onChange={this.handleChange} type="text" name="actors" value={this.state.actors} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Pearl Harbor follows the story of two best friends, Rafe and Danny, and their love lives as they go off to join the war." floatingLabelText="Plot">
+            <TextField hintText="This movie follows the story of two friends, and their love lives as they go off to join the war." floatingLabelText="Plot">
               <input onChange={this.handleChange} type="text" name="plot" value={this.state.plot} />
             </TextField>
 
-            <TextField hintText="English, Japanese" floatingLabelText="Language">
+            <TextField hintText="English, Japanese" floatingLabelText="Language(s)">
               <input onChange={this.handleChange} type="text" name="language" value={this.state.language} />
             </TextField>
 
-            <TextField hintText="USA" floatingLabelText="Country that released the movie">
+            {/* <TextField hintText="USA" floatingLabelText="Country that released the movie">
               <input onChange={this.handleChange} type="text" name="country" value={this.state.country} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Won 1 Oscar. Another 11 wins & 50 nominations." floatingLabelText="Awards">
+            {/* <TextField hintText="Won 1 Oscar. Another 11 wins & 50 nominations." floatingLabelText="Awards">
               <input onChange={this.handleChange} type="text" name="awards" value={this.state.awards} />
-            </TextField>
+            </TextField> */}
 
             <TextField hintText="Poster link here" floatingLabelText="Poster">
               <input onChange={this.handleChange} type="text" name="poster" value={this.state.poster} />
             </TextField>
 
-            <TextField hintText="44" floatingLabelText="Metacritic score">
+            {/* <TextField hintText="44" floatingLabelText="Metacritic score">
               <input onChange={this.handleChange} type="text" name="metascore" value={this.state.metascore} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="6" floatingLabelText="IMDB Rating">
+            {/* <TextField hintText="6" floatingLabelText="IMDB Rating">
               <input onChange={this.handleChange} type="text" name="imdbrating" value={this.state.imdbrating} />
-            </TextField>
+            </TextField> */}
 
-            <TextField hintText="Japanese, Bombing, America, Boom, Splat, Pop" floatingLabelText="Keywords">
+            <TextField hintText="Japanese, America, Bombing, Boom, Splat, Kablamo" floatingLabelText="Keywords">
               <input onChange={this.handleChange} type="text" name="keywords" value={this.state.keywords} />
             </TextField>
 
-            <TextField hintText="1941" floatingLabelText="Set start year of actual story">
+            <TextField hintText="1941" floatingLabelText="The film's story begins in year...">
               <input onChange={this.handleChange} type="text" name="startYear" value={this.state.startYear} />
             </TextField>
 
-            <TextField hintText="AD" floatingLabelText="Set start year in AD or BC">
+            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?">
               <input onChange={this.handleChange} type="text" name="startADBC" value={this.state.startADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Is set start year accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
               <input onChange={this.handleChange} type="text" name="startAccurate" value={this.state.startAccurate} />
             </TextField>
 
-            <TextField hintText="1941" floatingLabelText="Set end year of actual story">
+            <TextField hintText="Japan, USA" floatingLabelText="Where is the story set? (e.g. country)">
+              <input onChange={this.handleChange} type="text" name="setting" value={this.state.setting} />
+            </TextField>
+
+            <TextField hintText="1945" floatingLabelText="The film's story ends in year...">
               <input onChange={this.handleChange} type="text" name="endYear" value={this.state.endYear} />
             </TextField>
 
-            <TextField hintText="AD" floatingLabelText="Set end year in AD or BC">
+            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?">
               <input onChange={this.handleChange} type="text" name="endADBC" value={this.state.endADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Is set end year accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
               <input onChange={this.handleChange} type="text" name="endAccurate" value={this.state.endAccurate} />
-            </TextField>
-
-            <TextField hintText="Japan, USA" floatingLabelText="Setting location of actual story">
-              <input onChange={this.handleChange} type="text" name="setting" value={this.state.setting} />
             </TextField>
 
             <RaisedButton label="Let there be a movie!" primary={true} type="submit" />
