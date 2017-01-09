@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import MovieSubmission from '../containers/MovieSubmission.jsx'
-import RaisedButton from 'material-ui/RaisedButton'
+// import RaisedButton from 'material-ui/RaisedButton'
 
 export default class DetailTab extends Component {
 
@@ -50,7 +50,7 @@ export default class DetailTab extends Component {
         <p><span>Genre(s):</span> {currentMovie.genre}</p>
         <p>(BUTTON FOR ADDING TO LIST)</p>
         <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
-        {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} /> : null}
+        {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
       </div>
     )
   }
