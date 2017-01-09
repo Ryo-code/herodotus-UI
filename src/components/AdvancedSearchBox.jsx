@@ -155,7 +155,7 @@ class AdvancedSearchBox extends Component {
               <br/>
 
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
-              <RaisedButton label="Switch Date Input Method" primary={true} style={style} onClick={this.handleDateInputStyle} />
+              <RaisedButton label="Toggle Specific Year/Range" primary={true} style={style} onClick={this.handleDateInputStyle} />
 
               <div id="submit-button">
                <RadioButtonGroup name="shipSpeed">
