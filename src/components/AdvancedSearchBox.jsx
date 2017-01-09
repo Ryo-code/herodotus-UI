@@ -29,6 +29,7 @@ class AdvancedSearchBox extends Component {
     start_date: '',
     end_date: '',
     era: '',
+    date_range: false,
     open: false,
   }
 
@@ -86,8 +87,39 @@ class AdvancedSearchBox extends Component {
       [name]: value
     })
   }
+
+  handleDateInputStyle = (event) => {
+    if (this.state.date_range === false){
+      this.setState({date_range: true})
+    }
+    else {
+      this.setState({date_range: false})
+    }
+  }
+
+
+
   render(){
     const { title, genre, keywords, date, start_date, end_date, location } = this.state;
+
+    let dateInput = null;
+    if(this.state.date_range){
+      dateInput =
+        <div>
+          <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
+            <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
+          </TextField>
+
+          <TextField hintText="1943" floatingLabelText="Movie End Date" fullWidth={false}>
+            <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
+          </TextField>
+        </div>
+    } else {
+      dateInput =
+        <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
+          <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
+        </TextField>
+    }
 
     return(
       <div>
@@ -117,22 +149,14 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               <br/>
-              <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
-                <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-              </TextField>
 
-               <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
-              </TextField>
-
-               <TextField hintText="1943" floatingLabelText="Movie End Date" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
-              </TextField>
+              {dateInput}
 
               <br/>
 
 
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
+              <RaisedButton label="Switch Date Input Method" primary={true} style={style} onClick={this.handleDateInputStyle} />
 
               <div id="submit-button">
                <RadioButtonGroup name="shipSpeed">
