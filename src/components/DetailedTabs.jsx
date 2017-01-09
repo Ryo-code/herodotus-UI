@@ -307,24 +307,23 @@ class DetailedTabs extends Component {
                           open={this.state.editNoteForm}
                           onRequestClose={this.handleFormClose}
                         >
-                        <form onSubmit={this.handleSubmit} name="editNotes">
-                        <TextField floatingLabelText="Note" fullWidth={true}>
-                          <input onChange={this.handleFormChange} type="text" name="editNote" value={this.state.editNote} />
-                        </TextField>
-                        <RaisedButton label="Change!" primary={true} type="submit"/>
-                        </form>
+                          <form onSubmit={this.handleSubmit} name="editNotes">
+                            <TextField floatingLabelText="Note" fullWidth={true}>
+                              <input onChange={this.handleFormChange} type="text" name="editNote" value={this.state.editNote} />
+                            </TextField>
+                          <RaisedButton label="Update!" primary={true} type="submit"/>
+                          </form>
                         </Dialog>
-                        : false
-                      }
+                      : false}
                 </div>
               )
             }) : null
             }
           </div>
 
-
           {/* This is the tab for user comments */}
           <div className="comments-to-scroll-relative">
+            {/* Trying to make ONLY comments and notes slides scroll, not the details & film tabs */}
             <div className="detailed-card-content comments-to-scroll-absolute" style={scrollStyles.slide}>
               <form onSubmit={this.handleSubmit} name='comments'>
                 <TextField className="detailed-card-inputs" hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
@@ -347,16 +346,16 @@ class DetailedTabs extends Component {
                             open={this.state.editForm}
                             onRequestClose={this.handleFormClose}
                           >
-                          <form onSubmit={this.handleSubmit} name="editComments">
-                          <TextField floatingLabelText="Comment" fullWidth={true}>
-                            <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
-                          </TextField>
-                          <RaisedButton label="Change!" primary={true} type="submit"/>
-                          </form>
+                            <form onSubmit={this.handleSubmit} name="editComments">
+                              <TextField floatingLabelText="Comment" fullWidth={true}>
+                                <input onChange={this.handleFormChange} type="text" name="editComment" value={this.state.editComment} />
+                              </TextField>
+                            <RaisedButton label="Change!" primary={true} type="submit"/>
+                            </form>
                           </Dialog>
-                          : false}
+                        : false}
                       </div>
-                      : ''}
+                    : ''}
                   </div>
                 )
               }) : null

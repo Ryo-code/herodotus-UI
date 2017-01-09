@@ -33,11 +33,16 @@ class NavBar extends Component {
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
         >
         <AdvancedSearchBox
-          className="advanced-search-button"
+          className="nav-button"
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
-        <RaisedButton label="Logout" onTouchTap={this.handleLogout} />
+
+        <RaisedButton
+          className="nav-button"
+          label="Logout"
+          onTouchTap={this.handleLogout}
+        />
 
         </AppBar>
       </nav>
