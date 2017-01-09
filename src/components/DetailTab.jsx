@@ -48,7 +48,7 @@ export default class DetailTab extends Component {
         {currentMovie.set_start_year ? currentMovie.set_start_year : "unspecified"}
         {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}
         {currentMovie.set_start_year_accurate === 'no' ? '*' : ''}
-        --
+        &nbsp;&nbsp;--&nbsp;&nbsp;
         {currentMovie.set_end_year ? currentMovie.set_end_year : "unspecified"}
         {currentMovie.set_end_year ? currentMovie.start_ad_bc : ''}
         {currentMovie.set_end_year_accurate === 'no' ? '*' : ''}
