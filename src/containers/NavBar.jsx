@@ -46,7 +46,7 @@ class NavBar extends Component {
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
-
+　
         <RaisedButton
           className="nav-button"
           label="Logout"
