@@ -1,6 +1,28 @@
 import React, {Component} from 'react'
+import MovieSubmission from '../containers/MovieSubmission.jsx'
+// import RaisedButton from 'material-ui/RaisedButton'
 
 export default class DetailTab extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      showForm: false,
+    }
+  }
+
+  showSubmissionForm = () => {
+    this.setState({
+      showForm: true,
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      showForm: false,
+    })
+  }
+
   render() {
     const currentMovie = this.props.currentMovie
     const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100
@@ -27,7 +49,8 @@ export default class DetailTab extends Component {
         <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
         <p><span>Genre(s):</span> {currentMovie.genre}</p>
         <p>(BUTTON FOR ADDING TO LIST)</p>
-      </div>
+        <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
+        {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
     )
   }
 }

@@ -26,7 +26,8 @@ class NavBar extends Component {
       <nav>
         <AppBar
           style={{background: 'rgba(0, 0, 0, 0.88)', paddingLeft: '25px', paddingRight: '15px', position: 'fixed', top: '0', left: '0'}}
-          title={`Welcome to Herodotus, ${localStorage.username}`}
+
+          title={`Welcome, ${localStorage.username}`}
           // iconClassNameRight="muidocs-icon-navigation-expand-more"
 
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
