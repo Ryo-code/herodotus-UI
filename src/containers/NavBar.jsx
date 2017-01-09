@@ -25,7 +25,16 @@ class NavBar extends Component {
     return (
       <nav>
         <AppBar
-          style={{background: 'rgba(0, 0, 0, 0.88)', paddingLeft: '25px', paddingRight: '15px', position: 'fixed', top: '0', left: '0'}}
+          style={{
+            background: 'rgba(0, 0, 0, 0.88)',
+            paddingLeft: '25px',
+            paddingRight: '15px',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            display: 'flex',
+            // alignItems: 'center',
+          }}
 
           title={`Welcome, ${localStorage.username}`}
           // iconClassNameRight="muidocs-icon-navigation-expand-more"
@@ -51,5 +60,3 @@ class NavBar extends Component {
 }
 
 export default NavBar;
-
-// <SearchBar updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}/>
