@@ -26,6 +26,8 @@ class AdvancedSearchBox extends Component {
     keywords: '',
     location: '',
     date: '',
+    start_date: '',
+    end_date: '',
     era: '',
     open: false,
   }
@@ -44,12 +46,14 @@ class AdvancedSearchBox extends Component {
       keywords: '',
       location: '',
       date: '',
+      start_date: '',
+      end_date: '',
       open: false
     })
   }
 
   handleSubmit = (event) => {
-    let {title, genre, keywords, date, era, location} = this.state;
+    let {title, genre, keywords, date, start_date, end_date, era, location} = this.state;
     event.preventDefault();
 
     axios.get('http://0.0.0.0:3000/adv_searches', {
@@ -60,6 +64,8 @@ class AdvancedSearchBox extends Component {
           date: date,
           era: era,
           location: location,
+          start_date: start_date,
+          end_date: end_date,
         }
       })
       .then((response) => {
@@ -81,7 +87,7 @@ class AdvancedSearchBox extends Component {
     })
   }
   render(){
-    const { title, genre, keywords, date, location } = this.state;
+    const { title, genre, keywords, date, start_date, end_date, location } = this.state;
 
     return(
       <div>
@@ -115,6 +121,17 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
               </TextField>
 
+               <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
+                <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
+              </TextField>
+
+               <TextField hintText="1943" floatingLabelText="Movie End Date" fullWidth={false}>
+                <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
+              </TextField>
+
+              <br/>
+
+
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
               <div id="submit-button">
@@ -133,6 +150,7 @@ class AdvancedSearchBox extends Component {
                   />
                 </RadioButtonGroup>
               <br/>
+
               {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
               </div>
               <br/>
