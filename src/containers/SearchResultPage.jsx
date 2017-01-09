@@ -8,6 +8,7 @@ import NavBar from './NavBar.jsx';
 // import Card from '../components/Card.jsx'
 // import DetailedCard from './DetailedCard.jsx'
 import Coverflow from './Coverflow.jsx';
+import MovieSubmission from './MovieSubmission.jsx'
 
 
 export default class SearchResultPage extends Component {
@@ -16,20 +17,27 @@ export default class SearchResultPage extends Component {
   state = {
     movies: [],
     currentMovie: null,
+    showForm: false,
   }
 
   componentDidMount() {
     this.setState({movies: this.props.searchResults})
   }
 
-  // componentDidMount(){
-  //   timeline = new TL.Timeline('timeline-embed',
-  //      'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
-  // }
-
-
   selectMovie = (movie) => {
     this.setState({ currentMovie: movie })
+  }
+
+  showSubmissionForm = () => {
+    this.setState({
+      showForm: true,
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      showForm: false,
+    })
   }
 
   render() {

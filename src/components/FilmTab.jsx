@@ -5,7 +5,7 @@ export default class DetailTab extends Component {
     const currentMovie = this.props.currentMovie
     return (
       <div>
-        <p><span>IMDB Rating:</span> {currentMovie.imdbrating} {currentMovie.metascore ? `| Metascore: ${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
+        <p><span>IMDB Rating:</span> {currentMovie.imdbrating} | {currentMovie.metascore ? <span> Metascore:</span> `${currentMovie.metascore}` : ""}</p> {/*IF it exists*/}
         <p><span>Runtime:</span> {currentMovie.runtime}</p>
         <p><span>Country(ies):</span> {currentMovie.country}</p>
         <p><span>Awards:</span> {currentMovie.awards ? currentMovie.awards : ""}</p>
