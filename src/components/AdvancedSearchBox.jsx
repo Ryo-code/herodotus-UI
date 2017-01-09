@@ -101,7 +101,7 @@ class AdvancedSearchBox extends Component {
           >
 
             <form onSubmit={this.handleSubmit}>
-              <TextField hintText="Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
+              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
               <br/>
@@ -130,7 +130,6 @@ class AdvancedSearchBox extends Component {
               </TextField>
 
               <br/>
-
 
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 

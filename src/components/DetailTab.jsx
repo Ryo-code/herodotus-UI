@@ -49,7 +49,10 @@ export default class DetailTab extends Component {
         <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
         <p><span>Genre(s):</span> {currentMovie.genre}</p>
         <p>(BUTTON FOR ADDING TO LIST)</p>
-        <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
+
+
+        {/* We need to move this to the results page */}
+        <button onClick={this.showSubmissionForm}>Submit your own movie!</button>
         {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
       </div>
     )
