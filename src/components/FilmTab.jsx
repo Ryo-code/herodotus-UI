@@ -6,7 +6,7 @@ export default class DetailTab extends Component {
     return (
       <div>
         <p><span>IMDB Rating:</span> {currentMovie.imdbrating}</p>
-         {currentMovie.metascore ? <p><span> Metascore: </span> {currentMovie.metascore}</p> : ""}
+        {currentMovie.metascore ? <p><span> Metascore: </span> {currentMovie.metascore}</p> : ""}
         <p><span>Runtime:</span> {currentMovie.runtime}</p>
         <p><span>Country(ies):</span> {currentMovie.country}</p>
         <p><span>Awards:</span> {currentMovie.awards ? currentMovie.awards : ""}</p>
