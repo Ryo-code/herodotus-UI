@@ -97,8 +97,8 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="rating" value={this.state.rating} />
             </TextField>
 
-            <TextField hintText="May 25, 2001" floatingLabelText="Exact release date">
-              <input onChange={this.handleChange} type="text" name="releaseDate" value={this.state.releaseDate} />
+            <TextField hintText="http://www.imdb.com/title/..." floatingLabelText="Corresponding IMDB Page">
+              <input onChange={this.handleChange} type="text" name="IMDBpage" value={this.state.releaseDate} />
             </TextField>
 
             <TextField hintText="183 Minutes" floatingLabelText="Runtime in minutes">

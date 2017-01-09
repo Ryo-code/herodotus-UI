@@ -51,7 +51,6 @@ export default class DetailTab extends Component {
         <p>(BUTTON FOR ADDING TO LIST)</p>
         <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
         {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
-      </div>
     )
   }
 }
