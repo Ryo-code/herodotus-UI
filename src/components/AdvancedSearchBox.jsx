@@ -131,7 +131,6 @@ class AdvancedSearchBox extends Component {
 
               <br/>
 
-
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
 
               <div id="submit-button">

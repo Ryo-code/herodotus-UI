@@ -47,6 +47,16 @@ nav img{
   height: 35px;
 }
 
+nav{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+nav .nav-button{
+  height: 35px;
+}
+
 .landing-page{
   margin-left: 50px;
   margin-right: 50px;
@@ -90,17 +100,11 @@ nav img{
   border-radius: 10px;
   border: 1px solid darkgrey;
   padding: 10px 5px 10px 5px;
-  /*position: absolute;*/
-  /*overflow-y: scroll;*/
 }
 
 #submit-button {
   width : 35%;
 }
-
-/*.advanced-search-button {
-  margin-top: 10px;
-}*/
 
 .film-row {
   display: flex;
@@ -109,12 +113,10 @@ nav img{
 
 .search-film-row {
   display: flex;
-  /*overflow-x: scroll;*/
   flex-wrap: wrap;
 }
 
 .film-row-title{
-  /*margin-top: 50px;*/
   text-align: left;
 }
 
@@ -168,12 +170,6 @@ nav img{
   width: auto;
   overflow-y: scroll;
 }
-
-/*.detailed-card-content p{
-  font-size: 1.9vmin;
-  overflow-y:scroll;
-  min-width: 400px;
-}*/
 
 .detailed-card-content span{
   color: darkgrey;
