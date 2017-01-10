@@ -70,6 +70,7 @@ export default class MovieSubmission extends Component {
         endAccurate: this.state.endAccurate,
         setting: this.state.setting,
       })
+      this.props.handleClose()
     }
 
 
@@ -82,7 +83,6 @@ export default class MovieSubmission extends Component {
           modal={false}
           open={this.props.showForm}
           onRequestClose={this.props.handleClose}
-          scrollable={true}
         >
           <form onSubmit={this.handleSubmit}>
             <TextField hintText="Pearl Harbor" floatingLabelText="Title">
