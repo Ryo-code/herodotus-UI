@@ -82,14 +82,24 @@ nav img{
   margin-bottom: 10px
 }
 
-.comments-to-scroll-absolute{
+.slides-to-scroll-relative{
   position: relative;
 }
 
-.comments-to-scroll-absolute{
+.slides-to-scroll-absolute{
   position: absolute;
   overflow-y: scroll;
 }
+
+/*.non-scrolling-slides-relative{
+  overflow-y: hidden;
+  position: relative;
+}
+
+.non-scrolling-slides-absolute{
+  overflow-y: hidden;
+  position: absolute;
+}*/
 
 #submit-button {
   width : 35%;
