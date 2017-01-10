@@ -167,7 +167,8 @@ nav img{
 .detailed-card-content{
   font-size: 2.2vmin;
   width: auto;
-  overflow-y: scroll;
+  max-height: 380px;
+  overflow-y: hidden;
 }
 
 .detailed-card-content span{
