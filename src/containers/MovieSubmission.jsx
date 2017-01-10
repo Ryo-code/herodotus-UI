@@ -70,19 +70,17 @@ export default class MovieSubmission extends Component {
         endAccurate: this.state.endAccurate,
         setting: this.state.setting,
       })
+      this.props.handleClose()
     }
 
 
   render () {
     return (
-      <div>
-
         <Dialog
           title="Enter the new movie information here!"
           modal={false}
           open={this.props.showForm}
           onRequestClose={this.props.handleClose}
-          scrollable={true}
         >
           <form onSubmit={this.handleSubmit}>
             <TextField hintText="Pearl Harbor" floatingLabelText="Title">
@@ -184,8 +182,6 @@ export default class MovieSubmission extends Component {
             <RaisedButton label="Let there be a movie!" primary={true} type="submit" />
           </form>
         </Dialog>
-
-      </div>
     )
   }
 }

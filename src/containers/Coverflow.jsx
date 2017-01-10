@@ -4,13 +4,10 @@ import DetailedCard from './DetailedCard.jsx'
 
 export default class CoverFlow extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       currentMovie: '',
-      active: Math.floor((Math.random() * this.props.movies.length))
-    };
-  }
+      active: Math.floor(Math.random() * this.props.movies.length)
+    }
 
   movieData(movie, index) {
     this.setState({currentMovie: movie})
