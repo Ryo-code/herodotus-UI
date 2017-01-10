@@ -69,11 +69,17 @@ nav img{
 }
 
 .comment{
-  /*display: flex;*/
   border-radius: 10px;
   border: 1px solid darkgrey;
-  padding: 0 5px 0 5px;
+  padding: 0 5px 5px 5px;
   margin-bottom: 10px;
+}
+
+.notes{
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+  padding: 0px 5px 5px 5px;
+  margin-bottom: 10px
 }
 
 .comments-to-scroll-absolute{
@@ -83,13 +89,6 @@ nav img{
 .comments-to-scroll-absolute{
   position: absolute;
   overflow-y: scroll;
-}
-
-.notes{
-  display: flex;
-  border-radius: 10px;
-  border: 1px solid darkgrey;
-  padding: 10px 5px 10px 5px;
 }
 
 #submit-button {

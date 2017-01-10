@@ -296,8 +296,8 @@ class DetailedTabs extends Component {
             {this.state.userNotes ? this.state.userNotes.map((note, index) => {
               return (
 
-                <div key={note.id}>
-                  <p className="notes" key={index}>{note.note}</p>
+                <div className="notes" key={note.id}>
+                  <p key={index}>{note.note}</p>
                   <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
                   <button onClick={this.triggerEditNoteForm.bind(this, note.note, note.id)}>Edit</button>
                      { this.state.editNoteForm ?
