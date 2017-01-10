@@ -13,7 +13,6 @@ import MovieSubmission from './MovieSubmission.jsx'
 
 export default class SearchResultPage extends Component {
 
-
   state = {
     movies: [],
     currentMovie: null,

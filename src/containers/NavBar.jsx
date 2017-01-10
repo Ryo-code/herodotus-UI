@@ -27,8 +27,8 @@ class NavBar extends Component {
         <AppBar
           style={{
             background: 'rgba(0, 0, 0, 0.88)',
-            paddingLeft: '25px',
-            paddingRight: '15px',
+            paddingLeft: '35px',
+            paddingRight: '20px',
             position: 'fixed',
             top: '0',
             left: '0',
