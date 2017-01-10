@@ -76,8 +76,6 @@ export default class MovieSubmission extends Component {
 
   render () {
     return (
-      <div>
-
         <Dialog
           title="Enter the new movie information here!"
           modal={false}
@@ -184,8 +182,6 @@ export default class MovieSubmission extends Component {
             <RaisedButton label="Let there be a movie!" primary={true} type="submit" />
           </form>
         </Dialog>
-
-      </div>
     )
   }
 }

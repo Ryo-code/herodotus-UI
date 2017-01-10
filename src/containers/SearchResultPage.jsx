@@ -13,7 +13,6 @@ import MovieSubmission from './MovieSubmission.jsx'
 
 export default class SearchResultPage extends Component {
 
-
   state = {
     movies: [],
     currentMovie: null,
@@ -48,18 +47,12 @@ export default class SearchResultPage extends Component {
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
-        <h3>
-          <Link to="/movies">Back to Home</Link>
-        </h3>
-
-        <br/>
 
         <h3>Your search has yielded {this.props.searchResults.length} results. Scroll or click through </h3>
-        <p>Didn't find what you wanted? Add to the community by submitting your own</p>
-        <button onClick={this.showSubmissionForm}>Click here to sumbit your own movie!</button>
-        {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
+        <p>Didn't find what you wanted? Add to the community! <button onClick={this.showSubmissionForm}>Submit a new movie</button>
+          {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
+        </p>
 
-           {/* We can link this to the user submission page */}
 
         <h1>Interactive Timeline</h1>
         <Coverflow movies={this.props.searchResults}/>

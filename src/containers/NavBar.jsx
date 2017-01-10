@@ -27,13 +27,13 @@ class NavBar extends Component {
         <AppBar
           style={{
             background: 'rgba(0, 0, 0, 0.88)',
-            paddingLeft: '25px',
-            paddingRight: '15px',
+            paddingLeft: '35px',
+            paddingRight: '20px',
             position: 'fixed',
             top: '0',
             left: '0',
             display: 'flex',
-            // alignItems: 'center',
+            alignItems: 'center',
           }}
 
           title={`Welcome, ${localStorage.username}`}
@@ -46,7 +46,7 @@ class NavBar extends Component {
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
         />
-
+　
         <RaisedButton
           className="nav-button"
           label="Logout"

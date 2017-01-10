@@ -4,6 +4,8 @@ import {browserHistory} from 'react-router'
 // import {Link, browserHistory} from 'react-router'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Search from 'material-ui/svg-icons/action/search';
+
 // import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
@@ -124,7 +126,7 @@ class AdvancedSearchBox extends Component {
     return(
       <div>
         <div>
-          <RaisedButton label="Film Search" onTouchTap={this.handleOpen} />
+          <RaisedButton label="Search" icon={<Search/>} onTouchTap={this.handleOpen} />
           <Dialog
             title="Advanced Film Search"
             modal={false}

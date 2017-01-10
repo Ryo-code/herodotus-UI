@@ -33,6 +33,7 @@ export default class DetailTab extends Component {
       display: 'block',
       width: `${starRatingPercentage}%`
     }
+    
     return (
       <div>
         <h2 style={this.props.scrollStyles}>{currentMovie.title}</h2>
@@ -44,7 +45,7 @@ export default class DetailTab extends Component {
           <span style={starRatingStyle}> </span>
         </div>
 
-        <p><span>Story set in:</span>
+        <p><span>Story set in: </span>
         {currentMovie.set_start_year ? currentMovie.set_start_year : "unspecified"}
         {currentMovie.set_start_year ? currentMovie.start_ad_bc : ''}
         {currentMovie.set_start_year_accurate === 'no' ? '*' : ''}
