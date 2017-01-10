@@ -33,7 +33,7 @@ class NavBar extends Component {
             top: '0',
             left: '0',
             display: 'flex',
-            // alignItems: 'center',
+            alignItems: 'center',
           }}
 
           title={`Welcome, ${localStorage.username}`}
