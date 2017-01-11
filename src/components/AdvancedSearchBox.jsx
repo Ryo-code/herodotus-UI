@@ -174,9 +174,6 @@ class AdvancedSearchBox extends Component {
                   />
                 </RadioButtonGroup>
 
-              {/* <br/> */}
-
-              {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
               </div>
               <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" onClick={this.handleDateInputStyle} />
               <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right"}} type="submit"/>
