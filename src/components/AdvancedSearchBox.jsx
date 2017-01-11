@@ -1,19 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {browserHistory} from 'react-router'
-// import {Link, browserHistory} from 'react-router'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Search from 'material-ui/svg-icons/action/search';
-
-// import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-
-// const style = {
-//   margin: 12,
-//   float: "right"
-// };
 
 const styles = {
   block: {
@@ -107,7 +99,6 @@ class AdvancedSearchBox extends Component {
     }
   }
 
-
   render(){
     const { title, genre, keywords, date, start_date, end_date, location } = this.state;
     let buttonPrompt = null;
@@ -196,12 +187,9 @@ class AdvancedSearchBox extends Component {
             </RadioButtonGroup>
           </div>
 
-              {/* <br/> */}
-
-
-              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
-              <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
-              <br/>
+          <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
+          <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
+          <br/>
 
             </form>
           </Dialog>

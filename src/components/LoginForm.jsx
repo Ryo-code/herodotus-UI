@@ -5,11 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 import {browserHistory} from 'react-router'
 
-// const style = {
-//   margin: 12,
-//   float: "right"
-// };
-
 export default class LoginForm extends Component {
 
   state = {
@@ -37,6 +32,8 @@ export default class LoginForm extends Component {
       localStorage.userID = response.data.user.id
       localStorage.email = response.data.user.email
       localStorage.signedIn = response.data.signed_in
+      this.setState({loginEmail: ''})
+      this.props.loginClose()
       browserHistory.push('/movies')
     })
     .catch((error) => {

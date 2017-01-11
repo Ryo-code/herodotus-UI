@@ -70,7 +70,6 @@ export default class MovieSubmission extends Component {
     this.props.handleClose()
   }
 
-
   render () {
     return (
         <Dialog

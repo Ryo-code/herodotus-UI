@@ -1,5 +1,4 @@
 import React from 'react'
-import FilmWall from '../containers/FilmWall.jsx';
 import NavBar from '../containers/NavBar.jsx';
 import LandingPage from '../containers/LandingPage.jsx'
 
@@ -10,5 +9,4 @@ export default props =>
       updateToSearchResults={props.updateToSearchResults}
     />
     <LandingPage />
-    <FilmWall />
   </div>

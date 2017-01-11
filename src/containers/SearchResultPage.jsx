@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-// import React from 'react';
-// import SearchFilmRow from './SearchFilmRow.jsx';
-// import axios from 'axios'
-// import {Link} from 'react-router'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
-// import Card from '../components/Card.jsx'
-// import DetailedCard from './DetailedCard.jsx'
 import Coverflow from './Coverflow.jsx';
 import MovieSubmission from './MovieSubmission.jsx'
+import RaisedButton from 'material-ui/RaisedButton';
 
+const style = {
+  margin: 12,
+  display: "flex",
+  marginRight: "auto",
+  marginLeft: "auto",
+}
 
 export default class SearchResultPage extends Component {
 
@@ -18,6 +18,7 @@ export default class SearchResultPage extends Component {
     currentMovie: null,
     showForm: false,
   }
+
 
   componentDidMount() {
     this.setState({movies: this.props.searchResults})
@@ -74,6 +75,3 @@ export default class SearchResultPage extends Component {
     );
   }
 }
-        // <SearchFilmRow
-        //   currentMovies={this.props.searchResults}
-        // />

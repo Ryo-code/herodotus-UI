@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
-// import SearchBar from '../components/SearchBar.jsx'
 import AdvancedSearchBox from '../components/AdvancedSearchBox.jsx'
 import RaisedButton from 'material-ui/RaisedButton';
 import {Link} from 'react-router'
 import axios from 'axios'
 import {browserHistory} from 'react-router'
+import LoginForm from '../components/LoginForm.jsx'
+import RegistrationForm from '../components/RegistrationForm.jsx'
 
 class NavBar extends Component {
 
+  state = {
+    loginOpen: false,
+    registrationOpen: false,
+  }
+
+  // Log's out any users
   handleLogout = () => {
     axios.get('http://0.0.0.0:3000/users/sign_out')
-    .then((repsonse) => {
+    .then(() => {
       localStorage.clear()
       browserHistory.push('/')
     })
@@ -20,6 +27,27 @@ class NavBar extends Component {
     })
   }
 
+  // Handles registration form open
+  handleRegistrationOpen = () => {
+    this.setState({registrationOpen: true});
+  };
+
+  // Handles registration form close
+  handleRegistrationClose = () => {
+    this.setState({registrationOpen: false});
+  }
+
+  // Handles login form open
+  handleLoginOpen = () => {
+    this.setState({loginOpen: true});
+  };
+
+  // Handles login form close
+  handleLoginClose = () => {
+    this.setState({loginOpen: false});
+  }
+
+  // Handles the guest login
   handleGuestClick = () => {
     localStorage.guest = true
     browserHistory.push('/movies')
@@ -39,25 +67,48 @@ class NavBar extends Component {
             display: 'flex',
             alignItems: 'center',
           }}
-
           title={`Welcome, ${localStorage.username ? localStorage.username : 'Guest'}`}
-          // iconClassNameRight="muidocs-icon-navigation-expand-more"
-
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
         >
-        { localStorage.guest ?
+        {!localStorage.signedIn ?
+          <div>
+          <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
+          {
+            this.state.loginOpen ?
+              <LoginForm
+                loginOpen={this.state.loginOpen}
+                loginClose={this.handleLoginClose}
+              />
+            : false
+          }
+
+          <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
+          {
+            this.state.registrationOpen ?
+              <RegistrationForm
+                registrationOpen={this.state.registrationOpen}
+                registrationClose={this.handleRegistrationClose}
+              />
+            : false
+          }
+          </div> : null
+        }
+        { localStorage.guest || localStorage.signedIn ?
           <AdvancedSearchBox
             className="nav-button"
             updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
             updateToSearchResults={this.props.updateToSearchResults}
           /> : <RaisedButton label="Enter as Guest" onTouchTap={this.handleGuestClick} />
 　       }
-        <RaisedButton
-          className="nav-button"
-          label="Logout"
-          onTouchTap={this.handleLogout}
-        />
 
+        {
+          localStorage.guest || localStorage.signedIn ?
+          <RaisedButton
+            className="nav-button"
+            label="Logout"
+            onTouchTap={this.handleLogout}
+          /> : null
+        }
         </AppBar>
       </nav>
     );
