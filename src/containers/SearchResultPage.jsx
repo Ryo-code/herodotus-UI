@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 // import React from 'react';
 // import SearchFilmRow from './SearchFilmRow.jsx';
 // import axios from 'axios'
-import {Link} from 'react-router'
+// import {Link} from 'react-router'
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
 // import Card from '../components/Card.jsx'
@@ -24,19 +24,15 @@ export default class SearchResultPage extends Component {
   }
 
   selectMovie = (movie) => {
-    this.setState({ currentMovie: movie })
+    this.setState({currentMovie: movie})
   }
 
   showSubmissionForm = () => {
-    this.setState({
-      showForm: true,
-    })
+    this.setState({showForm: true,})
   }
 
   handleClose = () => {
-    this.setState({
-      showForm: false,
-    })
+    this.setState({showForm: false,})
   }
 
   render() {

@@ -28,16 +28,16 @@ class LandingPage extends Component {
 
   // All registration functions are below
   handleRegistrationOpen = () => {
-    this.setState({ registrationOpen: true });
+    this.setState({registrationOpen: true});
   };
 
   handleRegistrationClose = () => {
-    this.setState({ registrationOpen: false });
+    this.setState({registrationOpen: false});
   }
 
   handleRegistrationSubmit = (event) => {
     event.preventDefault()
-    const { username, email, password, password_confirmation } = this.state
+    const {username, email, password, password_confirmation} = this.state
 
     axios.post('http://0.0.0.0:3000/users', {
       username: username,
@@ -59,16 +59,16 @@ class LandingPage extends Component {
 
   // All login functions are below
   handleLoginOpen = () => {
-    this.setState({ loginOpen: true });
+    this.setState({loginOpen: true});
   };
 
   handleLoginClose = () => {
-    this.setState({ loginOpen: false });
+    this.setState({loginOpen: false});
   }
 
   handleLoginSubmit = (event) => {
     event.preventDefault()
-    const { loginEmail, loginPassword } = this.state
+    const {loginEmail, loginPassword} = this.state
 
     axios.post('http://0.0.0.0:3000/users/sign_in', {
       username: loginEmail,
@@ -89,14 +89,11 @@ class LandingPage extends Component {
   // Sets the values of the target field
   handleFormChange = (event) => {
     const {name, value} = event.target
-    this.setState({
-      [name]: value
-    })
+    this.setState({[name]: value})
   }
 
   render() {
-    //const { setLoggedInTrue } = this.props;  // NOTE: same as -> const setLoggedInTrue = this.props.setLoggedInTrue;
-    const { username, email, password, password_confirmation, loginEmail, loginPassword } = this.state
+    const {username, email, password, password_confirmation, loginEmail, loginPassword} = this.state
     return (
       <MuiThemeProvider>
 

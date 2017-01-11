@@ -12,12 +12,10 @@ class FilmRow extends Component {
 
   componentDidMount() {
     axios.get('http://0.0.0.0:3000/movies', {
-      params: {
-        category: this.props.rowGenre
-      }
+      params: {category: this.props.rowGenre}
     })
       .then((response) => {
-        this.setState({ movies: response.data })
+        this.setState({movies: response.data})
       })
       .catch((error) => {
         console.log(error)
