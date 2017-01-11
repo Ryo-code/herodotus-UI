@@ -20,20 +20,22 @@ class LandingPage extends Component {
     }
 
 
-  // All registration functions are below
+  // Handles registration form open
   handleRegistrationOpen = () => {
     this.setState({registrationOpen: true});
   };
 
+  // Handles registration form close
   handleRegistrationClose = () => {
     this.setState({registrationOpen: false});
   }
 
-  // All login functions are below
+  // Handles login form open
   handleLoginOpen = () => {
     this.setState({loginOpen: true});
   };
 
+  // Handles login form close
   handleLoginClose = () => {
     this.setState({loginOpen: false});
   }

@@ -56,6 +56,14 @@ class FilmWall extends Component {
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
         />
+        <FilmRow
+          className="film-row"
+          rowGenre={categories[2]}
+          card={this.state.currentCategory}
+          currentMovie={this.state.currentMovie}
+          setMovie={this.setCurrentMovieAndCard}
+          hideCard={this.hideCard}
+        />
 
       </div>
     );

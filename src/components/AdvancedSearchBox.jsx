@@ -10,10 +10,10 @@ import Search from 'material-ui/svg-icons/action/search';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
-const style = {
-  margin: 12,
-  float: "right"
-};
+// const style = {
+//   margin: 12,
+//   float: "right"
+// };
 
 const styles = {
   block: {

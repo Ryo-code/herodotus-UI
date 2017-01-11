@@ -36,7 +36,7 @@ class NavBar extends Component {
             alignItems: 'center',
           }}
 
-          title={`Welcome, ${localStorage.username}`}
+          title={`Welcome, ${localStorage.username ? localStorage.username : 'Guest'}`}
           // iconClassNameRight="muidocs-icon-navigation-expand-more"
 
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}

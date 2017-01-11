@@ -5,10 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 import {browserHistory} from 'react-router'
 
-const style = {
-  margin: 12,
-  float: "right"
-};
+// const style = {
+//   margin: 12,
+//   float: "right"
+// };
 
 export default class LoginForm extends Component {
 
