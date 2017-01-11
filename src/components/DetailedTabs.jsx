@@ -114,6 +114,7 @@ class DetailedTabs extends Component {
     return (
       <div>
         <Tabs
+          inkBarStyle={{background: 'crimson'}}
           onChange={this.handleChange}
           value={this.state.slideIndex}
           contentContainerStyle={{background: 'red'}}

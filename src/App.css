@@ -180,25 +180,40 @@ nav img{
 
 .carousel-custom-buttons{
   position: relative;
-  display:flex;
+  display: flex;
   justify-content: space-around;
   z-index: 1;
 }
 
-.cover-flow-button .left{
+/*.cover-flow-button .left{
   position: absolute;
   bottom: 50px;
 }
 
 .cover-flow-button .right{
   position: absolute;
-}
+}*/
 
-.black-button{
-  background-color: black;
-  color: white;
-}
 
 .timeline-title{
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.results-text{
+  background: snow;
+  color: black;
+  display: table;
+  border-radius: 25px;
+  padding: 0 50px 15px 50px;
+  box-shadow: 4px 0px 20px 2px rgba(0, 0, 0, 0.2);
+  /*width: 50%;*/
+  margin: 0 auto;
+}
+
+.results-text button{
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
 }
