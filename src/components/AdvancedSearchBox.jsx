@@ -13,7 +13,7 @@ const styles = {
   },
   radioButton: {
   marginBottom: 16,
-  radioButtonCheckColor: "crimson",
+  color: "#f22222",
   },
 };
 
