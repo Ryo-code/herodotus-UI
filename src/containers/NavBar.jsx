@@ -72,27 +72,30 @@ class NavBar extends Component {
         >
         {!localStorage.signedIn ?
           <div>
-          <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
-          {
-            this.state.loginOpen ?
-              <LoginForm
-                loginOpen={this.state.loginOpen}
-                loginClose={this.handleLoginClose}
-              />
-            : false
-          }
-
-          <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
-          {
-            this.state.registrationOpen ?
-              <RegistrationForm
-                registrationOpen={this.state.registrationOpen}
-                registrationClose={this.handleRegistrationClose}
-              />
-            : false
-          }
+            {/*The login button*/}
+            <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
+            {
+              this.state.loginOpen ?
+                <LoginForm
+                  loginOpen={this.state.loginOpen}
+                  loginClose={this.handleLoginClose}
+                />
+              : false
+            }
+          {/*The register button*/}
+            <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
+            {
+              this.state.registrationOpen ?
+                <RegistrationForm
+                  registrationOpen={this.state.registrationOpen}
+                  registrationClose={this.handleRegistrationClose}
+                />
+              : false
+            }
           </div> : null
         }
+
+        {/*This button will allow guests to login in order to see the search box*/}
         { localStorage.guest || localStorage.signedIn ?
           <AdvancedSearchBox
             className="nav-button"
@@ -101,6 +104,7 @@ class NavBar extends Component {
           /> : <RaisedButton label="Enter as Guest" onTouchTap={this.handleGuestClick} />
 　       }
 
+        {/*This will only show up for guest users or logged in users*/}
         {
           localStorage.guest || localStorage.signedIn ?
           <RaisedButton
