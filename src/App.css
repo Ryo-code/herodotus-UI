@@ -144,9 +144,9 @@ nav img{
 
 .card {
   min-width: 170px;
-  /*padding-left: 0.6rem !important;
-  padding-right: 1rem !important;*/
-} /*This fixes an annoying styling bug*/
+  padding-left: 0.6rem !important;
+  padding-right: 1rem !important;
+} /*This padding stuff fixes an annoying styling issue*/
 
 .detailed-card-tab{
   background-color: black
