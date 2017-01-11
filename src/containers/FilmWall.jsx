@@ -18,6 +18,8 @@ const categories = [
   // 'Critically Acclaimed Films',
   // 'Set in Ancient Rome or Greece',
 ]
+
+// This takes the array of categorie and shuffles them
 const shuffleArray = (array) => {
   let counter = array.length;
   while (counter > 0) {

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-// import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import TextField from 'material-ui/TextField';
 import LoginForm from '../components/LoginForm.jsx'
 import RegistrationForm from '../components/RegistrationForm.jsx'
 
@@ -19,6 +17,7 @@ class LandingPage extends Component {
     loginOpen: false,
   }
 
+  //This clears out the guest storage
   componentWillMount() {
     localStorage.clear()
   }
@@ -67,7 +66,6 @@ class LandingPage extends Component {
               />
             : false
           }
-
 
           <br/>
           <br/>

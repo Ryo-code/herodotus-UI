@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
-// import React from 'react';
-// import SearchFilmRow from './SearchFilmRow.jsx';
-// import axios from 'axios'
-// import {Link} from 'react-router'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './NavBar.jsx';
-// import Card from '../components/Card.jsx'
-// import DetailedCard from './DetailedCard.jsx'
 import Coverflow from './Coverflow.jsx';
 import MovieSubmission from './MovieSubmission.jsx'
-
 
 export default class SearchResultPage extends Component {
 
@@ -62,6 +54,3 @@ export default class SearchResultPage extends Component {
     );
   }
 }
-        // <SearchFilmRow
-        //   currentMovies={this.props.searchResults}
-        // />
