@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Card from '../components/Card.jsx';
-import DetailedCard from './DetailedCard';
+import DetailedCard from './DetailedCard.jsx';
 import axios from 'axios';
 
 class FilmRow extends Component {

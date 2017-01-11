@@ -1,17 +1,6 @@
 import React, {Component} from 'react'
 
 export default class DetailTab extends Component {
-
-  state = {showForm: false,}
-
-  showSubmissionForm = () => {
-    this.setState({showForm: true,})
-  }
-
-  handleClose = () => {
-    this.setState({showForm: false,})
-  }
-
   render() {
     const currentMovie = this.props.currentMovie
     const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100

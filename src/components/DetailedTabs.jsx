@@ -3,10 +3,10 @@ import React, {Component} from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios'
-import DetailTab from './DetailTab'
-import FilmTab from './FilmTab'
-import NoteTab from './NoteTab'
-import CommentTab from './CommentTab'
+import DetailTab from './DetailTab.jsx'
+import FilmTab from './FilmTab.jsx'
+import NoteTab from './NoteTab.jsx'
+import CommentTab from './CommentTab.jsx'
 
 // import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
