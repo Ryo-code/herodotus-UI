@@ -67,7 +67,7 @@ class NavBar extends Component {
             display: 'flex',
             alignItems: 'center',
           }}
-          title={`Welcome, ${localStorage.username ? localStorage.username : 'Guest'}`}
+          title={localStorage.signedIn ? `Welcome, ${localStorage.username}` : null}
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
         >
         {!localStorage.signedIn ?
@@ -106,7 +106,7 @@ class NavBar extends Component {
 
         {/*This will only show up for guest users or logged in users*/}
         {
-          localStorage.guest || localStorage.signedIn ?
+          localStorage.signedIn ?
           <RaisedButton
             className="nav-button"
             label="Logout"
