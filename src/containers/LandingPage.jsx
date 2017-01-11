@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import TextField from 'material-ui/TextField';
-import LoginForm from '../components/LoginForm'
-import RegistrationForm from '../components/RegistrationForm'
+import LoginForm from '../components/LoginForm.jsx'
+import RegistrationForm from '../components/RegistrationForm.jsx'
 
 class LandingPage extends Component {
 

@@ -13,16 +13,18 @@ export default class CommentTab extends Component {
       formState: false,
     }
 
-
+  // This updates the value on the form
   handleChange = (event) => {
     const {name, value} = event.target
     this.setState({[name]: value})
   }
 
+  // This closes the form if they click outside of the form
   handleFormClose = () => {
     this.setState({formState: false,})
   }
 
+  // This deletes the comment (not sure if I can add this to handleSubmit function)
   deleteComment = (commentID) => {
     axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`)
     .then((response) => {
@@ -31,6 +33,7 @@ export default class CommentTab extends Component {
     })
   }
 
+  // This opens the form and grabs the current comment clicked and the ID
   editCommentForm = (currentComment, commentID) => {
     this.setState({
       formState: true,
@@ -39,6 +42,7 @@ export default class CommentTab extends Component {
     })
   }
 
+  // This handles the query to the server
   handleSubmit = (event) => {
     event.preventDefault()
     let method = 'post'
@@ -56,6 +60,7 @@ export default class CommentTab extends Component {
       data = {comment: this.state.editComment}
     }
 
+    // The axios call depending on the user submission type of comment
     axios({
       method: method,
       url: url,
@@ -67,10 +72,11 @@ export default class CommentTab extends Component {
       } else {
         this.props.newUserComment(response.data.comments, 'editedComment')
       }
-        this.setState({
-          newComment: '',
-          formState: false,
-        })
+
+      this.setState({
+        newComment: '',
+        formState: false,
+      })
     })
     .catch((error) => {
       console.log(error)

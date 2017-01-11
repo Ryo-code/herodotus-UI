@@ -14,11 +14,13 @@ export default class RegistrationForm extends Component {
     password_confirmation: '',
   }
 
+  // This handles the changes on the form
   handleFormChange = (event) => {
     const {name, value} = event.target
     this.setState({[name]: value})
   }
 
+  // This registers the user to the database
   handleSubmit = (event) => {
     event.preventDefault()
     const {username, email, password, password_confirmation} = this.state

@@ -17,11 +17,13 @@ export default class LoginForm extends Component {
     loginPassword: '',
   }
 
+  // This handles the changes on the form
   handleFormChange = (event) => {
     const {name, value} = event.target
     this.setState({[name]: value})
   }
 
+  // This logs in the user
   handleSubmit = (event) => {
     event.preventDefault()
     const {loginEmail, loginPassword} = this.state
