@@ -112,7 +112,7 @@ export default class NoteTab extends Component {
               <TextField floatingLabelText="Note" fullWidth={true}>
                 <input onChange={this.handleChange} type="text" name="editNote" value={this.state.editNote} />
               </TextField>
-              <RaisedButton label="Update!" primary={true} type="submit"/>
+              <RaisedButton label="Update!" backgroundColor="black" labelColor="white" type="submit"/>
               </form>
               </Dialog>
 

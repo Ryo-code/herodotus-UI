@@ -63,9 +63,6 @@ class LandingPage extends Component {
             : false
           }
 
-          {/* <footer className="login-registration-bar">
-            hi
-          </footer> */}
 
           <br/>
           <br/>
