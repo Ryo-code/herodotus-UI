@@ -16,7 +16,6 @@ class FilmRow extends Component {
     })
       .then((response) => {
         this.setState({movies: response.data})
-        console.log(response)
       })
       .catch((error) => {
         console.log(error)

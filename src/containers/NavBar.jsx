@@ -20,8 +20,12 @@ class NavBar extends Component {
     })
   }
 
-  render() {
+  handleGuestClick = () => {
+    localStorage.guest = true
+    browserHistory.push('/movies')
+  }
 
+  render() {
     return (
       <nav>
         <AppBar
@@ -41,12 +45,13 @@ class NavBar extends Component {
 
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
         >
-        <AdvancedSearchBox
-          className="nav-button"
-          updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
-          updateToSearchResults={this.props.updateToSearchResults}
-        />
-　
+        { localStorage.guest ?
+          <AdvancedSearchBox
+            className="nav-button"
+            updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
+            updateToSearchResults={this.props.updateToSearchResults}
+          /> : <RaisedButton label="Enter as Guest" onTouchTap={this.handleGuestClick} />
+　       }
         <RaisedButton
           className="nav-button"
           label="Logout"

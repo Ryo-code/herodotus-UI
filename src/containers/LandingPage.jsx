@@ -8,17 +8,20 @@ import RegistrationForm from '../components/RegistrationForm.jsx'
 
 class LandingPage extends Component {
 
-    state = {
-      username: '',
-      email: '',
-      password: '',
-      password_confirmation: '',
-      registrationOpen: false,
-      loginEmail: '',
-      loginPassword: '',
-      loginOpen: false,
-    }
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    registrationOpen: false,
+    loginEmail: '',
+    loginPassword: '',
+    loginOpen: false,
+  }
 
+  componentWillMount() {
+    localStorage.clear()
+  }
 
   // Handles registration form open
   handleRegistrationOpen = () => {

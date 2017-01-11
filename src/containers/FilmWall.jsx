@@ -2,7 +2,22 @@ import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 import NavBar from './NavBar.jsx'
 
-const categories = ['Action', 'Drama', 'Biography', 'Set in Japan', 'Vintage', 'Before Common Era', 'Animation', 'World War 2']
+const categories = [
+  'Action',
+  'Drama',
+  'Biography',
+  'Set in Japan',
+  'Vintage (released before 1970)',
+  'Films Set Before the Common Era (BCE)',
+  'Animated Films',
+  'Films Set During WWII',
+  // 'Set in China',
+  // 'Recent Releases',
+  // 'Set in Middle Ages',
+  // 'Films set in this Millennium',
+  // 'Critically Acclaimed Films',
+  // 'Set in Ancient Rome or Greece',
+]
 const shuffleArray = (array) => {
   let counter = array.length;
   while (counter > 0) {
