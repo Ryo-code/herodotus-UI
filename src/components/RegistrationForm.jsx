@@ -67,7 +67,7 @@ export default class RegistrationForm extends Component {
             <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
           </TextField>
 
-          <RaisedButton className="black-button" backgroundColor="black" style={{backgroundColor:"black"}} label="Register" backgroundColor="black" labelColor="white" type="submit"/>
+          <RaisedButton backgroundColor="black" label="Register" labelColor="white" type="submit"/>
         </form>
       </Dialog>
     )
