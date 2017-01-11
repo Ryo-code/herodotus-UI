@@ -82,7 +82,7 @@ nav img{
   margin-bottom: 10px
 }
 
-#submit-button {
+#search-form-buttons {
   width : 35%;
 }
 
@@ -194,6 +194,7 @@ nav img{
   position: absolute;
 }
 
-/*.black-button{
+.black-button{
   background-color: black;
-}*/
+  color: white;
+}

@@ -125,7 +125,7 @@ class LandingPage extends Component {
                   <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
                 </TextField>
 
-                <RaisedButton className="black-button" backgroundColor="black" style={{backgroundColor:"black"}} label="Register" primary={true} type="submit"/>
+                <RaisedButton label="Register" backgroundColor="black" labelColor="white" type="submit"/>
               </form>
             </Dialog>
             　
@@ -148,7 +148,7 @@ class LandingPage extends Component {
                     <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
                   </TextField>
 
-                  <RaisedButton label="Login" primary={true} style={style} type="submit"/>
+                  <RaisedButton label="Login" backgroundColor="black" labelColor="white" type="submit"/>
                 </form>
               </Dialog>
 

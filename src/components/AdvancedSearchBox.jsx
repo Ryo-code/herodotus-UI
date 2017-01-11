@@ -118,7 +118,7 @@ class AdvancedSearchBox extends Component {
         </div>
     } else {
       dateInput =
-        <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
+        <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={true}>
           <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
         </TextField>
     }
@@ -128,7 +128,7 @@ class AdvancedSearchBox extends Component {
         <div>
           <RaisedButton label="Search" icon={<Search/>} onTouchTap={this.handleOpen} />
           <Dialog
-            title="Advanced Film Search"
+            title="Film Search Filter"
             modal={false}
             open={this.state.open}
             onRequestClose={this.handleClose}
@@ -138,28 +138,27 @@ class AdvancedSearchBox extends Component {
               <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
-              <br/>
-              <TextField hintText="Drama" floatingLabelText="Genre" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
-              <br/>
-              <TextField hintText="Japan Kamikaze" floatingLabelText="Keywords" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="eg. war love" floatingLabelText="Keywords" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
-              <br/>
-              <TextField hintText="USA" floatingLabelText="Set Location (Where did the movie take place?)" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="USA" floatingLabelText="Setting Location (Where did the movie take place?)" fullWidth={true}>
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
-              <br/>
+              {/* <br/> */}
 
               {dateInput}
 
-              <br/>
+              {/* <br/> */}
 
-              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
-              <RaisedButton label="Toggle Specific Year/Range" primary={true} style={style} onClick={this.handleDateInputStyle} />
+              <RaisedButton label="Toggle Specific Year/Range" backgroundColor="grey" labelColor="white" onClick={this.handleDateInputStyle} />
 
-              <div id="submit-button">
+              <div id="search-form-buttons">
                <RadioButtonGroup name="shipSpeed">
                   <RadioButton
                     onClick={this.handleEraChange}
@@ -174,10 +173,12 @@ class AdvancedSearchBox extends Component {
                     style={styles.radioButton}
                   />
                 </RadioButtonGroup>
-              <br/>
+
+              {/* <br/> */}
 
               {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
               </div>
+              <RaisedButton label="Search" backgroundColor="black" labelColor="white" type="submit"/>
               <br/>
 
             </form>

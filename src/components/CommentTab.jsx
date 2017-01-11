@@ -109,8 +109,7 @@ export default class CommentTab extends Component {
                         <TextField floatingLabelText="Comment" fullWidth={true}>
                           <input onChange={this.handleChange} type="text" name="editComment" value={this.state.editComment} />
                         </TextField>
-                      <RaisedButton label="Change!" primary={true} type="submit"/>
-                      </form>
+                        <RaisedButton backgroundColor="black" labelColor="white" label="Change!" type="submit"/>                      </form>
                     </Dialog>
                 </div>
               : null}
