@@ -144,26 +144,23 @@ class DetailedTabs extends Component {
 
 
           {/* This is the tab for user notes */}
-          <div className="slides-to-scroll-relative">
-            <div className="detailed-card-content slides-to-scroll-absolute" style={scrollStyles.slide}>
-              <NoteTab
-                userNotes={this.state.userNotes}
-                currentMovie={this.props.currentMovie}
-                newUserNote={this.handleNotes}
-              />
-            </div>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
+            <NoteTab
+              userNotes={this.state.userNotes}
+              currentMovie={this.props.currentMovie}
+              newUserNote={this.handleNotes}
+            />
           </div>
 
+
           {/* This is the tab for user comments */}
-          <div className="slides-to-scroll-relative">
             {/* Trying to make ONLY comments and notes slides scroll, not the details & film tabs */}
-            <div className="detailed-card-content slides-to-scroll-absolute" style={scrollStyles.slide}>
-              <CommentTab
-                currentMovieComments={this.state.currentMovieComments}
-                currentMovie={this.props.currentMovie}
-                newUserComment={this.handleComments}
-              />
-            </div>
+          <div className="detailed-card-content" style={scrollStyles.slide}>
+            <CommentTab
+              currentMovieComments={this.state.currentMovieComments}
+              currentMovie={this.props.currentMovie}
+              newUserComment={this.handleComments}
+            />
           </div>
         </SwipeableViews>
       </div>
