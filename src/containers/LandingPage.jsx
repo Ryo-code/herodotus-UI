@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
-import Dialog from 'material-ui/Dialog';
+// import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import axios from 'axios';
+// import TextField from 'material-ui/TextField';
+import LoginForm from '../components/LoginForm'
 import RegistrationForm from '../components/RegistrationForm'
-
-const style = {
-  margin: 12,
-  float: "right"
-};
 
 class LandingPage extends Component {
   constructor(props) {
@@ -44,28 +39,7 @@ class LandingPage extends Component {
     this.setState({loginOpen: false});
   }
 
-  handleLoginSubmit = (event) => {
-    event.preventDefault()
-    const {loginEmail, loginPassword} = this.state
-
-    axios.post('http://0.0.0.0:3000/users/sign_in', {
-      username: loginEmail,
-      password: loginPassword,
-    })
-    .then((response) => {
-      localStorage.username = response.data.user.username
-      localStorage.userID = response.data.user.id
-      localStorage.email = response.data.user.email
-      localStorage.signedIn = response.data.signed_in
-      browserHistory.push('/movies')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-
   render() {
-    const {loginEmail, loginPassword} = this.state
     return (
       <MuiThemeProvider>
 
@@ -81,29 +55,18 @@ class LandingPage extends Component {
           }
             　
           <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
-            <Dialog
-              title="Login"
-              modal={false}
-              open={this.state.loginOpen}
-              onRequestClose={this.handleLoginClose}
-              >
-                <form onSubmit={this.handleLoginSubmit}>
+          {
+            this.state.loginOpen ?
+              <LoginForm
+                loginOpen={this.state.loginOpen}
+                loginClose={this.handleLoginClose}
+              />
+            : false
+          }
 
-                  <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
-                    <input onChange={this.handleFormChange} type="text" name="loginEmail" value={loginEmail} />
-                  </TextField>
-
-                  <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
-                    <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
-                  </TextField>
-
-                  <RaisedButton label="Login" primary={true} style={style} type="submit"/>
-                </form>
-              </Dialog>
-
-              {/* <footer className="login-registration-bar">
-                hi
-              </footer> */}
+          {/* <footer className="login-registration-bar">
+            hi
+          </footer> */}
 
           <br/>
           <br/>

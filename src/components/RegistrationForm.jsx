@@ -19,7 +19,7 @@ export default class RegistrationForm extends Component {
     this.setState({[name]: value})
   }
 
-  handleRegistrationSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
     const {username, email, password, password_confirmation} = this.state
 
@@ -50,7 +50,7 @@ export default class RegistrationForm extends Component {
         open={this.props.registrationOpen}
         onRequestClose={this.props.registrationClose}
       >
-        <form onSubmit={this.handleRegistrationSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <TextField hintText="awesomeUsername" floatingLabelText="Username" fullWidth={true}>
             <input onChange={this.handleFormChange} type="text" name="username" value={username} />
           </TextField>
