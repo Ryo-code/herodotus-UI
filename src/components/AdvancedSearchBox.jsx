@@ -103,9 +103,10 @@ class AdvancedSearchBox extends Component {
 
   render(){
     const { title, genre, keywords, date, start_date, end_date, location } = this.state;
-
+    let buttonPrompt = null;
     let dateInput = null;
     if(this.state.date_range){
+      buttonPrompt = "Search by Specific Date";
       dateInput =
         <div>
           <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
@@ -117,6 +118,7 @@ class AdvancedSearchBox extends Component {
           </TextField>
         </div>
     } else {
+      buttonPrompt = "Search by Date Range";
       dateInput =
         <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
           <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
@@ -157,8 +159,7 @@ class AdvancedSearchBox extends Component {
               <br/>
 
               <RaisedButton label="Search" primary={true} style={style} type="submit"/>
-              <RaisedButton label="Toggle Specific Year/Range" primary={true} style={style} onClick={this.handleDateInputStyle} />
-
+              <RaisedButton label={buttonPrompt} primary={true} style={style} onClick={this.handleDateInputStyle} />
               <div id="submit-button">
                <RadioButtonGroup name="shipSpeed">
                   <RadioButton
