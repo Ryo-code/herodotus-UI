@@ -176,7 +176,7 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="endAccurate" value={this.state.endAccurate} />
             </TextField>
 
-            <RaisedButton label="Let there be a movie!" primary={true} type="submit" />
+            <RaisedButton label="Let there be a movie!" backgroundColor="black" labelColor="white" type="submit" />
           </form>
         </Dialog>
     )

@@ -63,7 +63,7 @@ export default class LoginForm extends Component {
             <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
           </TextField>
 
-          <RaisedButton label="Login" primary={true} style={style} type="submit"/>
+          <RaisedButton label="Login" backgroundColor="black" labelColor="white" type="submit"/>
         </form>
       </Dialog>
     )

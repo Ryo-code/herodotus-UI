@@ -9,10 +9,12 @@ import Search from 'material-ui/svg-icons/action/search';
 // import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+
 const style = {
   margin: 12,
   float: "right"
 };
+
 const styles = {
   block: {
     maxWidth: 250,
@@ -21,6 +23,7 @@ const styles = {
     marginBottom: 16,
   },
 };
+
 class AdvancedSearchBox extends Component {
   state = {
     title: '',
@@ -38,6 +41,7 @@ class AdvancedSearchBox extends Component {
   handleOpen = () => {
     this.setState({open: true});
   };
+
   handleClose = () => {
     this.setState({open: false});
   };
@@ -80,9 +84,11 @@ class AdvancedSearchBox extends Component {
       })
     this.clearForm()
   }
+
   handleEraChange = (event) => {
     this.setState({era: event.target.value})
   }
+
   handleFormChange = (event) => {
     const {value, name} = event.target;
     this.setState({
@@ -100,27 +106,46 @@ class AdvancedSearchBox extends Component {
   }
 
 
-
   render(){
     const { title, genre, keywords, date, start_date, end_date, location } = this.state;
-
+    let buttonPrompt = null;
     let dateInput = null;
     if(this.state.date_range){
+      buttonPrompt = "Search by Specific Date";
       dateInput =
         <div>
-          <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
+          <TextField hintText="eg. 1941" floatingLabelText="Movie Start Date" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
           </TextField>
 
-          <TextField hintText="1943" floatingLabelText="Movie End Date" fullWidth={false}>
+          <TextField hintText="eg. 1945" floatingLabelText="Movie End Date" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
           </TextField>
         </div>
     } else {
+      buttonPrompt = "Search by Date Range";
       dateInput =
-        <TextField hintText="1941" floatingLabelText="Set Date (When did the movie take place?)" fullWidth={true}>
-          <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-        </TextField>
+        <div>
+          <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}>
+            <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
+          </TextField>
+          <div id="search-form-buttons">
+           <RadioButtonGroup name="shipSpeed">
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="BCE"
+                label="BCE"
+                style={styles.radioButton}
+              />
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="CE"
+                label="CE"
+                style={styles.radioButton}
+              />
+            </RadioButtonGroup>
+          </div>
+        </div>
     }
 
     return(
@@ -128,56 +153,37 @@ class AdvancedSearchBox extends Component {
         <div>
           <RaisedButton label="Search" icon={<Search/>} onTouchTap={this.handleOpen} />
           <Dialog
-            title="Advanced Film Search"
+            title="Film Search Filter"
             modal={false}
             open={this.state.open}
             onRequestClose={this.handleClose}
           >
 
             <form onSubmit={this.handleSubmit}>
-              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
+              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
-              <br/>
-              <TextField hintText="Drama" floatingLabelText="Genre" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
-              <br/>
-              <TextField hintText="Japan Kamikaze" floatingLabelText="Keywords" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="eg. war love (includes all)" floatingLabelText="Keywords" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
-              <br/>
-              <TextField hintText="USA" floatingLabelText="Set Location (Where did the movie take place?)" fullWidth={true}>
+              {/* <br/> */}
+              <TextField hintText="eg. USA" floatingLabelText="Setting Location" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
-              <br/>
+              {/* <br/> */}
 
               {dateInput}
 
-              <br/>
+              {/* <br/> */}
 
-              <RaisedButton label="Search" primary={true} style={style} type="submit"/>
-              <RaisedButton label="Toggle Specific Year/Range" primary={true} style={style} onClick={this.handleDateInputStyle} />
 
-              <div id="submit-button">
-               <RadioButtonGroup name="shipSpeed">
-                  <RadioButton
-                    onClick={this.handleEraChange}
-                    value="BCE"
-                    label="BCE"
-                    style={styles.radioButton}
-                  />
-                  <RadioButton
-                    onClick={this.handleEraChange}
-                    value="CE"
-                    label="CE"
-                    style={styles.radioButton}
-                  />
-                </RadioButtonGroup>
-              <br/>
-
-              {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
-              </div>
+              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
+              <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
               <br/>
 
             </form>
