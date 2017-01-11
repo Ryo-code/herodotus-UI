@@ -163,14 +163,14 @@ class AdvancedSearchBox extends Component {
                <RadioButtonGroup name="shipSpeed">
                   <RadioButton
                     onClick={this.handleEraChange}
-                    value="BC"
-                    label="BC"
+                    value="BCE"
+                    label="BCE"
                     style={styles.radioButton}
                   />
                   <RadioButton
                     onClick={this.handleEraChange}
-                    value="AD"
-                    label="AD"
+                    value="CE"
+                    label="CE"
                     style={styles.radioButton}
                   />
                 </RadioButtonGroup>

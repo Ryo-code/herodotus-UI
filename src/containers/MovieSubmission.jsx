@@ -4,74 +4,71 @@ import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 
-
 export default class MovieSubmission extends Component {
 
-    state = {
-      title: '',
-      releaseYear: '',
-      rating: '',
-      releaseDate: '',
-      runtime: '',
-      genre: '',
-      director: '',
-      writer: '',
-      actors: '',
-      plot: '',
-      language: '',
-      country: '',
-      awards: '',
-      poster: '',
-      metascore: '',
-      imdbrating: '',
-      keywords: '',
-      startYear: '',
-      startADBC: '',
-      startAccurate: '',
-      endYear: '',
-      endADBC: '',
-      endAccurate: '',
-      setting: '',
-    }
+  state = {
+    title: '',
+    releaseYear: '',
+    rating: '',
+    releaseDate: '',
+    runtime: '',
+    genre: '',
+    director: '',
+    writer: '',
+    actors: '',
+    plot: '',
+    language: '',
+    country: '',
+    awards: '',
+    poster: '',
+    metascore: '',
+    imdbrating: '',
+    keywords: '',
+    startYear: '',
+    startADBC: '',
+    startAccurate: '',
+    endYear: '',
+    endADBC: '',
+    endAccurate: '',
+    setting: '',
+  }
 
-    handleChange = (event) => {
-      const {name, value} = event.target
-      this.setState({
-        [name]: value,
-      })
-    }
+  handleChange = (event) => {
+    const {name, value} = event.target
+    this.setState({[name]: value,})
+  }
 
-    handleSubmit = (event) => {
-      event.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault()
 
-      axios.post(`http://0.0.0.0:3000/movies`, {
-        title: this.state.title,
-        releaseYear: this.state.releaseYear,
-        rating: this.state.rating,
-        releaseDate: this.state.releaseDate,
-        runtime: this.state.runtime,
-        genre: this.state.genre,
-        director: this.state.director,
-        writer: this.state.writer,
-        actors: this.state.actors,
-        plot: this.state.plot,
-        language: this.state.language,
-        country: this.state.country,
-        awards: this.state.awards,
-        poster: this.state.poster,
-        metascore: this.state.metascore,
-        imdbrating: this.state.imdbrating,
-        keywords: this.state.keywords,
-        startYear: this.state.startYear,
-        startADBC: this.state.startADBC,
-        startAccurate: this.state.startAccurate,
-        endYear: this.state.endYear,
-        endADBC: this.state.endADBC,
-        endAccurate: this.state.endAccurate,
-        setting: this.state.setting,
-      })
-      this.props.handleClose()
-    }
+    axios.post(`http://0.0.0.0:3000/movies`, {
+      title: this.state.title,
+      releaseYear: this.state.releaseYear,
+      rating: this.state.rating,
+      releaseDate: this.state.releaseDate,
+      runtime: this.state.runtime,
+      genre: this.state.genre,
+      director: this.state.director,
+      writer: this.state.writer,
+      actors: this.state.actors,
+      plot: this.state.plot,
+      language: this.state.language,
+      country: this.state.country,
+      awards: this.state.awards,
+      poster: this.state.poster,
+      metascore: this.state.metascore,
+      imdbrating: this.state.imdbrating,
+      keywords: this.state.keywords,
+      startYear: this.state.startYear,
+      startADBC: this.state.startADBC,
+      startAccurate: this.state.startAccurate,
+      endYear: this.state.endYear,
+      endADBC: this.state.endADBC,
+      endAccurate: this.state.endAccurate,
+      setting: this.state.setting,
+    })
+    this.props.handleClose()
+  }
 
 
   render () {
