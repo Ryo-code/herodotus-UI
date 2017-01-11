@@ -38,28 +38,39 @@ export default class SearchResultPage extends Component {
 
   render() {
 
+    let coverFlow = null;
+    if(this.props.searchResults.length > 0){
+      coverFlow =
+      <div>
+        <div className="results-text">
+          <h4>Your search has yielded {this.props.searchResults.length} results! </h4>
+        </div>
+        <h1 className="timeline-title">Timeline View</h1>
+        <Coverflow movies={this.props.searchResults}/>
+      </div>
+    }
+    else{
+      coverFlow =
+      <div>
+        <div className="results-text">
+            <h4>Your search has yielded no results. </h4>
+            <p>Didn't find what you wanted? Add to the community! </p>
+            <RaisedButton label="Submit a New Movie" style={style} onClick={this.showSubmissionForm} />
+            {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
+        </div>
+        <img src="http://gamingtrend.com/wp-content/screenshots/game-of-thrones-ascent/GOTA_Epic-Battle-Baratheon.jpg" alt="Smiley face"
+         width="100%"/>
+      </div>
+    }
+
     return (
       <div className="container">
         <NavBar
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
-          updateToSearchResults={this.props.updateToSearchResults}
-        />
+          updateToSearchResults={this.props.updateToSearchResults}/>
 
-        <div className="results-text">
-          <h4>Your search has yielded {this.props.searchResults.length} results. Scroll or click through. </h4>
+        {coverFlow}
 
-          <p>Didn't find what you wanted? Add to the community! </p>
-          <RaisedButton label="Submit a New Movie" style={style} onClick={this.showSubmissionForm} />
-            {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
-
-        </div>
-
-        <h1 className="timeline-title">Timeline View</h1>
-        <Coverflow movies={this.props.searchResults}/>
-
-          <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
-
-          </div>
           <br/>
           <br/>
       </div>

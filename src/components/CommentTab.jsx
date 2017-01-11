@@ -88,7 +88,11 @@ export default class CommentTab extends Component {
       <div>
         <form onSubmit={this.handleSubmit} name='comments'>
 
-          <TextField className="detailed-card-inputs" hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
+          <TextField className="detailed-card-inputs" hintText='Enter your comment below' floatingLabelText='Comment on this movie:'
+            floatingLabelFocusStyle={{color: "white"}}
+            underlineFocusStyle={{borderColor: "white"}}
+            floatingLabelStyle={{color: "gray"}}
+            fullWidth={true}>
             <input onChange={this.handleChange} name='newComment' type='text' value={this.state.newComment} style={{color: "white"}}/>
           </TextField>
 
