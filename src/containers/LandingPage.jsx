@@ -22,26 +22,6 @@ class LandingPage extends Component {
     localStorage.clear()
   }
 
-  // Handles registration form open
-  handleRegistrationOpen = () => {
-    this.setState({registrationOpen: true});
-  };
-
-  // Handles registration form close
-  handleRegistrationClose = () => {
-    this.setState({registrationOpen: false});
-  }
-
-  // Handles login form open
-  handleLoginOpen = () => {
-    this.setState({loginOpen: true});
-  };
-
-  // Handles login form close
-  handleLoginClose = () => {
-    this.setState({loginOpen: false});
-  }
-
   render() {
     return (
       <MuiThemeProvider>

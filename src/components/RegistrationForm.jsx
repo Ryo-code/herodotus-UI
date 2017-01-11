@@ -36,6 +36,8 @@ export default class RegistrationForm extends Component {
       localStorage.userID = response.data.user.id
       localStorage.email = response.data.user.email
       localStorage.signedIn = response.data.signed_in
+      this.setState({username: ''})
+      this.props.registrationClose()
       browserHistory.push('/movies')
     })
     .catch((error) => {
