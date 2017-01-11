@@ -1,25 +1,18 @@
 import React, {Component} from 'react'
-// import RaisedButton from 'material-ui/RaisedButton'
 
 export default class DetailTab extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      showForm: false,
-    }
+    this.state = {showForm: false,}
   }
 
   showSubmissionForm = () => {
-    this.setState({
-      showForm: true,
-    })
+    this.setState({showForm: true,})
   }
 
   handleClose = () => {
-    this.setState({
-      showForm: false,
-    })
+    this.setState({showForm: false,})
   }
 
   render() {
@@ -33,7 +26,7 @@ export default class DetailTab extends Component {
       display: 'block',
       width: `${starRatingPercentage}%`
     }
-    
+
     return (
       <div>
         <h2 style={this.props.scrollStyles}>{currentMovie.title}</h2>

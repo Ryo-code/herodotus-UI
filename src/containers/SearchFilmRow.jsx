@@ -15,11 +15,11 @@ class SearchFilmRow extends Component {
   }
 
   selectMovie = (movie) => {
-    this.setState({ currentMovie: movie })
+    this.setState({currentMovie: movie})
   }
 
   hideDetails = () => {
-    this.setState({ currentMovie: null });
+    this.setState({currentMovie: null});
   }
 
   render() {

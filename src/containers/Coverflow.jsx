@@ -9,7 +9,7 @@ export default class CoverFlow extends Component {
       active: Math.floor(Math.random() * this.props.movies.length)
     }
 
-  movieData(movie, index) {
+  movieData(movie) {
     this.setState({currentMovie: movie})
   }
 
@@ -20,7 +20,7 @@ export default class CoverFlow extends Component {
   handleClick = (event) => {
     let num;
     if (event.target.name === 'first') {
-      num = 0
+      num = 1
     } else if (event.target.name === 'last') {
       num = this.props.movies.length - 1
     } else if (event.target.name === 'random') {
@@ -37,10 +37,24 @@ export default class CoverFlow extends Component {
     return (
       <div>
         <div>
-          <Coverflow width={960} height={480} displayQuantityOfSide={2} navigation={true} enableHeading={true} active={this.state.active}>
+          <Coverflow
+            width={960}
+            height={480}
+            displayQuantityOfSide={2}
+            navigation={true}
+            enableHeading={true}
+            active={this.state.active}
+          >
 
             {this.props.movies.map((movie, index) => {
-              return (<img key={index} src={movie.poster} alt={[movie.title, ' (', movie.set_start_year, movie.start_ad_bc === 'BC' ? movie.start_ad_bc  : '', '~', movie.set_end_year, movie.end_ad_bc === 'BC' ? movie.end_ad_bc : '', ')']} onClick={this.movieData.bind(this, movie)}/>);
+              return (
+                <img
+                  key={index}
+                  src={movie.poster}
+                  alt={[movie.title, ' (', movie.set_start_year, movie.start_ad_bc === 'BC' ? movie.start_ad_bc  : '', '~', movie.set_end_year, movie.end_ad_bc === 'BC' ? movie.end_ad_bc : '', ')']}
+                  onClick={this.movieData.bind(this, movie)}/
+                >
+              );
             })
           }
 
@@ -51,9 +65,12 @@ export default class CoverFlow extends Component {
             <button className='cover-flow-button right' name="last" onClick={this.handleClick}>End</button>
           </div>
         </div>
-        <br/> {this.state.currentMovie
-          ? <DetailedCard currentMovie={this.state.currentMovie} hideCard={this.hideCard}/>
-          : null}
+        <br/>
+        {
+          this.state.currentMovie ?
+          <DetailedCard currentMovie={this.state.currentMovie} hideCard={this.hideCard}/>
+          : null
+        }
       </div>
     );
   }

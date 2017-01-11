@@ -5,9 +5,7 @@ class Card extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      currentMovie: this.props.movieData,
-    }
+    this.state = {currentMovie: this.props.movieData,}
   }
 
   handleClick = () => {
@@ -15,10 +13,7 @@ class Card extends Component {
   }
 
   render() {
-    const img_url = this.props.movieData.poster;
-    const style = {
-      backgroundImage: `url(${img_url})`
-    };
+    const style = {backgroundImage: `url(${this.props.movieData.poster})`};
     return (
       <div className="card
         col-lg-2

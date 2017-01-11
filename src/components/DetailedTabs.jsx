@@ -8,7 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 import DetailTab from './DetailTab'
 import FilmTab from './FilmTab'
-// import NoteTab from './NoteTab'
+import NoteTab from './NoteTab'
 // import CommentTab from './CommentTab'
 
 // import FontIcon from 'material-ui/FontIcon';
@@ -54,9 +54,7 @@ class DetailedTabs extends Component {
     if (localStorage.userID) {
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
         .then((response) => {
-          this.setState({
-            userNotes: response.data.notes,
-          })
+          this.setState({userNotes: response.data.notes,})
         })
         .catch((error) => {
           console.log(error)
@@ -66,9 +64,7 @@ class DetailedTabs extends Component {
     // This grabs all the comments of the specific movie
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
         .then((response) => {
-          this.setState({
-            currentMovieComments: response.data.comments,
-          })
+          this.setState({currentMovieComments: response.data.comments,})
         })
         .catch((error) => {
           console.log(error)
@@ -82,9 +78,7 @@ class DetailedTabs extends Component {
       if (localStorage.userID) {
         axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
           .then((response) => {
-            this.setState({
-              userNotes: response.data.notes,
-            })
+            this.setState({userNotes: response.data.notes,})
           })
           .catch((error) => {
             console.log(error)
@@ -94,9 +88,7 @@ class DetailedTabs extends Component {
       // This grabs all the comments
       axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
         .then((response) => {
-          this.setState({
-            currentMovieComments: response.data.comments,
-          })
+          this.setState({currentMovieComments: response.data.comments,})
         })
         .catch((error) => {
           console.log(error)
@@ -106,9 +98,7 @@ class DetailedTabs extends Component {
 
   //Changes the slide tab
   handleChange = (value) => {
-    this.setState({
-      slideIndex: value,
-    });
+    this.setState({slideIndex: value,});
   }
 
   //Closes the card when the X is clicked
@@ -116,54 +106,20 @@ class DetailedTabs extends Component {
     this.props.hideCard()
   }
 
-
-  //Will update the value of the field being currently entered
-  handleFormChange = (event) => {
-    const {name, value} = event.target
-    this.setState({
-      [name]: value
-    })
-  }
-
   deleteComment(commentID) {
     axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`)
     .then((response) => {
-      this.setState({
-        currentMovieComments: response.data.comments,
-      })
+      this.setState({currentMovieComments: response.data.comments,})
     })
   }
 
-  deleteNote(noteID) {
-    axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${noteID}`)
-      .then((response) => {
-        this.setState({
-          userNotes: response.data.notes,
-        })
-      })
-  }
-
-  triggerEditCommentForm(currentComment, commentID) {
-    this.setState({
-      editComment: currentComment,
-      editForm: true,
-      editCommentID: commentID
-    })
-  }
-
-  triggerEditNoteForm(currentNote, noteID) {
-    this.setState({
-      editNote: currentNote,
-      editNoteForm: true,
-      editNoteID: noteID,
-    })
-  }
-
-  handleFormClose = () => {
-    this.setState({
-      editForm: false,
-      editNoteForm: false,
-    })
+  // NEED
+  handleNotes = (newNote, noteType) => {
+    if (noteType === 'newNote'){
+      this.setState({userNotes: [...this.state.userNotes, newNote]})
+    } else if (noteType === 'editedNote' || noteType === 'deletedNote') {
+      this.setState({userNotes: newNote})
+    }
   }
 
   //Handles the user form submission and will post to the appropriate route
@@ -182,35 +138,16 @@ class DetailedTabs extends Component {
             comment: this.state.comment,
           }
           break
-        case 'notes':
-          method = 'post'
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
-          data = {
-            user_id: localStorage.userID,
-            username: localStorage.username,
-            movie_id: this.props.currentMovie.id,
-            note: this.state.note,
-          }
-          break
         case 'editComments':
           method = 'put'
           url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${this.state.editCommentID}`
-          data = {
-            comment: this.state.editComment,
-          }
-          break
-        case 'editNotes':
-          method = 'put'
-          url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
-          data = {
-            note: this.state.editNote,
-          }
+          data = {comment: this.state.editComment,}
           break
         default:
           throw new Error(`Unknown event type $(data.type}`);
       }
 
-      // This will either post a new comment or a new note for the user
+      // This will post a new comment/note or update an exisiting comment/note
       axios({
         method: method,
         url: url,
@@ -225,23 +162,10 @@ class DetailedTabs extends Component {
               note: '',
             })
             break
-          case 'note':
-            this.setState({
-              userNotes: [...this.state.userNotes, response.data.note],
-              note: '',
-              comment: '',
-            })
-          break
           case 'editedComment':
             this.setState({
               currentMovieComments: response.data.comments,
               editForm: false,
-            })
-            break
-          case 'editedNote':
-            this.setState({
-              userNotes: response.data.notes,
-              editNoteForm: false,
             })
             break
           default:
@@ -259,7 +183,7 @@ class DetailedTabs extends Component {
   render() {
     const currentMovie = this.props.currentMovie
     return (
-      <div>
+      <div className="test">
         <Tabs
           onChange={this.handleChange}
           value={this.state.slideIndex}
@@ -288,37 +212,11 @@ class DetailedTabs extends Component {
 
           {/* This is the tab for user notes */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <form onSubmit={this.handleSubmit.bind(this)} name='notes'>
-              <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
-                <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white", position: "absolute", bottom: "0"}}/>
-              </TextField>
-            </form>
-            {this.state.userNotes ? this.state.userNotes.map((note, index) => {
-              return (
-
-                <div key={note.id}>
-                  <p className="notes" key={index}>{note.note}</p>
-                  <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
-                  <button onClick={this.triggerEditNoteForm.bind(this, note.note, note.id)}>Edit</button>
-                     { this.state.editNoteForm ?
-                        <Dialog
-                          title="Edit your note"
-                          modal={false}
-                          open={this.state.editNoteForm}
-                          onRequestClose={this.handleFormClose}
-                        >
-                          <form onSubmit={this.handleSubmit} name="editNotes">
-                            <TextField floatingLabelText="Note" fullWidth={true}>
-                              <input onChange={this.handleFormChange} type="text" name="editNote" value={this.state.editNote} />
-                            </TextField>
-                          <RaisedButton label="Update!" primary={true} type="submit"/>
-                          </form>
-                        </Dialog>
-                      : false}
-                </div>
-              )
-            }) : null
-            }
+            <NoteTab
+              userNotes={this.state.userNotes}
+              currentMovie={this.props.currentMovie}
+              newUserNote={this.handleNotes}
+            />
           </div>
 
           {/* This is the tab for user comments */}
@@ -330,7 +228,7 @@ class DetailedTabs extends Component {
                   <input onChange={this.handleFormChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
                 </TextField>
               </form>
-              {this.state.currentMovieComments ? this.state.currentMovieComments.map((comment, index) => {
+              {this.state.currentMovieComments.length > 0 ? this.state.currentMovieComments.map((comment, index) => {
                 return (
                   <div className="comment" key={comment.id}>
 
@@ -358,7 +256,7 @@ class DetailedTabs extends Component {
                     : ''}
                   </div>
                 )
-              }) : null
+              }) : 'This movie has no comments'
               }
             </div>
           </div>
