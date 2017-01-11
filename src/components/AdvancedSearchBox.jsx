@@ -109,11 +109,11 @@ class AdvancedSearchBox extends Component {
       buttonPrompt = "Search by Specific Date";
       dateInput =
         <div>
-          <TextField hintText="1941" floatingLabelText="Movie Start Date" fullWidth={false}>
+          <TextField hintText="eg. 1941" floatingLabelText="Movie Start Date" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
           </TextField>
 
-          <TextField hintText="1943" floatingLabelText="Movie End Date" fullWidth={false}>
+          <TextField hintText="eg. 1945" floatingLabelText="Movie End Date" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
           </TextField>
         </div>
@@ -163,11 +163,11 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. war love" floatingLabelText="Keywords" fullWidth={false}>
+              <TextField hintText="eg. war love (includes all)" floatingLabelText="Keywords" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="USA" floatingLabelText="Setting Location (Where did the movie take place?)" fullWidth={false}>
+              <TextField hintText="eg. USA" floatingLabelText="Setting Location" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               {/* <br/> */}
@@ -180,8 +180,9 @@ class AdvancedSearchBox extends Component {
               {/* <br/> */}
 
               {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
-              <RaisedButton label="Search" backgroundColor="black" labelColor="white" type="submit"/>
+
               <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" onClick={this.handleDateInputStyle} />
+              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right"}} type="submit"/>
               <br/>
 
             </form>
