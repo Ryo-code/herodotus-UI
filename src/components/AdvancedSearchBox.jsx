@@ -20,9 +20,11 @@ const styles = {
     maxWidth: 250,
   },
   radioButton: {
-    marginBottom: 16,
+  marginBottom: 16,
+  radioButtonCheckColor: "crimson",
   },
 };
+
 
 class AdvancedSearchBox extends Component {
   state = {
@@ -114,11 +116,15 @@ class AdvancedSearchBox extends Component {
       buttonPrompt = "Search by Specific Date";
       dateInput =
         <div>
-          <TextField hintText="eg. 1941" floatingLabelText="Movie Start Date" fullWidth={false}>
+          <TextField hintText="eg. 1941" floatingLabelText="Movie Start Date" fullWidth={false}
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
           </TextField>
 
-          <TextField hintText="eg. 1945" floatingLabelText="Movie End Date" fullWidth={false}>
+          <TextField hintText="eg. 1945" floatingLabelText="Movie End Date" fullWidth={false}
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
           </TextField>
         </div>
@@ -126,7 +132,9 @@ class AdvancedSearchBox extends Component {
       buttonPrompt = "Search by Date Range";
       dateInput =
         <div>
-          <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}>
+          <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
           </TextField>
 
@@ -145,20 +153,28 @@ class AdvancedSearchBox extends Component {
           >
 
             <form onSubmit={this.handleSubmit}>
-              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
+              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={false}
+                floatingLabelFocusStyle={{color: "crimson"}}
+                underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
+              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={false}
+                floatingLabelFocusStyle={{color: "crimson"}}
+                underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. war love (includes all)" floatingLabelText="Keywords" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
+              <TextField hintText="eg. war love (includes all)" floatingLabelText="Keywords" fullWidth={false}
+                floatingLabelFocusStyle={{color: "crimson"}}
+                underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. USA" floatingLabelText="Setting Location" fullWidth={false}>
-                <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
+              <TextField hintText="eg. USA" floatingLabelText="Setting Location" fullWidth={false}
+                floatingLabelFocusStyle={{color: "crimson"}}
+                underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               {/* <br/> */}
               {dateInput}
@@ -175,6 +191,7 @@ class AdvancedSearchBox extends Component {
                 value="CE"
                 label="CE"
                 style={styles.radioButton}
+                inputStyle={{radioButtonCheckColor: "crimson"}}
               />
             </RadioButtonGroup>
           </div>

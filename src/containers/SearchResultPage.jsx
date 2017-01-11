@@ -37,6 +37,20 @@ export default class SearchResultPage extends Component {
 
   render() {
 
+    let coverFlow = null;
+    if(this.props.searchResults.length > 0){
+      coverFlow =
+      <div>
+        <h1 className="timeline-title">Timeline View</h1>
+        <Coverflow movies={this.props.searchResults}/>;
+      </div>
+    }
+    else{
+      coverFlow =
+      <img src="http://gamingtrend.com/wp-content/screenshots/game-of-thrones-ascent/GOTA_Epic-Battle-Baratheon.jpg" alt="Smiley face"
+      width="100%"/>
+    }
+
     return (
       <div className="container">
         <NavBar
@@ -44,14 +58,12 @@ export default class SearchResultPage extends Component {
           updateToSearchResults={this.props.updateToSearchResults}
         />
 
-        <h3>Your search has yielded {this.props.searchResults.length} results. Scroll or click through </h3>
+        <h3>Your search has yielded {this.props.searchResults.length} results! </h3>
         <p>Didn't find what you wanted? Add to the community! <button onClick={this.showSubmissionForm}>Submit a new movie</button>
           {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
         </p>
 
-
-        <h1 className="timeline-title">Timeline View</h1>
-        <Coverflow movies={this.props.searchResults}/>
+        {coverFlow}
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
 

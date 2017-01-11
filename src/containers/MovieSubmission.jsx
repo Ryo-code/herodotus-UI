@@ -80,7 +80,9 @@ export default class MovieSubmission extends Component {
           onRequestClose={this.props.handleClose}
         >
           <form onSubmit={this.handleSubmit}>
-            <TextField hintText="Pearl Harbor" floatingLabelText="Title">
+            <TextField hintText="Pearl Harbor" floatingLabelText="Title"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="title" value={this.state.title} />
             </TextField>
 
@@ -92,7 +94,9 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="rating" value={this.state.rating} />
             </TextField> */}
 
-            <TextField hintText="http://www.imdb.com/title/..." floatingLabelText="Corresponding IMDB Page">
+            <TextField hintText="http://www.imdb.com/title/..." floatingLabelText="Corresponding IMDB Page"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="IMDBpage" value={this.state.releaseDate} />
             </TextField>
 
@@ -116,11 +120,15 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="actors" value={this.state.actors} />
             </TextField> */}
 
-            <TextField hintText="This movie follows the story of two friends, and their love lives as they go off to join the war." floatingLabelText="Plot">
+            <TextField hintText="This movie follows the story of..." floatingLabelText="Plot"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="plot" value={this.state.plot} />
             </TextField>
 
-            <TextField hintText="English, Japanese" floatingLabelText="Language(s)">
+            <TextField hintText="English, Japanese" floatingLabelText="Language(s)"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="language" value={this.state.language} />
             </TextField>
 
@@ -132,8 +140,16 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="awards" value={this.state.awards} />
             </TextField> */}
 
-            <TextField hintText="Poster link here" floatingLabelText="Poster">
+            <TextField hintText="Poster link here" floatingLabelText="Poster"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="poster" value={this.state.poster} />
+            </TextField>
+
+            <TextField hintText="eg. USA, Japan" floatingLabelText="Where is the story set?"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleChange} type="text" name="setting" value={this.state.setting} />
             </TextField>
 
             {/* <TextField hintText="44" floatingLabelText="Metacritic score">
@@ -148,35 +164,45 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="keywords" value={this.state.keywords} />
             </TextField>*/}
 
-            <TextField hintText="1941" floatingLabelText="The film's story begins in year...">
+            <TextField hintText="1941" floatingLabelText="The film's story begins in year..."
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="startYear" value={this.state.startYear} />
             </TextField>
 
-            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?">
+            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="startADBC" value={this.state.startADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="startAccurate" value={this.state.startAccurate} />
             </TextField>
 
-            <TextField hintText="Japan, USA" floatingLabelText="Where is the story set? (e.g. country)">
-              <input onChange={this.handleChange} type="text" name="setting" value={this.state.setting} />
-            </TextField>
 
-            <TextField hintText="1945" floatingLabelText="The film's story ends in year...">
+            <TextField hintText="1945" floatingLabelText="The film's story ends in year..."
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="endYear" value={this.state.endYear} />
             </TextField>
 
-            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?">
+            <TextField hintText="AD" floatingLabelText="Is this BCE(BC) or CE(AD)?"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="endADBC" value={this.state.endADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?"
+            floatingLabelFocusStyle={{color: "crimson"}}
+            underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="endAccurate" value={this.state.endAccurate} />
             </TextField>
-
-            <RaisedButton label="Let there be a movie!" backgroundColor="black" labelColor="white" type="submit" />
+            <br/>
+            <br/>
+            <RaisedButton label="Let there be a movie!" backgroundColor="black" labelColor="white" type="submit"/>
           </form>
         </Dialog>
     )
