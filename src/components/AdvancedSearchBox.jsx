@@ -9,10 +9,12 @@ import Search from 'material-ui/svg-icons/action/search';
 // import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-const style = {
-  margin: 12,
-  float: "right"
-};
+
+// const style = {
+//   margin: 12,
+//   float: "right"
+// };
+
 const styles = {
   block: {
     maxWidth: 250,
@@ -21,6 +23,7 @@ const styles = {
     marginBottom: 16,
   },
 };
+
 class AdvancedSearchBox extends Component {
   state = {
     title: '',
@@ -38,6 +41,7 @@ class AdvancedSearchBox extends Component {
   handleOpen = () => {
     this.setState({open: true});
   };
+
   handleClose = () => {
     this.setState({open: false});
   };
@@ -80,9 +84,11 @@ class AdvancedSearchBox extends Component {
       })
     this.clearForm()
   }
+
   handleEraChange = (event) => {
     this.setState({era: event.target.value})
   }
+
   handleFormChange = (event) => {
     const {value, name} = event.target;
     this.setState({
@@ -98,7 +104,6 @@ class AdvancedSearchBox extends Component {
       this.setState({date_range: false})
     }
   }
-
 
 
   render(){
@@ -121,7 +126,7 @@ class AdvancedSearchBox extends Component {
       buttonPrompt = "Search by Date Range";
       dateInput =
         <div>
-          <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={false}>
+          <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
           </TextField>
 
@@ -177,12 +182,8 @@ class AdvancedSearchBox extends Component {
               {/* <br/> */}
 
 
-              {/* <br/> */}
-
-              {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
-
-              <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" onClick={this.handleDateInputStyle} />
-              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right"}} type="submit"/>
+              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
+              <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
               <br/>
 
             </form>

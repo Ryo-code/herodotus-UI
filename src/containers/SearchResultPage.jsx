@@ -50,22 +50,11 @@ export default class SearchResultPage extends Component {
         </p>
 
 
-        <h1>Interactive Timeline</h1>
+        <h1 className="timeline-title">Timeline View</h1>
         <Coverflow movies={this.props.searchResults}/>
 
           <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
-            {/*
-              this.props.searchResults.map((movie, index) => {
-                return (
-                  <Card
-                    key={index}
-                    movieData={movie}
-                    selectMovie={this.selectMovie}
-                    showCard={this.state.currentMovie}
-                  />
-                );
-              })
-            */}
+
           </div>
           <br/>
           <br/>
