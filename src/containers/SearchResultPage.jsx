@@ -48,27 +48,26 @@ export default class SearchResultPage extends Component {
     }
     else{
       coverFlow =
-      <img src="http://gamingtrend.com/wp-content/screenshots/game-of-thrones-ascent/GOTA_Epic-Battle-Baratheon.jpg" alt="Smiley face"
-      width="100%"/>
+      <div>
+        <div className="results-text">
+            <h4>Your search has yielded {this.props.searchResults.length} results. </h4>
+            <p>Didn't find what you wanted? Add to the community! </p>
+            <RaisedButton label="Submit a New Movie" style={style} onClick={this.showSubmissionForm} />
+            {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
+        </div>
+        <img src="http://gamingtrend.com/wp-content/screenshots/game-of-thrones-ascent/GOTA_Epic-Battle-Baratheon.jpg" alt="Smiley face"
+         width="100%"/>
+      </div>
     }
 
     return (
       <div className="container">
         <NavBar
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
-          updateToSearchResults={this.props.updateToSearchResults}
-        />
-
-        <h3>Your search has yielded {this.props.searchResults.length} results! </h3>
-        <p>Didn't find what you wanted? Add to the community! <button onClick={this.showSubmissionForm}>Submit a new movie</button>
-          {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}
-        </p>
+          updateToSearchResults={this.props.updateToSearchResults}/>
 
         {coverFlow}
 
-          <div className="search-film-row col-md-12 col-sm-12 col-xs-12">
-
-          </div>
           <br/>
           <br/>
       </div>
