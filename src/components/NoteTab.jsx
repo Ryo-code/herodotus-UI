@@ -21,12 +21,13 @@ export default class NoteTab extends Component {
   deleteNote(noteID) {
     axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${noteID}`)
     .then((response) => {
+      this.setState({newNote: '',})
       this.props.newUserNote(response.data.notes, 'deletedNote')
     })
   }
 
   // This handles both the post of a new note or an update of an existing note
-  handleSubmission = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
     let method = 'post'
     let url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
@@ -86,7 +87,7 @@ export default class NoteTab extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmission} name='notes'>
+        <form onSubmit={this.handleSubmit} name='notes'>
 
           <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here'>
             <input onChange={this.handleChange} name='newNote' type='text' value={this.state.newNote} style={{color: "white", position: "absolute", bottom: "0"}}/>
@@ -96,8 +97,8 @@ export default class NoteTab extends Component {
 
       {this.props.userNotes.length > 0 ? this.props.userNotes.map((note, index) => {
           return (
-            <div key={note.id}>
-              <p className="notes" key={index}>{note.note}</p>
+            <div className="notes" key={note.id}>
+              <p key={index}>{note.note}</p>
               <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
               <button onClick={this.editFormShow.bind(this, note.note, note.id)}>Edit</button>
 
@@ -107,7 +108,7 @@ export default class NoteTab extends Component {
                 open={this.state.formState}
                 onRequestClose={this.handleFormClose}
               >
-              <form onSubmit={this.handleSubmission} name="editNotes">
+              <form onSubmit={this.handleSubmit} name="editNotes">
               <TextField floatingLabelText="Note" fullWidth={true}>
                 <input onChange={this.handleChange} type="text" name="editNote" value={this.state.editNote} />
               </TextField>
