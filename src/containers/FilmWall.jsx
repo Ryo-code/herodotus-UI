@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
+import NavBar from './NavBar.jsx'
 
 const categories = ['Action', 'Drama', 'Biography', 'Set in Japan', 'Vintage', 'Before Common Era', 'Animation', 'World War 2']
 const shuffleArray = (array) => {
@@ -39,7 +40,10 @@ class FilmWall extends Component {
   render() {
     return (
       <div>
-
+        <NavBar
+          updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
+          updateToSearchResults={this.props.updateToSearchResults}
+        />
         <FilmRow
           className="film-row"
           rowGenre={categories[0]}
