@@ -82,25 +82,6 @@ nav img{
   margin-bottom: 10px
 }
 
-.slides-to-scroll-relative{
-  position: relative;
-}
-
-.slides-to-scroll-absolute{
-  position: absolute;
-  overflow-y: scroll;
-}
-
-/*.non-scrolling-slides-relative{
-  overflow-y: hidden;
-  position: relative;
-}
-
-.non-scrolling-slides-absolute{
-  overflow-y: hidden;
-  position: absolute;
-}*/
-
 #submit-button {
   width : 35%;
 }
@@ -212,3 +193,7 @@ nav img{
 .cover-flow-button .right{
   position: absolute;
 }
+
+/*.black-button{
+  background-color: black;
+}*/

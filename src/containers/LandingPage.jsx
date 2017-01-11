@@ -125,7 +125,7 @@ class LandingPage extends Component {
                   <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
                 </TextField>
 
-                <RaisedButton disabledColor="black" label="Register" primary={true} style={style} type="submit"/>
+                <RaisedButton className="black-button" backgroundColor="black" style={{backgroundColor:"black"}} label="Register" primary={true} type="submit"/>
               </form>
             </Dialog>
             　
