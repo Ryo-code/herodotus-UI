@@ -11,7 +11,6 @@ const shuffleArray = (array) => {
     array[counter] = array[index]
     array[index] = temp
   }
-
   return array
 }
 shuffleArray(categories)

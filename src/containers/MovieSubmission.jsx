@@ -116,7 +116,7 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="actors" value={this.state.actors} />
             </TextField> */}
 
-            <TextField hintText="This movie follows the story of two friends, and their love lives as they go off to join the war." floatingLabelText="Plot">
+            <TextField hintText="The story of two friends, as they go off to join the war in Vietnam." floatingLabelText="Plot">
               <input onChange={this.handleChange} type="text" name="plot" value={this.state.plot} />
             </TextField>
 
@@ -156,11 +156,11 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="startADBC" value={this.state.startADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?">
               <input onChange={this.handleChange} type="text" name="startAccurate" value={this.state.startAccurate} />
             </TextField>
 
-            <TextField hintText="Japan, USA" floatingLabelText="Where is the story set? (e.g. country)">
+            <TextField hintText="Japan, USA" floatingLabelText="Where is the story set?">
               <input onChange={this.handleChange} type="text" name="setting" value={this.state.setting} />
             </TextField>
 
@@ -172,7 +172,7 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="endADBC" value={this.state.endADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate? Yes or no">
+            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?">
               <input onChange={this.handleChange} type="text" name="endAccurate" value={this.state.endAccurate} />
             </TextField>
 
