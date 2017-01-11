@@ -69,28 +69,37 @@ nav img{
 }
 
 .comment{
-  /*display: flex;*/
   border-radius: 10px;
   border: 1px solid darkgrey;
-  padding: 0 5px 0 5px;
+  padding: 0 5px 5px 5px;
   margin-bottom: 10px;
 }
 
-.comments-to-scroll-absolute{
+.notes{
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+  padding: 0px 5px 5px 5px;
+  margin-bottom: 10px
+}
+
+.slides-to-scroll-relative{
   position: relative;
 }
 
-.comments-to-scroll-absolute{
+.slides-to-scroll-absolute{
   position: absolute;
   overflow-y: scroll;
 }
 
-.notes{
-  display: flex;
-  border-radius: 10px;
-  border: 1px solid darkgrey;
-  padding: 10px 5px 10px 5px;
+/*.non-scrolling-slides-relative{
+  overflow-y: hidden;
+  position: relative;
 }
+
+.non-scrolling-slides-absolute{
+  overflow-y: hidden;
+  position: absolute;
+}*/
 
 #submit-button {
   width : 35%;
@@ -158,7 +167,8 @@ nav img{
 .detailed-card-content{
   font-size: 2.2vmin;
   width: auto;
-  overflow-y: scroll;
+  max-height: 380px;
+  overflow-y: hidden;
 }
 
 .detailed-card-content span{

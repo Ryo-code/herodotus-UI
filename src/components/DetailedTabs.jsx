@@ -205,24 +205,60 @@ class DetailedTabs extends Component {
 
 
           {/* This is the tab for film details, not the story*/}
-          <div className="detailed-card-content" style={scrollStyles.slide}>
+          <div className="detailed-card-content non-scrolling-slides-relative" style={scrollStyles.slide}>
             <FilmTab currentMovie={currentMovie} />
           </div>
 
 
           {/* This is the tab for user notes */}
-          <div className="detailed-card-content" style={scrollStyles.slide}>
-            <NoteTab
-              userNotes={this.state.userNotes}
-              currentMovie={this.props.currentMovie}
-              newUserNote={this.handleNotes}
-            />
+          <div className="slides-to-scroll-relative">
+            <div className="detailed-card-content slides-to-scroll-absolute" style={scrollStyles.slide}>
+              <NoteTab
+                userNotes={this.state.userNotes}
+                currentMovie={this.props.currentMovie}
+                newUserNote={this.handleNotes}
+              />
+            </div>
           </div>
+          {/*
+              <form onSubmit={this.handleSubmit.bind(this)} name='notes'>
+                <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here' >
+                  <input onChange={this.handleFormChange} name='note' type='text' value={this.state.note} style={{color: "white", position: "absolute", bottom: "0"}}/>
+                </TextField>
+              </form>
+              {this.state.userNotes ? this.state.userNotes.map((note, index) => {
+                return (
 
+                  <div className="notes" key={note.id}>
+                    <p key={index}>{note.note}</p>
+                    <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
+                    <button onClick={this.triggerEditNoteForm.bind(this, note.note, note.id)}>Edit</button>
+                       { this.state.editNoteForm ?
+                          <Dialog
+                            title="Edit your note"
+                            modal={false}
+                            open={this.state.editNoteForm}
+                            onRequestClose={this.handleFormClose}
+                          >
+                            <form onSubmit={this.handleSubmit} name="editNotes">
+                              <TextField floatingLabelText="Note" fullWidth={true}>
+                                <input onChange={this.handleFormChange} type="text" name="editNote" value={this.state.editNote} />
+                              </TextField>
+                            <RaisedButton label="Update!" primary={true} type="submit"/>
+                            </form>
+                          </Dialog>
+                        : false}
+                  </div>
+                )
+              }) : null
+              }
+            </div>
+          </div>
+*/}
           {/* This is the tab for user comments */}
-          <div className="comments-to-scroll-relative">
+          <div className="slides-to-scroll-relative">
             {/* Trying to make ONLY comments and notes slides scroll, not the details & film tabs */}
-            <div className="detailed-card-content comments-to-scroll-absolute" style={scrollStyles.slide}>
+            <div className="detailed-card-content slides-to-scroll-absolute" style={scrollStyles.slide}>
               <form onSubmit={this.handleSubmit} name='comments'>
                 <TextField className="detailed-card-inputs" hintText='Enter your comment below' floatingLabelText='Enter a comment about this movie here' >
                   <input onChange={this.handleFormChange} name='comment' type='text' value={this.state.comment} style={{color: "white"}}/>
