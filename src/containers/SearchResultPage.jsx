@@ -42,15 +42,18 @@ export default class SearchResultPage extends Component {
     if(this.props.searchResults.length > 0){
       coverFlow =
       <div>
+        <div className="results-text">
+          <h4>Your search has yielded {this.props.searchResults.length} results! </h4>
+        </div>
         <h1 className="timeline-title">Timeline View</h1>
-        <Coverflow movies={this.props.searchResults}/>;
+        <Coverflow movies={this.props.searchResults}/>
       </div>
     }
     else{
       coverFlow =
       <div>
         <div className="results-text">
-            <h4>Your search has yielded {this.props.searchResults.length} results. </h4>
+            <h4>Your search has yielded no results. </h4>
             <p>Didn't find what you wanted? Add to the community! </p>
             <RaisedButton label="Submit a New Movie" style={style} onClick={this.showSubmissionForm} />
             {this.state.showForm ? <MovieSubmission showForm={this.state.showForm} handleClose={this.handleClose}/> : null}

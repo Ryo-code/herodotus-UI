@@ -89,7 +89,11 @@ export default class NoteTab extends Component {
       <div>
         <form onSubmit={this.handleSubmit} name='notes'>
 
-          <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here'>
+          <TextField hintText='Enter your note below' floatingLabelText='Enter your own note about this movie here'
+            floatingLabelFocusStyle={{color: "white"}}
+            underlineFocusStyle={{borderColor: "white"}}
+            floatingLabelStyle={{color: "gray"}}
+            fullWidth={true}>
             <input onChange={this.handleChange} name='newNote' type='text' value={this.state.newNote} style={{color: "white", position: "absolute", bottom: "0"}}/>
           </TextField>
 
