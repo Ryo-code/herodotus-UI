@@ -20,7 +20,7 @@ export default class CoverFlow extends Component {
   handleClick = (event) => {
     let num;
     if (event.target.name === 'first') {
-      num = 0
+      num = 1
     } else if (event.target.name === 'last') {
       num = this.props.movies.length - 1
     } else if (event.target.name === 'random') {
