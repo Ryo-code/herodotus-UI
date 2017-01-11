@@ -7,9 +7,8 @@ import LoginForm from '../components/LoginForm'
 import RegistrationForm from '../components/RegistrationForm'
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+
+    state = {
       username: '',
       email: '',
       password: '',
@@ -19,7 +18,7 @@ class LandingPage extends Component {
       loginPassword: '',
       loginOpen: false,
     }
-  }
+
 
   // All registration functions are below
   handleRegistrationOpen = () => {

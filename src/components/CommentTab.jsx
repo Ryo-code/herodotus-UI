@@ -6,15 +6,13 @@ import axios from 'axios'
 
 export default class CommentTab extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
+    state = {
       newComment: '',
       editComment: '',
       commentID: '',
       formState: false,
     }
-  }
+
 
   handleChange = (event) => {
     const {name, value} = event.target

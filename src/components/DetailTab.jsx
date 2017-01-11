@@ -2,10 +2,7 @@ import React, {Component} from 'react'
 
 export default class DetailTab extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {showForm: false,}
-  }
+  state = {showForm: false,}
 
   showSubmissionForm = () => {
     this.setState({showForm: true,})
