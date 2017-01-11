@@ -120,9 +120,27 @@ class AdvancedSearchBox extends Component {
     } else {
       buttonPrompt = "Search by Date Range";
       dateInput =
-        <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={false}>
-          <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
-        </TextField>
+        <div>
+          <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={false}>
+            <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
+          </TextField>
+          <div id="search-form-buttons">
+           <RadioButtonGroup name="shipSpeed">
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="BCE"
+                label="BCE"
+                style={styles.radioButton}
+              />
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="CE"
+                label="CE"
+                style={styles.radioButton}
+              />
+            </RadioButtonGroup>
+          </div>
+        </div>
     }
 
     return(
@@ -158,26 +176,10 @@ class AdvancedSearchBox extends Component {
 
               {/* <br/> */}
 
-              <div id="search-form-buttons">
-               <RadioButtonGroup name="shipSpeed">
-                  <RadioButton
-                    onClick={this.handleEraChange}
-                    value="BCE"
-                    label="BCE"
-                    style={styles.radioButton}
-                  />
-                  <RadioButton
-                    onClick={this.handleEraChange}
-                    value="CE"
-                    label="CE"
-                    style={styles.radioButton}
-                  />
-                </RadioButtonGroup>
 
               {/* <br/> */}
 
               {/*<RaisedButton label="Search" primary={true} style={style} type="submit"/>*/}
-              </div>
               <RaisedButton label="Search" backgroundColor="black" labelColor="white" type="submit"/>
               <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" onClick={this.handleDateInputStyle} />
               <br/>
