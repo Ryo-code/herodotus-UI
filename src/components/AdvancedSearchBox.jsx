@@ -129,22 +129,7 @@ class AdvancedSearchBox extends Component {
           <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
           </TextField>
-          <div id="search-form-buttons">
-           <RadioButtonGroup name="shipSpeed">
-              <RadioButton
-                onClick={this.handleEraChange}
-                value="BCE"
-                label="BCE"
-                style={styles.radioButton}
-              />
-              <RadioButton
-                onClick={this.handleEraChange}
-                value="CE"
-                label="CE"
-                style={styles.radioButton}
-              />
-            </RadioButtonGroup>
-          </div>
+
         </div>
     }
 
@@ -176,8 +161,23 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               {/* <br/> */}
-
               {dateInput}
+              <div id="search-form-buttons">
+               <RadioButtonGroup name="shipSpeed">
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="BCE"
+                label="BCE"
+                style={styles.radioButton}
+              />
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="CE"
+                label="CE"
+                style={styles.radioButton}
+              />
+            </RadioButtonGroup>
+          </div>
 
               {/* <br/> */}
 
