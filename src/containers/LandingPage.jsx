@@ -6,17 +6,21 @@ import RegistrationForm from '../components/RegistrationForm.jsx'
 
 class LandingPage extends Component {
 
-    state = {
-      username: '',
-      email: '',
-      password: '',
-      password_confirmation: '',
-      registrationOpen: false,
-      loginEmail: '',
-      loginPassword: '',
-      loginOpen: false,
-    }
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    registrationOpen: false,
+    loginEmail: '',
+    loginPassword: '',
+    loginOpen: false,
+  }
 
+  //This clears out the guest storage
+  componentWillMount() {
+    localStorage.clear()
+  }
 
   // Handles registration form open
   handleRegistrationOpen = () => {
@@ -62,7 +66,6 @@ class LandingPage extends Component {
               />
             : false
           }
-
 
           <br/>
           <br/>

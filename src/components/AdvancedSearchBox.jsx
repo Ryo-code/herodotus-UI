@@ -1,19 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {browserHistory} from 'react-router'
-// import {Link, browserHistory} from 'react-router'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Search from 'material-ui/svg-icons/action/search';
-
-// import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-
-// const style = {
-//   margin: 12,
-//   float: "right"
-// };
 
 const styles = {
   block: {
@@ -105,7 +97,6 @@ class AdvancedSearchBox extends Component {
     }
   }
 
-
   render(){
     const { title, genre, keywords, date, start_date, end_date, location } = this.state;
     let buttonPrompt = null;
@@ -129,22 +120,7 @@ class AdvancedSearchBox extends Component {
           <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
           </TextField>
-          <div id="search-form-buttons">
-           <RadioButtonGroup name="shipSpeed">
-              <RadioButton
-                onClick={this.handleEraChange}
-                value="BCE"
-                label="BCE"
-                style={styles.radioButton}
-              />
-              <RadioButton
-                onClick={this.handleEraChange}
-                value="CE"
-                label="CE"
-                style={styles.radioButton}
-              />
-            </RadioButtonGroup>
-          </div>
+
         </div>
     }
 
@@ -176,15 +152,27 @@ class AdvancedSearchBox extends Component {
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               {/* <br/> */}
-
               {dateInput}
+              <div id="search-form-buttons">
+               <RadioButtonGroup name="shipSpeed">
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="BCE"
+                label="BCE"
+                style={styles.radioButton}
+              />
+              <RadioButton
+                onClick={this.handleEraChange}
+                value="CE"
+                label="CE"
+                style={styles.radioButton}
+              />
+            </RadioButtonGroup>
+          </div>
 
-              {/* <br/> */}
-
-
-              <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
-              <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
-              <br/>
+          <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
+          <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
+          <br/>
 
             </form>
           </Dialog>

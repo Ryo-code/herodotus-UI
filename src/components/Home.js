@@ -1,6 +1,6 @@
 import React from 'react'
-import FilmWall from '../containers/FilmWall.jsx';
 import NavBar from '../containers/NavBar.jsx';
+import LandingPage from '../containers/LandingPage.jsx'
 
 export default props =>
   <div className="App">
@@ -8,5 +8,5 @@ export default props =>
       updateMoviesFromSearchResult={props.updateMoviesFromSearchResult}
       updateToSearchResults={props.updateToSearchResults}
     />
-    <FilmWall movies={props.movies} user={props.user}/>
+    <LandingPage />
   </div>

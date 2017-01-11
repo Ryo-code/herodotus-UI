@@ -96,27 +96,27 @@ export default class NoteTab extends Component {
         </form>
 
       {this.props.userNotes.length > 0 ? this.props.userNotes.map((note, index) => {
-          return (
-            <div className="notes" key={note.id}>
-              <p key={index}>{note.note}</p>
-              <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
-              <button onClick={this.editFormShow.bind(this, note.note, note.id)}>Edit</button>
+        return (
+          <div className="notes" key={note.id}>
+            <p key={index}>{note.note}</p>
+            <button onClick={this.deleteNote.bind(this, note.id)}>Delete</button>
+            <button onClick={this.editFormShow.bind(this, note.note, note.id)}>Edit</button>
 
-              <Dialog
-                title="Edit your note"
-                modal={false}
-                open={this.state.formState}
-                onRequestClose={this.handleFormClose}
-              >
-              <form onSubmit={this.handleSubmit} name="editNotes">
-              <TextField floatingLabelText="Note" fullWidth={true}>
-                <input onChange={this.handleChange} type="text" name="editNote" value={this.state.editNote} />
-              </TextField>
-              <RaisedButton label="Update!" backgroundColor="black" labelColor="white" type="submit"/>
-              </form>
-              </Dialog>
+            <Dialog
+              title="Edit your note"
+              modal={false}
+              open={this.state.formState}
+              onRequestClose={this.handleFormClose}
+            >
+            <form onSubmit={this.handleSubmit} name="editNotes">
+            <TextField floatingLabelText="Note" fullWidth={true}>
+              <input onChange={this.handleChange} type="text" name="editNote" value={this.state.editNote} />
+            </TextField>
+            <RaisedButton label="Update!" backgroundColor="black" labelColor="white" type="submit"/>
+            </form>
+            </Dialog>
 
-            </div>
+          </div>
           )
         }) : 'You do not have any notes for this movie just yet.'
       }

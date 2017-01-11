@@ -10,7 +10,6 @@ class SearchBar extends Component {
     this.makeRequest = _.debounce(this.makeRequest, 0)
   }
 
-
   makeRequest = (search = this.state.value) => {
     axios.get(`http://0.0.0.0:3000/titles?name=${search}`)
       .then((response) => {
@@ -36,9 +35,7 @@ class SearchBar extends Component {
     }
   }
 
-
   render() {
-
     return(
       <div>
         <label>
@@ -52,7 +49,6 @@ class SearchBar extends Component {
         <span>Advanced Search</span>
       </div>
     );
-
   }
 }
 

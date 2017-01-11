@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios'
@@ -7,8 +6,6 @@ import DetailTab from './DetailTab.jsx'
 import FilmTab from './FilmTab.jsx'
 import NoteTab from './NoteTab.jsx'
 import CommentTab from './CommentTab.jsx'
-
-// import FontIcon from 'material-ui/FontIcon';
 import Create from 'material-ui/svg-icons/content/create';
 import Face from 'material-ui/svg-icons/action/face';
 import Forum from 'material-ui/svg-icons/communication/forum';
@@ -18,10 +15,8 @@ import Clear from 'material-ui/svg-icons/content/clear';
 const scrollStyles = {
   headline: {
     fontSize: 40,
-    // paddingTop: 16,
     marginTop: 0,
     marginBottom: 12,
-    // paddingTop: 16,
   },
   slide: {
     padding: 50,
@@ -144,7 +139,6 @@ class DetailedTabs extends Component {
             <FilmTab currentMovie={this.props.currentMovie} />
           </div>
 
-
           {/* This is the tab for user notes */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <NoteTab
@@ -154,9 +148,8 @@ class DetailedTabs extends Component {
             />
           </div>
 
-
           {/* This is the tab for user comments */}
-            {/* Trying to make ONLY comments and notes slides scroll, not the details & film tabs */}
+          {/* Trying to make ONLY comments and notes slides scroll, not the details & film tabs */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
             <CommentTab
               currentMovieComments={this.state.currentMovieComments}
@@ -171,5 +164,4 @@ class DetailedTabs extends Component {
   }
 }
 
-// ReactDOM.render(<Example />, document.getElementById('example'));
 export default DetailedTabs;
