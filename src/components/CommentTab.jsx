@@ -6,15 +6,13 @@ import axios from 'axios'
 
 export default class CommentTab extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
+    state = {
       newComment: '',
       editComment: '',
       commentID: '',
       formState: false,
     }
-  }
+
 
   handleChange = (event) => {
     const {name, value} = event.target
@@ -109,7 +107,9 @@ export default class CommentTab extends Component {
                         <TextField floatingLabelText="Comment" fullWidth={true}>
                           <input onChange={this.handleChange} type="text" name="editComment" value={this.state.editComment} />
                         </TextField>
-                        <RaisedButton backgroundColor="black" labelColor="white" label="Change!" type="submit"/>                      </form>
+                        <RaisedButton backgroundColor="black" labelColor="white" label="Change!" type="submit"/>
+                      </form>
+
                     </Dialog>
                 </div>
               : null}

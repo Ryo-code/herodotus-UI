@@ -97,7 +97,7 @@ class DetailedTabs extends Component {
     this.props.hideCard()
   }
 
-  // NEED
+  // This handles all the notes to update the state to refresh child
   handleNotes = (newNote, noteType) => {
     if (noteType === 'newNote'){
       this.setState({userNotes: [...this.state.userNotes, newNote]})
@@ -106,6 +106,7 @@ class DetailedTabs extends Component {
     }
   }
 
+  // This handles all the comments to update the state to refresh child
   handleComments = (newComment, commentType) => {
     if (commentType === 'newComment') {
       this.setState({currentMovieComments: [...this.state.currentMovieComments, newComment]})

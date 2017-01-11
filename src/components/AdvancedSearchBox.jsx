@@ -118,7 +118,7 @@ class AdvancedSearchBox extends Component {
         </div>
     } else {
       dateInput =
-        <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={true}>
+        <TextField hintText="1941" floatingLabelText="Set Date (When is the film set?)" fullWidth={false}>
           <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
         </TextField>
     }
@@ -135,19 +135,19 @@ class AdvancedSearchBox extends Component {
           >
 
             <form onSubmit={this.handleSubmit}>
-              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={true}>
+              <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={true}>
+              <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="eg. war love" floatingLabelText="Keywords" fullWidth={true}>
+              <TextField hintText="eg. war love" floatingLabelText="Keywords" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
               {/* <br/> */}
-              <TextField hintText="USA" floatingLabelText="Setting Location (Where did the movie take place?)" fullWidth={true}>
+              <TextField hintText="USA" floatingLabelText="Setting Location (Where did the movie take place?)" fullWidth={false}>
                 <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
               {/* <br/> */}
