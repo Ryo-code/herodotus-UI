@@ -22,7 +22,7 @@ export default class CoverFlow extends Component {
     if (event.target.name === 'first') {
       num = 1
     } else if (event.target.name === 'last') {
-      num = this.props.movies.length - 1
+      num = this.props.movies.length - 2
     } else if (event.target.name === 'random') {
       num = Math.floor((Math.random() * this.props.movies.length))
     }
