@@ -43,7 +43,7 @@ export default class SearchResultPage extends Component {
       coverFlow =
       <div>
         <div className="results-text">
-          <h4>Your search has yielded {this.props.searchResults.length} results! </h4>
+          <h4>Your search has yielded {this.props.searchResults.length} results! Click or scroll through. </h4>
         </div>
         <h1 className="timeline-title">Timeline View</h1>
         <Coverflow movies={this.props.searchResults}/>

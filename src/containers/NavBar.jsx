@@ -96,7 +96,7 @@ class NavBar extends Component {
         }
 
         {/*This button will allow guests to login in order to see the search box*/}
-        { localStorage.guest || localStorage.signedIn ?
+        { localStorage.guest ?
           <AdvancedSearchBox
             className="nav-button"
             updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}

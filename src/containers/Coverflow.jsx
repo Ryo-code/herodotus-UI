@@ -51,7 +51,7 @@ export default class CoverFlow extends Component {
                 <img
                   key={index}
                   src={movie.poster}
-                  alt={[movie.title, ' (', movie.set_start_year, movie.start_ad_bc === 'BC' ? movie.start_ad_bc  : '', '~', movie.set_end_year, movie.end_ad_bc === 'BC' ? movie.end_ad_bc : '', ')']}
+                  alt={[movie.title, ' (', movie.set_start_year, movie.start_ad_bc === 'BCE' ? movie.start_ad_bc  : '', '~', movie.set_end_year, movie.end_ad_bc === 'BCE' ? movie.end_ad_bc : '', ')']}
                   onClick={this.movieData.bind(this, movie)}/
                 >
               );
