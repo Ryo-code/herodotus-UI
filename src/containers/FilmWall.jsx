@@ -1,16 +1,6 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 import NavBar from './NavBar.jsx'
-import MovieSubmission from './MovieSubmission.jsx'
-import RaisedButton from 'material-ui/RaisedButton';
-
-const style = {
-  margin: 12,
-  display: "flex",
-  marginRight: "auto",
-  marginLeft: "auto",
-  maxWidth: "50%",
-}
 
 const categories = [
   'Action',
@@ -21,12 +11,12 @@ const categories = [
   'Films Set Before the Common Era (BCE)',
   'Animated Films',
   'Films Set During WWII',
-  // 'Set in China',
-  // 'Recent Releases',
-  // 'Set in Middle Ages',
-  // 'Films set in this Millennium',
-  // 'Critically Acclaimed Films',
-  // 'Set in Ancient Rome or Greece',
+  'Set in China',
+  'Recent Releases',
+  'Set in Middle Ages',
+  'Films set in this Millennium',
+  'Critically Acclaimed Films',
+  'Set in Ancient Rome or Greece',
 ]
 
 // This takes the array of categorie and shuffles them
@@ -94,7 +84,6 @@ class FilmWall extends Component {
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
         />
-
       </div>
 
     );
