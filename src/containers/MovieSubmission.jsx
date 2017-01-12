@@ -31,6 +31,7 @@ export default class MovieSubmission extends Component {
     endADBC: '',
     endAccurate: '',
     setting: '',
+    IMDBpage: '',
   }
 
   handleChange = (event) => {
@@ -66,6 +67,7 @@ export default class MovieSubmission extends Component {
       endADBC: this.state.endADBC,
       endAccurate: this.state.endAccurate,
       setting: this.state.setting,
+      IMDBpage: this.state.IMDBpage
     })
     this.props.handleClose()
   }
@@ -100,7 +102,7 @@ export default class MovieSubmission extends Component {
             underlineFocusStyle={{borderColor: "black"}}
             fullWidth={false}
             >
-              <input onChange={this.handleChange} type="text" name="IMDBpage" value={this.state.releaseDate} />
+              <input onChange={this.handleChange} type="text" name="IMDBpage" value={this.state.IMDBpage} />
             </TextField>
 
             {/* <TextField hintText="183 Minutes" floatingLabelText="Runtime in minutes">
