@@ -13,7 +13,7 @@ const styles = {
   },
   radioButton: {
   marginBottom: 16,
-  radioButtonCheckColor: "crimson",
+  color: "#f22222",
   },
 };
 
@@ -108,13 +108,13 @@ class AdvancedSearchBox extends Component {
       dateInput =
         <div>
           <TextField hintText="eg. 1941" floatingLabelText="Movie Start Date" fullWidth={false}
-            floatingLabelFocusStyle={{color: "crimson"}}
+            floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="start_date" value={start_date}/>
           </TextField>
 
           <TextField hintText="eg. 1945" floatingLabelText="Movie End Date" fullWidth={false}
-            floatingLabelFocusStyle={{color: "crimson"}}
+            floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="end_date" value={end_date}/>
           </TextField>
@@ -124,7 +124,7 @@ class AdvancedSearchBox extends Component {
       dateInput =
         <div>
           <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}
-            floatingLabelFocusStyle={{color: "crimson"}}
+            floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>
           </TextField>
@@ -145,25 +145,25 @@ class AdvancedSearchBox extends Component {
 
             <form onSubmit={this.handleSubmit}>
               <TextField hintText="eg. Pearl Harbor" floatingLabelText="Title" fullWidth={false}
-                floatingLabelFocusStyle={{color: "crimson"}}
+                floatingLabelFocusStyle={{color: "firebrick"}}
                 underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleFormChange} type="text" name="title" value={title}/>
               </TextField>
               {/* <br/> */}
               <TextField hintText="eg. drama" floatingLabelText="Genre" fullWidth={false}
-                floatingLabelFocusStyle={{color: "crimson"}}
+                floatingLabelFocusStyle={{color: "firebrick"}}
                 underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleFormChange} type="text" name="genre" value={genre}/>
               </TextField>
               {/* <br/> */}
               <TextField hintText="eg. war love (includes all)" floatingLabelText="Keywords" fullWidth={false}
-                floatingLabelFocusStyle={{color: "crimson"}}
+                floatingLabelFocusStyle={{color: "firebrick"}}
                 underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleFormChange} type="text" name="keywords" value={keywords}/>
               </TextField>
               {/* <br/> */}
               <TextField hintText="eg. USA" floatingLabelText="Setting Location" fullWidth={false}
-                floatingLabelFocusStyle={{color: "crimson"}}
+                floatingLabelFocusStyle={{color: "firebrick"}}
                 underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleFormChange} type="text" name="location" value={location}/>
               </TextField>
@@ -182,13 +182,13 @@ class AdvancedSearchBox extends Component {
                 value="CE"
                 label="CE"
                 style={styles.radioButton}
-                inputStyle={{radioButtonCheckColor: "crimson"}}
+                inputStyle={{radioButtonCheckColor: "firebrick"}}
               />
             </RadioButtonGroup>
           </div>
 
           <RaisedButton label="Submit" backgroundColor="black" labelColor="white" style={{float:"right", marginLeft:"10px"}} type="submit"/>
-          <RaisedButton label={buttonPrompt} backgroundColor="grey" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
+          <RaisedButton label={buttonPrompt} backgroundColor="firebrick" labelColor="white" style={{float:"right"}} onClick={this.handleDateInputStyle} />
           <br/>
 
             </form>

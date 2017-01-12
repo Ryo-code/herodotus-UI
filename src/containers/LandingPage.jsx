@@ -27,25 +27,6 @@ class LandingPage extends Component {
       <MuiThemeProvider>
 
         <div className="landing-page">
-          <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
-          {
-            this.state.registrationOpen ?
-              <RegistrationForm
-                registrationOpen={this.state.registrationOpen}
-                registrationClose={this.handleRegistrationClose}
-              />
-            : false
-          }
-            　
-          <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
-          {
-            this.state.loginOpen ?
-              <LoginForm
-                loginOpen={this.state.loginOpen}
-                loginClose={this.handleLoginClose}
-              />
-            : false
-          }
 
           <br/>
           <br/>
