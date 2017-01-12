@@ -90,11 +90,11 @@ export default class NoteTab extends Component {
         <form onSubmit={this.handleSubmit} name='notes'>
 
           <TextField hintText='Enter your note below' floatingLabelText='Enter notes about this movie (not visible to other users)'
-            floatingLabelFocusStyle={{color: "white"}}
+            floatingLabelFocusStyle={{color: "gray"}}
             underlineFocusStyle={{borderColor: "white"}}
             floatingLabelStyle={{color: "gray"}}
             fullWidth={true}>
-            <input onChange={this.handleChange} name='newNote' type='text' value={this.state.newNote} style={{color: "white", position: "absolute", bottom: "0"}}/>
+            <input onChange={this.handleChange} name='newNote' type='text' value={this.state.newNote} style={{color: "white"}}/>
           </TextField>
 
         </form>
@@ -113,7 +113,9 @@ export default class NoteTab extends Component {
               onRequestClose={this.handleFormClose}
             >
             <form onSubmit={this.handleSubmit} name="editNotes">
-            <TextField floatingLabelText="Note" fullWidth={true}>
+            <TextField floatingLabelText="Note" fullWidth={true}
+              floatingLabelFocusStyle={{color: "firebrick"}}
+              underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="editNote" value={this.state.editNote} />
             </TextField>
             <RaisedButton label="Update!" backgroundColor="black" labelColor="white" type="submit"/>

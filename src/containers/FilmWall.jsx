@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
 import FilmRow from './FilmRow.jsx';
 import NavBar from './NavBar.jsx'
+import MovieSubmission from './MovieSubmission.jsx'
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  margin: 12,
+  display: "flex",
+  marginRight: "auto",
+  marginLeft: "auto",
+  maxWidth: "50%",
+}
 
 const categories = [
   'Action',
@@ -38,7 +48,7 @@ class FilmWall extends Component {
     super(props)
     this.state = {
       currentMovie: null,
-      currentCategory: null
+      currentCategory: null,
     }
   }
 
@@ -86,6 +96,7 @@ class FilmWall extends Component {
         />
 
       </div>
+
     );
   }
 }
