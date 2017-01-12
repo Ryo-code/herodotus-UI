@@ -81,7 +81,7 @@ export default class NoteTab extends Component {
   // This handles the changes of the input fields
   handleChange = (event) => {
     const {name, value} = event.target
-    this.setState({[name]: value})
+    localStorage.signedIn ? this.setState({[name]: value}) : alert('Please login or register before you make your own note!')
   }
 
   render() {

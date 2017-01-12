@@ -58,8 +58,8 @@ export default class CoverFlow extends Component {
             })
           }
 
-          </Coverflow>
-          <div className="carousel-custom-buttons">
+        </Coverflow>
+        <div className="carousel-custom-buttons">
             <button className='cover-flow-button left' name="first" onClick={this.handleClick}>Beginning</button>
             {/* <button className='cover-flow-button middle' name="random" onClick={this.handleClick}>Random</button> */}
             <button className='cover-flow-button right' name="last" onClick={this.handleClick}>End</button>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import axios from 'axios'
-import DetailTab from './DetailTab.jsx'
+import DetailsTab from './DetailsTab.jsx'
 import FilmTab from './FilmTab.jsx'
 import NoteTab from './NoteTab.jsx'
 import CommentTab from './CommentTab.jsx'
@@ -130,7 +130,7 @@ class DetailedTabs extends Component {
 
           {/* This is the tab for the film & story details */}
           <div className="detailed-card-content" style={scrollStyles.slide}>
-            <DetailTab currentMovie={this.props.currentMovie} scrollStyles={scrollStyles.headline} />
+            <DetailsTab currentMovie={this.props.currentMovie} scrollStyles={scrollStyles.headline} />
           </div>
 
 

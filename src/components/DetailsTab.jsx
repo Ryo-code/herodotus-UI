@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class DetailTab extends Component {
+export default class DetailsTab extends Component {
   render() {
     const currentMovie = this.props.currentMovie
     const starRatingPercentage = (currentMovie.imdbrating / 2) / 5 * 100
