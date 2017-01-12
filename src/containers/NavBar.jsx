@@ -69,7 +69,7 @@ class NavBar extends Component {
             fontFamily: "Impact, Charcoal, sans-serif"
           }}
           title={localStorage.signedIn ? `| Welcome, ${localStorage.username}` : null}
-          iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
+          iconElementLeft={localStorage.signedIn || localStorage.guest ? <Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link> : null}
         >
         {!localStorage.signedIn ?
           <div>
