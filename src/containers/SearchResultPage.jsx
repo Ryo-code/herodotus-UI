@@ -9,6 +9,7 @@ const style = {
   display: "flex",
   marginRight: "auto",
   marginLeft: "auto",
+  maxWidth: "50%",
 }
 
 export default class SearchResultPage extends Component {

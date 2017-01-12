@@ -123,7 +123,7 @@ class AdvancedSearchBox extends Component {
       buttonPrompt = "Search by Date Range";
       dateInput =
         <div>
-          <TextField hintText="1941" floatingLabelText="Setting Date (year)" fullWidth={false}
+          <TextField hintText="eg. 1941" floatingLabelText="Setting Date (year)" fullWidth={false}
             floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="date" value={date}/>

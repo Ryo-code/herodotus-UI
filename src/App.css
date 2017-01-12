@@ -200,25 +200,26 @@ nav{
 
 
 .timeline-title{
-  font-family: ;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 500%;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 0;
 }
 
 .results-text{
-  /*background: firebrick;*/
+  background: snow;
   color: black;
-  display: inline;
+  display: table;
   border-radius: 25px;
   padding: 0 50px 0px 50px;
-  /*box-shadow: 4px 0px 20px 2px rgba(0, 0, 0, 0.2);*/
+  box-shadow: 4px 0px 20px 2px rgba(0, 0, 0, 0.2);
   margin: 0 auto 20px auto;
 
 }
 
 .results-text button{
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
+  /*display: inline-flex;*/
+  /*margin-right: auto;
+  margin-left: auto;*/
 }

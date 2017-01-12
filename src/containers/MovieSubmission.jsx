@@ -175,7 +175,7 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="startADBC" value={this.state.startADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?"
+            <TextField hintText="yes/no" floatingLabelText="Are you sure this year is accurate?"
             floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="startAccurate" value={this.state.startAccurate} />
@@ -194,7 +194,7 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="endADBC" value={this.state.endADBC} />
             </TextField>
 
-            <TextField hintText="yes" floatingLabelText="Are you sure this year is accurate?"
+            <TextField hintText="yes/no" floatingLabelText="Are you sure this year is accurate?"
             floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="endAccurate" value={this.state.endAccurate} />
