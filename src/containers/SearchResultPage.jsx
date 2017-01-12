@@ -52,7 +52,7 @@ export default class SearchResultPage extends Component {
     }
     else{
       coverFlow =
-      <div>
+      <div className="results">
         <div className="results-text">
             <h4>Your search has yielded no results. </h4>
             <p>Didn't find what you wanted? Add to the community! </p>
