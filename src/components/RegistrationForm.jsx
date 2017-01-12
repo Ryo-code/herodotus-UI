@@ -55,19 +55,27 @@ export default class RegistrationForm extends Component {
         onRequestClose={this.props.registrationClose}
       >
         <form onSubmit={this.handleSubmit}>
-          <TextField hintText="awesomeUsername" floatingLabelText="Username" fullWidth={true}>
+          <TextField hintText="awesomeUsername" floatingLabelText="Username" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="username" value={username} />
           </TextField>
 
-          <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
+          <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="email" name="email" value={email} />
           </TextField>
 
-          <TextField hintText="somethingclever123" floatingLabelText="Password" fullWidth={true}>
+          <TextField hintText="somethingclever123" floatingLabelText="Password" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="password" name="password" value={password} />
           </TextField>
 
-          <TextField floatingLabelText="Password Confirmation" fullWidth={true}>
+          <TextField floatingLabelText="Password Confirmation" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="password" name="password_confirmation" value={password_confirmation} />
           </TextField>
 
