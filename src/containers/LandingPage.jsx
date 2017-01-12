@@ -25,6 +25,10 @@ class LandingPage extends Component {
         <div className="landing-page">
           <br/>
           <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <img src='../herodotus-black-on-transparent.png' role='presentation' className="landing-page-fancy-text"/>
           <br/>
           <br/>
