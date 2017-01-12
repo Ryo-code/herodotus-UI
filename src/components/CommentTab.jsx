@@ -16,7 +16,7 @@ export default class CommentTab extends Component {
   // This updates the value on the form
   handleChange = (event) => {
     const {name, value} = event.target
-    this.setState({[name]: value})
+    localStorage.signedIn ? this.setState({[name]: value}) : alert('Please log in or register before you make a comment!')
   }
 
   // This closes the form if they click outside of the form

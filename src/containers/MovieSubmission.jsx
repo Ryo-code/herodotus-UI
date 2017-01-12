@@ -155,9 +155,6 @@ export default class MovieSubmission extends Component {
               <input onChange={this.handleChange} type="text" name="startADBC" value={this.state.startADBC} />
             </TextField>
 
-
-
-
             <TextField hintText="eg. 1945" floatingLabelText="The film's story ends in year..."
             floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>

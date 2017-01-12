@@ -22,21 +22,16 @@ class LandingPage extends Component {
   render() {
     return (
       <MuiThemeProvider>
-
         <div className="landing-page">
-
           <br/>
           <br/>
           <img src='../herodotus-black-on-transparent.png' role='presentation' className="landing-page-fancy-text"/>
           <br/>
           <br/>
-
           <img src='../battle-of-marathon.png' role='presentation' className="temp-landing"/>
           <img src='../herodotus-tagline-transparent-BG.png' role='presentation' className="landing-page-fancy-text"/>
           <br/>
           <br/>
-
-
         </div>
       </MuiThemeProvider>
     );

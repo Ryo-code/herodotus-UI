@@ -7,17 +7,6 @@ import Search from 'material-ui/svg-icons/action/search';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
-const styles = {
-  block: {
-    maxWidth: 250,
-  },
-  radioButton: {
-  marginBottom: 16,
-  color: "#f22222",
-  },
-};
-
-
 class AdvancedSearchBox extends Component {
   state = {
     title: '',
@@ -175,14 +164,13 @@ class AdvancedSearchBox extends Component {
                 onClick={this.handleEraChange}
                 value="BCE"
                 label="BCE"
-                style={styles.radioButton}
+                style={{marginBottom: 16}}
               />
               <RadioButton
                 onClick={this.handleEraChange}
                 value="CE"
                 label="CE"
-                style={styles.radioButton}
-                inputStyle={{radioButtonCheckColor: "firebrick"}}
+                style={{marginBottom: 16}}
               />
             </RadioButtonGroup>
           </div>
