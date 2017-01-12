@@ -47,6 +47,10 @@ nav img{
   height: 35px;
 }
 
+nav{
+  margin-bottom: -10px;
+}
+
 .landing-page{
   margin-left: 50px;
   margin-right: 50px;
@@ -196,20 +200,21 @@ nav img{
 
 
 .timeline-title{
+  font-family: ;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 0;
 }
 
 .results-text{
-  background: snow;
+  /*background: firebrick;*/
   color: black;
-  display: table;
+  display: inline;
   border-radius: 25px;
-  padding: 0 50px 15px 50px;
-  box-shadow: 4px 0px 20px 2px rgba(0, 0, 0, 0.2);
-  /*width: 50%;*/
-  margin: 0 auto;
+  padding: 0 50px 0px 50px;
+  /*box-shadow: 4px 0px 20px 2px rgba(0, 0, 0, 0.2);*/
+  margin: 0 auto 20px auto;
+
 }
 
 .results-text button{
