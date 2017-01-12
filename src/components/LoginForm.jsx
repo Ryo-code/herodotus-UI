@@ -52,11 +52,15 @@ export default class LoginForm extends Component {
       >
         <form onSubmit={this.handleSubmit}>
 
-          <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}>
+          <TextField hintText="awesome@email.com" floatingLabelText="Email" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="text" name="loginEmail" value={loginEmail} />
           </TextField>
 
-          <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}>
+          <TextField hintText="password123" floatingLabelText="Password" fullWidth={true}
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
             <input onChange={this.handleFormChange} type="password" name="loginPassword" value={loginPassword} />
           </TextField>
 
