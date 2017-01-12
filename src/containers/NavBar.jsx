@@ -66,14 +66,15 @@ class NavBar extends Component {
             left: '0',
             display: 'flex',
             alignItems: 'center',
+            fontFamily: "Impact, Charcoal, sans-serif"
           }}
-          title={localStorage.signedIn ? `Welcome, ${localStorage.username}` : null}
+          title={localStorage.signedIn ? `| Welcome, ${localStorage.username}` : null}
           iconElementLeft={<Link to="/movies"><img src='../herodotus-white-on-transparent.png' role='presentation'/></Link>}
         >
         {!localStorage.signedIn ?
           <div>
             {/*The login button*/}
-            <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} />
+            <RaisedButton label="Login" onTouchTap={this.handleLoginOpen} style={{marginLeft: "10px"}}/>
             {
               this.state.loginOpen ?
                 <LoginForm
@@ -83,7 +84,7 @@ class NavBar extends Component {
               : false
             }
           {/*The register button*/}
-            <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} />
+            <RaisedButton label="Register" onTouchTap={this.handleRegistrationOpen} style={{marginLeft: "10px", marginRight: "10px"}}/>
             {
               this.state.registrationOpen ?
                 <RegistrationForm
@@ -100,10 +101,9 @@ class NavBar extends Component {
         { localStorage.signedIn || localStorage.guest ?
 
           <AdvancedSearchBox
-            className="nav-button"
             updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
             updateToSearchResults={this.props.updateToSearchResults}
-          /> : <RaisedButton label="Enter as Guest" onTouchTap={this.handleGuestClick} />
+          /> : <RaisedButton label="Enter as Guest" onTouchTap={this.handleGuestClick}/>
 　       }
 
         {/*This will only show up for guest users or logged in users*/}
@@ -113,6 +113,7 @@ class NavBar extends Component {
             className="nav-button"
             label="Logout"
             onTouchTap={this.handleLogout}
+            style={{marginLeft: "10px"}}
           /> : null
         }
         </AppBar>
