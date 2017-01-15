@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../containers/App.js';
-import '../containers/index.css';
-import SearchResultPage from '../containers/SearchResultPage.jsx'
-import Home from '../components/Home.js'
-import LandingPage from '../containers/LandingPage.jsx'
+import App from './src/App';
+import './src/index.css';
+import SearchResultPage from './src/containers/SearchResultPage.jsx'
+import Home from './src/components/Home.js'
+import LandingPage from './src/containers/LandingPage.jsx'
 import { browserHistory, Route, IndexRoute, Router } from 'react-router'
-import FilmWall from '../containers/FilmWall.jsx'
+import FilmWall from './src/containers/FilmWall.jsx'
 // import { browserHistory, Link, Route, IndexRoute, Router } from 'react-router'
 
 ReactDOM.render(
