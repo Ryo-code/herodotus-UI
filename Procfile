@@ -1,1 +1,1 @@
-web: node ./containers/index.js
+web: node index.js
