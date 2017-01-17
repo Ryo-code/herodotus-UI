@@ -11,7 +11,7 @@ class FilmRow extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://herodotus-final.herokuapp.com/movies', {
+    axios.get('http://0.0.0.0:53664/movies', {
       params: {category: this.props.rowGenre}
     })
       .then((response) => {
