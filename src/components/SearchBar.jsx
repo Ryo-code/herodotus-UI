@@ -11,7 +11,7 @@ class SearchBar extends Component {
   }
 
   makeRequest = (search = this.state.value) => {
-    axios.get(`http://0.0.0.0:3000/titles?name=${search}`)
+    axios.get(`https://herodotus-backend.herokuapp.com/titles?name=${search}`)
       .then((response) => {
         this.props.updateMoviesFromSearchResult(response.data)
       })

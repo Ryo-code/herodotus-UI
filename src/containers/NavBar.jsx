@@ -17,7 +17,7 @@ class NavBar extends Component {
 
   // Log's out any users
   handleLogout = () => {
-    axios.get('http://0.0.0.0:3000/users/sign_out')
+    axios.get('https://herodotus-backend.herokuapp.com/users/sign_out')
     .then(() => {
       localStorage.clear()
       browserHistory.push('/')

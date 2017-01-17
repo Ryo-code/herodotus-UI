@@ -38,7 +38,7 @@ class DetailedTabs extends Component {
   componentDidMount() {
     // This grabs the specific user notes of the specific movie
     if (localStorage.userID) {
-      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
         .then((response) => {
           this.setState({userNotes: response.data.notes,})
         })
@@ -48,7 +48,7 @@ class DetailedTabs extends Component {
     }
 
     // This grabs all the comments of the specific movie
-      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({currentMovieComments: response.data.comments,})
         })
@@ -62,7 +62,7 @@ class DetailedTabs extends Component {
     if (prevProps.currentMovie !== this.props.currentMovie) {
       // This grabs the specific user notes of the specific movie
       if (localStorage.userID) {
-        axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+        axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
           .then((response) => {
             this.setState({userNotes: response.data.notes,})
           })
@@ -72,7 +72,7 @@ class DetailedTabs extends Component {
       }
 
       // This grabs all the comments
-      axios.get(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}`)
+      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({currentMovieComments: response.data.comments,})
         })

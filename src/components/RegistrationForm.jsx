@@ -25,7 +25,7 @@ export default class RegistrationForm extends Component {
     event.preventDefault()
     const {username, email, password, password_confirmation} = this.state
 
-    axios.post('http://0.0.0.0:3000/users', {
+    axios.post('https://herodotus-backend.herokuapp.com/users', {
       username: username,
       email: email,
       password: password,

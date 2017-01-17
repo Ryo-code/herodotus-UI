@@ -42,7 +42,7 @@ export default class MovieSubmission extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post(`http://0.0.0.0:3000/movies`, {
+    axios.post(`https://herodotus-backend.herokuapp.com/movies`, {
       title: this.state.title,
       releaseYear: this.state.releaseYear,
       rating: this.state.rating,

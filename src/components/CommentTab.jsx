@@ -26,7 +26,7 @@ export default class CommentTab extends Component {
 
   // This deletes the comment (not sure if I can add this to handleSubmit function)
   deleteComment = (commentID) => {
-    axios.delete(`http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${commentID}`)
+    axios.delete(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments/${commentID}`)
     .then((response) => {
       this.setState({newComment: '',})
       this.props.newUserComment(response.data.comments, 'deletedComment')
@@ -46,7 +46,7 @@ export default class CommentTab extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let method = 'post'
-    let url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments`
+    let url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments`
     let data = {
       user_id: localStorage.userID,
       username: localStorage.username,
@@ -56,7 +56,7 @@ export default class CommentTab extends Component {
     // This changes the axios call if it is a comment edit
     if (event.target.name === 'editComments') {
       method = 'put'
-      url = `http://0.0.0.0:3000/movies/${this.props.currentMovie.id}/comments/${this.state.commentID}`
+      url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments/${this.state.commentID}`
       data = {comment: this.state.editComment}
     }
 
