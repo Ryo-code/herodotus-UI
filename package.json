@@ -1,6 +1,6 @@
 {
   "name": "herodotus_UI",
-  "homepage": "https://ryo-code.github.io/herodotus-UI",
+  "homepage": "https://herodotus-final.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
