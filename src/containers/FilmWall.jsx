@@ -56,6 +56,10 @@ class FilmWall extends Component {
   render() {
     return (
       <div>
+        <div className="results-text">
+          <p>Don't know where to start? Refresh the page to see new categories of films, and click on them for more information. </p>
+          <p>Looking for a film set in a specific time/place? Click the <i>search</i> button to filter them, and they will be shown in chronological order by when the film's story begins.</p>
+        </div>
         <NavBar
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
           updateToSearchResults={this.props.updateToSearchResults}
