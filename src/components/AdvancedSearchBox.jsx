@@ -46,7 +46,7 @@ class AdvancedSearchBox extends Component {
     let {title, genre, keywords, date, start_date, end_date, era, location} = this.state;
     event.preventDefault();
 
-    axios.get('0.0.0.0:3000/searches', {
+    axios.get('https://herodotus-backend.herokuapp.com/searches', {
       params: {
           title: title,
           genre: genre,
