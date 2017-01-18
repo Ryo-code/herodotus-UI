@@ -39,7 +39,7 @@ export default class NoteTab extends Component {
     // This changes the axios call if it is a note edit
     if (event.target.name === 'editNotes') {
       method = 'put'
-      url = `hhttps://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
+      url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
       data = {note: this.state.editNote}
     }
 
