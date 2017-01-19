@@ -1,4 +1,4 @@
-Herodotus is a web app that allows users to search for films based on any time/place throughout world history.
+0Herodotus is a web app that allows users to search for films based on any time/place throughout world history.
 
 #Introduction to Herodotus
 Those interested in learning/teaching about history can create instant timelines by searching for films set in any particular place or time throughout world history. For example, you may want to find movies set in Ancient Rome, or maybe 19th century China. With the power of Herodotus, a chronologically ordered list of films can easily displayed with these filters.
@@ -8,7 +8,6 @@ Herodotus can be leveraged as a tool to help students/learners visualize history
 It is encouraged for users to discuss the historical veracity depicted in the films, through Herodotus' individual comments sections. Each film has its own public comments section, as well as private notes section. Therefore, the user is encouraged (but not required) to log in/register.
 
 #How it Works
-pretty screenshots
 
 
 #Building Herodotus
@@ -18,10 +17,9 @@ The purpose of Herodotus has always been to provide people with more information
 
 
 #Stack
-main languages
-
-
-
+Ruby on Rails for the API calls
+PostgreSQL for the database
+React for the front end with Material UI
 
 
 ░░░░░░░░░░░░░░░░░░░░░░█████████
