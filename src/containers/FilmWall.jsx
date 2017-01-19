@@ -89,6 +89,8 @@ class FilmWall extends Component {
           hideCard={this.hideCard}
         />
 
+        <hr  align="center" width="70%"/>
+          <p>Herodotus was created from the creative minds of <a href="https://github.com/Jebbie87">Jeff Chang</a>, <a href="https://github.com/Ryo-code">Ryo MacPherson</a>, and <a href="https://github.com/SvemirskiHod">Joao Coelho</a>.</p>
       </div>
 
     );
