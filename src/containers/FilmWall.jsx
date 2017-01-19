@@ -58,7 +58,7 @@ class FilmWall extends Component {
       <div>
         <div className="results-text">
           <p>Don't know where to start? Refresh the page to see new categories of films, and click on them for more information. </p>
-          <p>Looking for a film set in a specific time/place? Click the <i>search</i> button to filter them, and they will be shown in chronological order by when the film's story begins.</p>
+          <p>Looking for a film set in a specific time/place? Use the <i>search</i> button to show them in chronological order (by when their stories began).</p>
         </div>
         <NavBar
           updateMoviesFromSearchResult={this.props.updateMoviesFromSearchResult}
@@ -88,6 +88,7 @@ class FilmWall extends Component {
           setMovie={this.setCurrentMovieAndCard}
           hideCard={this.hideCard}
         />
+
       </div>
 
     );
