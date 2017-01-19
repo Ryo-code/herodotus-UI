@@ -3,6 +3,8 @@ import TextField from 'material-ui/TextField'
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 export default class MovieSubmission extends Component {
 
@@ -42,7 +44,7 @@ export default class MovieSubmission extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post(`https://herodotus-backend.herokuapp.com/movies`, {
+    axios.post(`${deployURL}/movies`, {
       title: this.state.title,
       releaseYear: this.state.releaseYear,
       rating: this.state.rating,

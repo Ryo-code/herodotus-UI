@@ -7,6 +7,8 @@ import axios from 'axios'
 import {browserHistory} from 'react-router'
 import LoginForm from '../components/LoginForm.jsx'
 import RegistrationForm from '../components/RegistrationForm.jsx'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 class NavBar extends Component {
 
@@ -17,7 +19,7 @@ class NavBar extends Component {
 
   // Log's out any users
   handleLogout = () => {
-    axios.get('https://herodotus-backend.herokuapp.com/users/sign_out')
+    axios.get(`${deployURL}/users/sign_out`)
     .then(() => {
       localStorage.clear()
       browserHistory.push('/')

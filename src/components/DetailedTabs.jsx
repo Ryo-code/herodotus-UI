@@ -11,6 +11,8 @@ import Face from 'material-ui/svg-icons/action/face';
 import Forum from 'material-ui/svg-icons/communication/forum';
 import Videocam from 'material-ui/svg-icons/av/videocam';
 import Clear from 'material-ui/svg-icons/content/clear';
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 const scrollStyles = {
   headline: {
@@ -38,7 +40,7 @@ class DetailedTabs extends Component {
   componentDidMount() {
     // This grabs the specific user notes of the specific movie
     if (localStorage.userID) {
-      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+      axios.get(`${deployURL}/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
         .then((response) => {
           this.setState({userNotes: response.data.notes,})
         })
@@ -48,7 +50,7 @@ class DetailedTabs extends Component {
     }
 
     // This grabs all the comments of the specific movie
-      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}`)
+      axios.get(`${deployURL}/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({currentMovieComments: response.data.comments,})
         })
@@ -62,7 +64,7 @@ class DetailedTabs extends Component {
     if (prevProps.currentMovie !== this.props.currentMovie) {
       // This grabs the specific user notes of the specific movie
       if (localStorage.userID) {
-        axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
+        axios.get(`${deployURL}/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`)
           .then((response) => {
             this.setState({userNotes: response.data.notes,})
           })
@@ -72,7 +74,7 @@ class DetailedTabs extends Component {
       }
 
       // This grabs all the comments
-      axios.get(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}`)
+      axios.get(`${deployURL}/movies/${this.props.currentMovie.id}`)
         .then((response) => {
           this.setState({currentMovieComments: response.data.comments,})
         })

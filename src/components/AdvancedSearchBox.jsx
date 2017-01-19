@@ -6,6 +6,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Search from 'material-ui/svg-icons/action/search';
 import Dialog from 'material-ui/Dialog';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 class AdvancedSearchBox extends Component {
   state = {
@@ -46,7 +48,7 @@ class AdvancedSearchBox extends Component {
     let {title, genre, keywords, date, start_date, end_date, era, location} = this.state;
     event.preventDefault();
 
-    axios.get('https://herodotus-backend.herokuapp.com/searches', {
+    axios.get(`${deployURL}/searches`, {
       params: {
           title: title,
           genre: genre,

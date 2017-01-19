@@ -3,6 +3,8 @@ import TextField from 'material-ui/TextField'
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 export default class CommentTab extends Component {
 
@@ -26,7 +28,7 @@ export default class CommentTab extends Component {
 
   // This deletes the comment (not sure if I can add this to handleSubmit function)
   deleteComment = (commentID) => {
-    axios.delete(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments/${commentID}`)
+    axios.delete(`${deployURL}/movies/${this.props.currentMovie.id}/comments/${commentID}`)
     .then((response) => {
       this.setState({newComment: '',})
       this.props.newUserComment(response.data.comments, 'deletedComment')
@@ -46,7 +48,7 @@ export default class CommentTab extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let method = 'post'
-    let url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments`
+    let url = `${deployURL}/movies/${this.props.currentMovie.id}/comments`
     let data = {
       user_id: localStorage.userID,
       username: localStorage.username,
@@ -56,7 +58,7 @@ export default class CommentTab extends Component {
     // This changes the axios call if it is a comment edit
     if (event.target.name === 'editComments') {
       method = 'put'
-      url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/comments/${this.state.commentID}`
+      url = `${deployURL}/movies/${this.props.currentMovie.id}/comments/${this.state.commentID}`
       data = {comment: this.state.editComment}
     }
 
