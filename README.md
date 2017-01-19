@@ -1,7 +1,7 @@
-Herodotus is a web app that will allow users to search for films based on any time/place throughout world history.
+Herodotus is a web app that allows users to search for films based on any time/place throughout world history.
 
 #Introduction to Herodotus
-Those interested in learning/teaching about history can create instant timelines by searching for films set in any particular place or time throughout world history. For example, you may want to find movies set in Ancient Rome, or maybe 19th century China... a chronologically order list of movies can be easily displayed.
+Those interested in learning/teaching about history can create instant timelines by searching for films set in any particular place or time throughout world history. For example, you may want to find movies set in Ancient Rome, or maybe 19th century China. With the power of Herodotus, a chronologically ordered list of films can easily displayed with these filters.
 
 Herodotus can be leveraged as a tool to help students/learners visualize history before they get into the more dry aspects of traditional education (e.g. textbooks, lectures, etc.). Furthermore, it serves as a means of exploring the historical context of events and figures, beyond the rote memorization of names and dates.
 
