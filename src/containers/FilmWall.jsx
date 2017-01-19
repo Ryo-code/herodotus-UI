@@ -90,7 +90,7 @@ class FilmWall extends Component {
         />
 
         <hr  align="center" width="70%"/>
-          <p align="center">Herodotus comes from the creative minds of <a href="https://github.com/Jebbie87">Jeff Chang</a>, <a href="https://github.com/Ryo-code">Ryo MacPherson</a>, and <a href="https://github.com/SvemirskiHod">Joao Coelho</a>.</p>
+          <p align="center">The <i>Herodotus</i> web app comes from the creative minds of <a href="https://github.com/Jebbie87">Jeff Chang</a>, <a href="https://github.com/Ryo-code">Ryo MacPherson</a>, and <a href="https://github.com/SvemirskiHod">Joao Coelho</a>.</p>
       </div>
 
     );
