@@ -8,7 +8,7 @@ Herodotus can be leveraged as a tool to help students/learners visualize history
 It is encouraged for users to discuss the historical veracity depicted in the films, through Herodotus' individual comments sections. Each film has its own public comments section, as well as private notes section. Therefore, the user is encouraged (but not required) to log in/register.
 
 #How it Works
-
+![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/trimmed-comments.gif)
 
 #Building Herodotus
 This was a project made by three students at an intensive programming school in Toronto, Canada. Each of us had been programming for six weeks before the beginning of this project, and we had only a few weeks to complete it. Through hard work, perseverance, and around a zillion git commits, we finally finished the first version, and deployed it onto Heroku. It is our intention to continue working on Herodotus as time permits, as we believe that this could become a substantial asset to students and educators of various disciplines.
