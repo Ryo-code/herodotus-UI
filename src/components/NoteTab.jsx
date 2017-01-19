@@ -3,6 +3,8 @@ import TextField from 'material-ui/TextField'
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 export default class NoteTab extends Component {
 
@@ -19,7 +21,7 @@ export default class NoteTab extends Component {
 
   // This deletes an exisiting note (Wondering if I can put this into handleSubmission function later)
   deleteNote(noteID) {
-    axios.delete(`https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${noteID}`)
+    axios.delete(`${deployURL}/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${noteID}`)
     .then((response) => {
       this.setState({newNote: '',})
       this.props.newUserNote(response.data.notes, 'deletedNote')
@@ -30,7 +32,7 @@ export default class NoteTab extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let method = 'post'
-    let url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
+    let url = `${deployURL}/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes`
     let data = {
       username: localStorage.username,
       note: this.state.newNote,
@@ -39,7 +41,7 @@ export default class NoteTab extends Component {
     // This changes the axios call if it is a note edit
     if (event.target.name === 'editNotes') {
       method = 'put'
-      url = `https://herodotus-backend.herokuapp.com/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
+      url = `${deployURL}/movies/${this.props.currentMovie.id}/users/${localStorage.userID}/notes/${this.state.editNoteID}`
       data = {note: this.state.editNote}
     }
 

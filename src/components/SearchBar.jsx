@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import _ from 'lodash'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 class SearchBar extends Component {
 
@@ -11,7 +13,7 @@ class SearchBar extends Component {
   }
 
   makeRequest = (search = this.state.value) => {
-    axios.get(`https://herodotus-backend.herokuapp.com/titles?name=${search}`)
+    axios.get(`${deployURL}/titles?name=${search}`)
       .then((response) => {
         this.props.updateMoviesFromSearchResult(response.data)
       })

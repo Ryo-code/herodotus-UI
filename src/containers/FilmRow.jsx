@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Card from '../components/Card.jsx';
 import DetailedCard from './DetailedCard.jsx';
 import axios from 'axios';
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 class FilmRow extends Component {
 
@@ -11,7 +13,7 @@ class FilmRow extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://herodotus-backend.herokuapp.com/movies', {
+    axios.get(`${deployURL}/movies`, {
       params: {category: this.props.rowGenre}
     })
       .then((response) => {

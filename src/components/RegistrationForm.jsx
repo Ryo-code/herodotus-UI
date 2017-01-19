@@ -4,6 +4,8 @@ import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
 import {browserHistory} from 'react-router'
+const deployURL = 'https://herodotus-backend.herokuapp.com'
+const localURL = 'http://localhost:3000'
 
 export default class RegistrationForm extends Component {
 
@@ -25,7 +27,7 @@ export default class RegistrationForm extends Component {
     event.preventDefault()
     const {username, email, password, password_confirmation} = this.state
 
-    axios.post('https://herodotus-backend.herokuapp.com/users', {
+    axios.post(`${deployURL}/users`, {
       username: username,
       email: email,
       password: password,
