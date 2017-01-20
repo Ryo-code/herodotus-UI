@@ -11,10 +11,10 @@ It is encouraged for users to discuss the historical veracity depicted in the fi
 
 #How it Works
 ![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/filmrow-slide-poster-click.gif)
-![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/trimmed-detail-click.gif)
-![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/trimmed-notes2.gif)
-![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/trimmed-comments.gif)
-![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/trimmed-search.gif)
+![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/detail-click.gif)
+![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/notes2.gif)
+![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/comments.gif)
+![alt text](https://github.com/Jebbie87/herodotus-frontend-final-project/blob/master/public/search.gif)
 
 #Building Herodotus
 This was a project made by three students at an intensive programming school in Toronto, Canada. Each of us had been programming for six weeks before the beginning of this project, and we had only a few weeks to complete it. Through hard work, perseverance, and around a zillion git commits, we finally finished the first version, and deployed it onto Heroku. It is our intention to continue working on Herodotus as time permits, as we believe that this could become a substantial asset to students and educators of various disciplines.
