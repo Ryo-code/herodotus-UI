@@ -4,6 +4,8 @@ Herodotus is a web app that allows users to search for films based on any time/p
 
 The github link to the back end code is located here: https://github.com/Jebbie87/herodotus-backend-final-project
 
+You can also try a live example of this website here: https://herodotus-final.herokuapp.com/
+
 ##Introduction to Herodotus
 Those interested in learning/teaching about history can create instant timelines by searching for films set in any particular place or time throughout world history. For example, you may want to find movies set in Ancient Rome, or maybe 19th century China. With the power of Herodotus, a chronologically ordered list of films can easily displayed with these filters.
 
