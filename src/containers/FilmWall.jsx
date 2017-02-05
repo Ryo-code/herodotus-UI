@@ -90,7 +90,9 @@ class FilmWall extends Component {
         />
 
         <br/>
-        <hr align="center" width="70%"/>
+        <div>
+        <hr className='footer-line'/>
+        </div>
           <p className="footer">The <i>Herodotus</i> web app comes from the creative minds of <a href="https://github.com/Jebbie87">Jeff Chang</a>, <a href="https://github.com/Ryo-code">Ryo MacPherson</a>, and <a href="https://github.com/SvemirskiHod">Joao Coelho</a>. <a href="mailto:jeffreycj.chang@gmail.com">Click here to email us</a></p>
       </div>
 

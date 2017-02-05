@@ -38,6 +38,13 @@ export default class DetailsTab extends Component {
 
         <p><span>Setting (location):</span> {currentMovie.setting_location}</p>
         <p><span>Genre(s):</span> {currentMovie.genre}</p>
+        {currentMovie.youtube_id ?
+          <iframe width="400" height="255"
+            src={`https://www.youtube.com/embed/${currentMovie.youtube_id}`}
+            className='youtube-video'>
+          </iframe>
+        : null
+        }
       </div>
     )
   }

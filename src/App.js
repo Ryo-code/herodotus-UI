@@ -34,6 +34,7 @@ class App extends Component {
 
   updateToSearchResults = (results) => {
     this.setState({searchResults: results})
+    console.log(results)
   }
 
   render() {

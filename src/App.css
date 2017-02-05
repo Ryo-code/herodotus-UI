@@ -216,3 +216,14 @@ nav h1{
 .footer{
   text-align: center;
 }
+
+.footer-line {
+  width: 70%;
+  text-align: center;
+}
+
+.youtube-video {
+  float: right;
+  margin-top: -15%;
+}
+
