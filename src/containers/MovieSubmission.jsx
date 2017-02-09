@@ -34,6 +34,7 @@ export default class MovieSubmission extends Component {
     endAccurate: '',
     setting: '',
     IMDBpage: '',
+    youtube_id: '',
   }
 
   handleChange = (event) => {
@@ -69,7 +70,8 @@ export default class MovieSubmission extends Component {
       endADBC: this.state.endADBC,
       endAccurate: this.state.endAccurate,
       setting: this.state.setting,
-      IMDBpage: this.state.IMDBpage
+      IMDBpage: this.state.IMDBpage,
+      youtube_id: this.state.youtube_id,
     })
     this.props.handleClose()
   }
@@ -131,6 +133,12 @@ export default class MovieSubmission extends Component {
             floatingLabelFocusStyle={{color: "firebrick"}}
             underlineFocusStyle={{borderColor: "black"}}>
               <input onChange={this.handleChange} type="text" name="poster" value={this.state.poster} />
+            </TextField>
+
+            <TextField hintText="Youtube ID here" floatingLabelText="Youtube ID"
+            floatingLabelFocusStyle={{color: "firebrick"}}
+            underlineFocusStyle={{borderColor: "black"}}>
+              <input onChange={this.handleChange} type="text" name="youtube_id" value={this.state.youtube_id} />
             </TextField>
 
             <TextField hintText="This movie follows the story of..." floatingLabelText="Plot"
